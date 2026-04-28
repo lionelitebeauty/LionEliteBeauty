@@ -39,13 +39,13 @@ export default function Hero() {
             lineHeight: '1.08',
             letterSpacing: '-0.02em',
           }} className="text-5xl md:text-6xl lg:text-7xl font-normal mb-8">
-            Repair Your Skin.<br />
+            Beauty Rooted in<br />
             <span style={{
               background: 'linear-gradient(90deg, #C9A96E 0%, #E8D5A8 50%, #C9A96E 100%)',
               WebkitBackgroundClip: 'text',
               WebkitTextFillColor: 'transparent',
               backgroundClip: 'text',
-            }}>Look Younger. Feel It.</span>
+            }}>Science &amp; Precision.</span>
           </h1>
 
           <p style={{
