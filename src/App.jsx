@@ -14,6 +14,8 @@ import FertilityPage from './pages/FertilityPage'
 import HairPage from './pages/HairPage'
 import WeightPage from './pages/WeightPage'
 import LongevityPage from './pages/LongevityPage'
+import SkincarePage from './pages/SkincarePage'
+import ProductPage from './pages/ProductPage'
 
 function HomePage() {
   return (
@@ -42,6 +44,8 @@ export default function App() {
         <Route path="/programs/hair" element={<HairPage />} />
         <Route path="/programs/weight" element={<WeightPage />} />
         <Route path="/programs/longevity" element={<LongevityPage />} />
+        <Route path="/skincare" element={<SkincarePage />} />
+        <Route path="/skincare/:slug" element={<ProductPage />} />
       </Routes>
     </BrowserRouter>
   )

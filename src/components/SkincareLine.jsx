@@ -1,5 +1,8 @@
+import { Link } from 'react-router-dom'
+
 const products = [
   {
+    slug: 'ghk-cu-face-wash',
     name: 'GHK-Cu Peptide\nFace Wash',
     price: '$69.99',
     size: '150ml',
@@ -11,6 +14,7 @@ const products = [
     accent: '#C9A96E',
   },
   {
+    slug: 'peptide-serum',
     name: 'Regenerating\nPeptide Serum',
     price: '$119.99',
     size: '30ml',
@@ -22,6 +26,7 @@ const products = [
     accent: '#C9A96E',
   },
   {
+    slug: 'anti-aging-cream',
     name: 'Peptide\nAnti-Aging Cream',
     price: '$99.99',
     size: '50ml',
@@ -33,6 +38,7 @@ const products = [
     accent: '#8A9E85',
   },
   {
+    slug: 'kpv-moisturizer',
     name: 'KPV Recovery\nMoisturizer',
     price: '$79.99',
     size: '50ml',
@@ -45,6 +51,7 @@ const products = [
     label: 'KPV',
   },
   {
+    slug: 'recovery-kit',
     name: 'Post-Procedure\nRecovery Kit',
     price: '$189.99',
     size: 'Full Kit',
@@ -139,9 +146,10 @@ export default function SkincareLine() {
                     <p style={{ fontFamily: 'Georgia, serif', color: isDark(p.bg) ? '#FAFAF8' : '#1A1A1A', fontSize: '1.4rem' }}>{p.price}</p>
                     <p style={{ fontFamily: 'Helvetica Neue, Arial, sans-serif', color: isDark(p.bg) ? '#4A4A4A' : '#9A9A9A', fontSize: '11px' }}>{p.size}</p>
                   </div>
-                  <button
+                  <Link to={`/skincare/${p.slug}`}
                     style={{
-                      width: '100%',
+                      display: 'block',
+                      textAlign: 'center',
                       backgroundColor: 'transparent',
                       border: `1px solid ${p.accent}`,
                       color: isDark(p.bg) ? '#FAFAF8' : '#1A1A1A',
@@ -149,11 +157,11 @@ export default function SkincareLine() {
                       fontSize: '11px',
                       letterSpacing: '0.15em',
                       padding: '12px',
-                      cursor: 'pointer',
+                      textDecoration: 'none',
                     }}
                     className="uppercase hover:opacity-70 transition-opacity">
-                    Add to Cart
-                  </button>
+                    View Product →
+                  </Link>
                 </div>
               </div>
             </div>
@@ -178,7 +186,7 @@ export default function SkincareLine() {
               <p style={{ fontFamily: 'Helvetica Neue, Arial, sans-serif', color: '#5A5A5A', fontSize: '12px', textDecoration: 'line-through' }}>$559.99</p>
               <p style={{ fontFamily: 'Georgia, serif', color: '#C9A96E', fontSize: '2rem' }}>$499.99</p>
             </div>
-            <a href="#"
+            <Link to="/skincare"
               style={{
                 backgroundColor: '#C9A96E',
                 color: '#FFFFFF',
@@ -189,7 +197,7 @@ export default function SkincareLine() {
                 textDecoration: 'none',
                 whiteSpace: 'nowrap',
               }}
-              className="uppercase hover:opacity-90 transition-opacity">Shop the Bundle</a>
+              className="uppercase hover:opacity-90 transition-opacity">Shop the Bundle →</Link>
           </div>
         </div>
       </div>

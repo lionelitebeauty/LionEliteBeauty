@@ -10,20 +10,27 @@ const programs = [
   { label: 'Longevity Program', href: '/programs/longevity', accent: '#7A9FBF', desc: 'Anti-aging & cellular repair' },
 ]
 
+const skincareItems = [
+  { label: 'GHK-Cu Peptide Face Wash', href: '/skincare/ghk-cu-face-wash', desc: '$69.99 · 150ml' },
+  { label: 'Regenerating Peptide Serum', href: '/skincare/peptide-serum', desc: '$119.99 · 30ml' },
+  { label: 'Peptide Anti-Aging Cream', href: '/skincare/anti-aging-cream', desc: '$99.99 · 50ml' },
+  { label: 'KPV Recovery Moisturizer', href: '/skincare/kpv-moisturizer', desc: '$79.99 · 50ml' },
+  { label: 'Post-Procedure Recovery Kit', href: '/skincare/recovery-kit', desc: '$189.99 · Full Kit' },
+]
+
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false)
   const [programsOpen, setProgramsOpen] = useState(false)
+  const [skincareOpen, setSkincareOpen] = useState(false)
   const dropdownRef = useRef(null)
+  const skincareRef = useRef(null)
   const location = useLocation()
-  const isHome = location.pathname === '/'
 
-  // Close dropdown on route change
   useEffect(() => {
     setProgramsOpen(false)
+    setSkincareOpen(false)
     setMenuOpen(false)
   }, [location.pathname])
-
-  const anchorHref = (anchor) => isHome ? anchor : `/${anchor}`
 
   return (
     <nav style={{ backgroundColor: '#FAFAF8', borderBottom: '1px solid #E8DDD0' }}
@@ -41,7 +48,7 @@ export default function Navbar() {
         {/* Desktop nav */}
         <div className="hidden md:flex items-center gap-8">
 
-          {/* Programs — click navigates to hub, hover shows dropdown */}
+          {/* Programs dropdown */}
           <div className="relative" ref={dropdownRef}
             onMouseEnter={() => setProgramsOpen(true)}
             onMouseLeave={() => setProgramsOpen(false)}>
@@ -69,14 +76,14 @@ export default function Navbar() {
                 width: '260px', zIndex: 200,
                 paddingTop: '8px',
               }}
-              onMouseEnter={() => setProgramsOpen(true)}
-              onMouseLeave={() => setProgramsOpen(false)}>
+                onMouseEnter={() => setProgramsOpen(true)}
+                onMouseLeave={() => setProgramsOpen(false)}>
                 {programs.map(p => (
                   <Link key={p.label} to={p.href}
-                    style={{ display: 'block', padding: '16px 22px', borderBottom: '1px solid #F5F0E8', textDecoration: 'none' }}
+                    style={{ display: 'block', padding: '14px 22px', borderBottom: '1px solid #F5F0E8', textDecoration: 'none' }}
                     className="hover:bg-[#FAFAF8] transition-colors group">
                     <div className="flex items-center gap-3">
-                      <div style={{ width: '8px', height: '8px', backgroundColor: p.accent, borderRadius: '50%', flexShrink: 0 }}></div>
+                      <div style={{ width: '7px', height: '7px', backgroundColor: p.accent, borderRadius: '50%', flexShrink: 0 }}></div>
                       <div className="flex-1">
                         <p style={{ fontFamily: 'Helvetica Neue, Arial, sans-serif', color: '#1A1A1A', fontSize: '11px', letterSpacing: '0.1em' }}
                           className="uppercase">{p.label}</p>
@@ -97,17 +104,67 @@ export default function Navbar() {
             )}
           </div>
 
-          <a href={anchorHref('#skincare')}
-            style={{ fontFamily: 'Helvetica Neue, Arial, sans-serif', color: '#5A5A5A', letterSpacing: '0.1em' }}
-            className="text-sm uppercase tracking-wider hover:text-[#C9A96E] transition-colors">
-            Shop Skincare
-          </a>
+          {/* Shop Skincare dropdown */}
+          <div className="relative" ref={skincareRef}
+            onMouseEnter={() => setSkincareOpen(true)}
+            onMouseLeave={() => setSkincareOpen(false)}>
+            <Link
+              to="/skincare"
+              style={{
+                fontFamily: 'Helvetica Neue, Arial, sans-serif',
+                color: skincareOpen ? '#C9A96E' : '#5A5A5A',
+                letterSpacing: '0.1em',
+                textDecoration: 'none',
+                transition: 'color 0.2s',
+              }}
+              className="text-sm uppercase tracking-wider flex items-center gap-1.5">
+              Shop Skincare
+              <span style={{ fontSize: '7px', display: 'inline-block', transition: 'transform 0.2s', transform: skincareOpen ? 'rotate(180deg)' : 'none' }}>▼</span>
+            </Link>
 
-          <a href={anchorHref('#pricing')}
-            style={{ fontFamily: 'Helvetica Neue, Arial, sans-serif', color: '#5A5A5A', letterSpacing: '0.1em' }}
+            {skincareOpen && (
+              <div style={{
+                position: 'absolute', top: '100%', left: '50%',
+                transform: 'translateX(-50%)',
+                backgroundColor: '#FFFFFF',
+                border: '1px solid #E8DDD0',
+                boxShadow: '0 12px 40px rgba(0,0,0,0.12)',
+                width: '280px', zIndex: 200,
+                paddingTop: '8px',
+              }}
+                onMouseEnter={() => setSkincareOpen(true)}
+                onMouseLeave={() => setSkincareOpen(false)}>
+                {skincareItems.map(s => (
+                  <Link key={s.label} to={s.href}
+                    style={{ display: 'block', padding: '14px 22px', borderBottom: '1px solid #F5F0E8', textDecoration: 'none' }}
+                    className="hover:bg-[#FAFAF8] transition-colors group">
+                    <div className="flex items-center gap-3">
+                      <div style={{ width: '7px', height: '7px', backgroundColor: '#C9A96E', borderRadius: '50%', flexShrink: 0 }}></div>
+                      <div className="flex-1">
+                        <p style={{ fontFamily: 'Helvetica Neue, Arial, sans-serif', color: '#1A1A1A', fontSize: '11px', letterSpacing: '0.1em' }}
+                          className="uppercase">{s.label}</p>
+                        <p style={{ fontFamily: 'Helvetica Neue, Arial, sans-serif', color: '#9A9A9A', fontSize: '11px', marginTop: '2px' }}>{s.desc}</p>
+                      </div>
+                      <span style={{ color: '#C9A96E', fontSize: '14px' }} className="opacity-0 group-hover:opacity-100 transition-opacity">→</span>
+                    </div>
+                  </Link>
+                ))}
+                <div style={{ padding: '12px 22px', backgroundColor: '#FAFAF8' }}>
+                  <Link to="/skincare"
+                    style={{ fontFamily: 'Helvetica Neue, Arial, sans-serif', color: '#C9A96E', fontSize: '11px', letterSpacing: '0.1em', textDecoration: 'none' }}
+                    className="uppercase hover:opacity-70 transition-opacity">
+                    View all products →
+                  </Link>
+                </div>
+              </div>
+            )}
+          </div>
+
+          <Link to="/#pricing"
+            style={{ fontFamily: 'Helvetica Neue, Arial, sans-serif', color: '#5A5A5A', letterSpacing: '0.1em', textDecoration: 'none' }}
             className="text-sm uppercase tracking-wider hover:text-[#C9A96E] transition-colors">
             Pricing
-          </a>
+          </Link>
 
           <Link to="/programs/optimization"
             style={{
@@ -142,9 +199,9 @@ export default function Navbar() {
 
           {programs.map(p => (
             <Link key={p.label} to={p.href}
-              style={{ textDecoration: 'none', padding: '14px 0', borderBottom: '1px solid #F0EAE0' }}
+              style={{ textDecoration: 'none', padding: '12px 0', borderBottom: '1px solid #F0EAE0' }}
               className="flex items-center gap-3 group">
-              <div style={{ width: '8px', height: '8px', backgroundColor: p.accent, borderRadius: '50%', flexShrink: 0 }}></div>
+              <div style={{ width: '7px', height: '7px', backgroundColor: p.accent, borderRadius: '50%', flexShrink: 0 }}></div>
               <div className="flex-1">
                 <p style={{ fontFamily: 'Helvetica Neue, Arial, sans-serif', color: '#2A2A2A', fontSize: '12px', letterSpacing: '0.1em' }}
                   className="uppercase">{p.label}</p>
@@ -154,14 +211,27 @@ export default function Navbar() {
             </Link>
           ))}
 
-          <div style={{ paddingTop: '16px' }} className="flex flex-col gap-4">
-            <a href={anchorHref('#skincare')} onClick={() => setMenuOpen(false)}
-              style={{ fontFamily: 'Helvetica Neue, Arial, sans-serif', color: '#5A5A5A', letterSpacing: '0.1em', textDecoration: 'none' }}
-              className="text-sm uppercase">Shop Skincare</a>
+          <p style={{ fontFamily: 'Helvetica Neue, Arial, sans-serif', color: '#BABABA', fontSize: '9px', letterSpacing: '0.25em', marginTop: '16px', marginBottom: '8px' }}
+            className="uppercase">Skincare</p>
 
-            <a href={anchorHref('#pricing')} onClick={() => setMenuOpen(false)}
+          {skincareItems.map(s => (
+            <Link key={s.label} to={s.href}
+              style={{ textDecoration: 'none', padding: '12px 0', borderBottom: '1px solid #F0EAE0' }}
+              className="flex items-center gap-3 group">
+              <div style={{ width: '7px', height: '7px', backgroundColor: '#C9A96E', borderRadius: '50%', flexShrink: 0 }}></div>
+              <div className="flex-1">
+                <p style={{ fontFamily: 'Helvetica Neue, Arial, sans-serif', color: '#2A2A2A', fontSize: '12px', letterSpacing: '0.1em' }}
+                  className="uppercase">{s.label}</p>
+                <p style={{ fontFamily: 'Helvetica Neue, Arial, sans-serif', color: '#9A9A9A', fontSize: '11px', marginTop: '2px' }}>{s.desc}</p>
+              </div>
+              <span style={{ color: '#C9A96E', fontSize: '14px' }}>→</span>
+            </Link>
+          ))}
+
+          <div style={{ paddingTop: '16px' }} className="flex flex-col gap-4">
+            <Link to="/#pricing" onClick={() => setMenuOpen(false)}
               style={{ fontFamily: 'Helvetica Neue, Arial, sans-serif', color: '#5A5A5A', letterSpacing: '0.1em', textDecoration: 'none' }}
-              className="text-sm uppercase">Pricing</a>
+              className="text-sm uppercase">Pricing</Link>
           </div>
 
           <Link to="/programs/optimization"
