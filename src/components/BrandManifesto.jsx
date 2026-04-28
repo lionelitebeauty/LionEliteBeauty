@@ -16,19 +16,19 @@ export default function BrandManifesto() {
               </h2>
               <div style={{ width: '48px', height: '1px', backgroundColor: '#C9A96E', marginBottom: '32px' }}></div>
               <p style={{ fontFamily: 'Helvetica Neue, Arial, sans-serif', color: '#6A6A6A', fontSize: '16px', lineHeight: '1.9', marginBottom: '24px' }}>
-                Most skincare masks the problem. Ours addresses it at the source. GHK-Cu peptide — the core of every Lion Elite Beauty formulation — is clinically studied to activate over 4,000 genes involved in skin repair, collagen production, and cellular renewal. The result isn't coverage. It's genuine change.
+                Most skincare masks the problem. Ours is formulated differently. GHK-Cu peptide — the core of every Lion Elite Beauty formulation — is one of the most researched compounds in dermatology, studied alongside thousands of genes involved in skin renewal, collagen support, and barrier health. The result isn't coverage. It's genuine support for how your skin looks and feels.
               </p>
               <p style={{ fontFamily: 'Georgia, serif', color: '#C9A96E', fontSize: '1rem', fontStyle: 'italic', lineHeight: '1.7' }}>
-                "Not skincare that hides aging — skincare that reverses it."
+                "Not skincare that hides aging — skincare that supports your skin's natural renewal."
               </p>
             </div>
 
             {/* Right — 4 pillars */}
             <div className="grid grid-cols-2 gap-4">
               {[
-                { icon: '🧬', title: 'Peptide-Powered', desc: 'GHK-Cu shown to visibly improve skin repair, elasticity, and collagen production.' },
-                { icon: '✔', title: 'Results You See', desc: 'Visible improvement in texture, tone, and firmness — not just how it feels on day one.' },
-                { icon: '⚕️', title: 'Clinical Concentration', desc: 'Formulated at the concentrations shown to work in studies — not trace amounts.' },
+                { icon: '🧬', title: 'Peptide-Powered', desc: 'GHK-Cu is one of the most researched peptides in dermatology — formulated to support the appearance of healthier skin.' },
+                { icon: '✔', title: 'Visible Difference', desc: 'Supports the appearance of improved texture, tone, and firmness with consistent daily use.' },
+                { icon: '⚕️', title: 'Purposeful Formulation', desc: 'Formulated at concentrations used in studies — not trace marketing amounts.' },
                 { icon: '🎯', title: 'No Filler. No Hype.', desc: 'Every ingredient earns its place. Nothing is added for marketing. Everything is added for results.' },
               ].map(p => (
                 <div key={p.title} style={{ backgroundColor: '#0A0A0A', border: '1px solid #1E1E1E', padding: '28px 24px' }}>

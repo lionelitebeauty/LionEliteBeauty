@@ -26,51 +26,52 @@ const ingredients = [
     tagline: 'The repair signal your skin stops making with age.',
     what: 'A naturally occurring copper peptide found in human blood and tissue. Your body produces it — but levels decline significantly after your 20s.',
     does: [
-      'Activates over 4,000 genes involved in skin repair and regeneration',
-      'Stimulates collagen and elastin production — the proteins that keep skin firm',
-      'Reduces fine lines, improves skin texture and tone',
-      'Accelerates wound healing and post-procedure recovery',
-      'Anti-inflammatory — calms redness and skin stress',
+      'Studied alongside over 4,000 genes involved in skin renewal and repair processes',
+      'Supports the appearance of skin firmness and a more youthful-looking complexion',
+      'Helps support the appearance of reduced fine lines and improved texture',
+      'Helps support the appearance of a comfortable, even complexion after procedures',
+      'Formulated to help support calm, comfortable-looking skin',
     ],
-    products: ['GHK-Cu Peptide Face Wash', 'Regenerating Peptide Serum', 'Peptide Anti-Aging Cream', 'Post-Procedure Recovery Kit'],
-    slugs: ['ghk-cu-face-wash', 'peptide-serum', 'anti-aging-cream', 'recovery-kit'],
+    products: ['GHK-Cu Peptide Face Wash', 'Rejuvenate Serum', 'Collagen Boost Face Cream', 'Hydra Boost Body Wash', 'Post-Procedure Recovery Kit'],
+    slugs: ['ghk-cu-face-wash', 'rejuvenate-serum', 'collagen-boost-cream', 'hydra-boost-body-wash', 'recovery-kit'],
     why: 'GHK-Cu has been studied since the 1970s — one of the most researched peptides in dermatology. Unlike trendy ingredients, the evidence base here is deep. We formulate at concentrations that match what studies actually use, not trace marketing amounts.',
   },
   {
     name: 'KPV',
     fullName: 'Lysine-Proline-Valine',
     accent: '#8A7AB0',
-    badge: 'Anti-Inflammatory Peptide',
+    badge: 'Calming Peptide',
     tagline: 'The calming signal for reactive, sensitive, and post-procedure skin.',
-    what: 'KPV is a tripeptide fragment derived from alpha-MSH (a natural hormone involved in inflammation regulation). It\'s one of the most potent anti-inflammatory compounds available in topical skincare.',
+    what: 'KPV is a tripeptide fragment derived from alpha-MSH — a peptide studied for its role in skin comfort and calming. It is one of the most researched calming compounds available in topical skincare.',
     does: [
-      'Reduces redness and inflammation at a biological level — not just surface soothing',
-      'Calms skin reactions, flare-ups, and post-procedure irritation',
-      'Strengthens the skin barrier so it becomes less reactive over time',
-      'Supports faster healing after cosmetic procedures',
-      'Safe for sensitive, rosacea-prone and allergy-prone skin',
+      'Helps support the appearance of calm, even-toned skin — not just surface masking',
+      'Helps support the appearance of comfortable skin during reactions and after procedures',
+      'Supports the appearance of a healthy, resilient skin barrier with consistent use',
+      'Formulated to support a more comfortable skin appearance after cosmetic procedures',
+      'Suitable for sensitive and redness-prone skin types',
     ],
     products: ['KPV Recovery Moisturizer', 'Post-Procedure Recovery Kit'],
     slugs: ['kpv-moisturizer', 'recovery-kit'],
-    why: 'Most "calming" skincare uses botanical extracts that mask redness temporarily. KPV actually interrupts the inflammatory pathway — the same one that causes redness, swelling and skin sensitivity. It works at the source, not the symptom.',
+
+    why: 'Most "calming" skincare uses botanical extracts that temporarily mask the appearance of redness. KPV is formulated to help support a calm, comfortable skin appearance — working at a deeper level to support the skin, not just the surface.',
   },
   {
     name: 'Matrixyl 3000',
     fullName: 'Palmitoyl Tripeptide-1 & Palmitoyl Tetrapeptide-7',
     accent: '#8A9E85',
     badge: 'Anti-Aging Peptide Complex',
-    tagline: 'The most clinically studied peptide complex for reducing wrinkles.',
-    what: 'Matrixyl 3000 is a combination of two peptides that work together to stimulate the skin\'s extracellular matrix — the structural framework underneath your skin that keeps it firm and smooth.',
+    tagline: 'One of the most researched peptide complexes for supporting skin appearance.',
+    what: 'Matrixyl 3000 is a combination of two peptides that work together to help support the skin\'s extracellular matrix — the structural framework that supports firm, smooth-looking skin.',
     does: [
-      'Visibly reduces the depth and appearance of fine lines and wrinkles',
-      'Stimulates collagen I, III and fibronectin — key structural proteins',
-      'Improves skin firmness and elasticity with consistent overnight use',
-      'Shown in clinical studies to reduce wrinkle depth by up to 45% in 2 months',
+      'Supports the appearance of reduced fine lines and a smoother complexion',
+      'Formulated to support the appearance of skin firmness and structure',
+      'Helps support the appearance of firmer, more resilient skin with overnight use',
+      'One of the most researched anti-aging peptide complexes in cosmetic science',
       'Non-irritating — suitable for all skin types including sensitive skin',
     ],
-    products: ['Peptide Anti-Aging Cream'],
-    slugs: ['anti-aging-cream'],
-    why: 'Matrixyl 3000 is one of the most researched anti-aging peptide complexes in cosmetic science. It\'s the anti-aging workhorse of the Lion Elite Beauty overnight routine — delivering structural skin repair while retinol alternatives would cause irritation.',
+    products: ['Collagen Boost Face Cream'],
+    slugs: ['collagen-boost-cream'],
+    why: 'Matrixyl 3000 is one of the most researched anti-aging peptide complexes in cosmetic science. It\'s the overnight workhorse of the Lion Elite Beauty routine — supporting the appearance of firmer, smoother skin while being gentle enough for all skin types.',
   },
   {
     name: 'Hyaluronic Acid',
@@ -80,15 +81,15 @@ const ingredients = [
     tagline: 'The molecule your skin uses to hold water — at every depth.',
     what: 'Hyaluronic acid is a naturally occurring polysaccharide found throughout your body. A single molecule can hold up to 1,000 times its weight in water. Your skin contains large amounts of it naturally — but aging and environmental stress deplete it.',
     does: [
-      'Draws and holds moisture in the skin from the inside out',
-      'Plumps fine lines caused by dehydration almost immediately',
-      'Three different molecular weights penetrate to different skin depths',
-      'Improves skin suppleness and bounce',
-      'Supports barrier function and reduces transepidermal water loss',
+      'Helps nourish and support moisture balance at multiple skin depths',
+      'Helps support the appearance of plumper, more hydrated-looking skin',
+      'Three different molecular weights formulated to nourish at different skin depths',
+      'Supports the appearance of skin suppleness and a healthy bounce',
+      'Helps support the appearance of a healthy, comfortable skin barrier',
     ],
-    products: ['Regenerating Peptide Serum'],
-    slugs: ['peptide-serum'],
-    why: 'Many brands use a single-weight hyaluronic acid that only hydrates the surface. We use three different molecular weights — small, medium and large — so hydration is delivered at every layer of the skin, not just the top.',
+    products: ['Rejuvenate Serum'],
+    slugs: ['rejuvenate-serum'],
+    why: 'Many brands use a single-weight hyaluronic acid that only nourishes the surface. We use three different molecular weights — small, medium and large — so nourishment is delivered at multiple skin depths, not just the top.',
   },
   {
     name: 'Niacinamide',
@@ -98,15 +99,15 @@ const ingredients = [
     tagline: 'The multi-tasker that improves tone, minimises pores, and strengthens skin.',
     what: 'Niacinamide is a form of Vitamin B3 and one of the most versatile and well-tolerated actives in skincare. It works on multiple pathways simultaneously — brightening, strengthening, and refining.',
     does: [
-      'Visibly reduces hyperpigmentation and uneven skin tone',
-      'Minimises the appearance of enlarged pores',
-      'Strengthens the skin barrier and improves moisture retention',
-      'Reduces the appearance of redness and blotchiness',
-      'Pairs synergistically with peptides to amplify repair',
+      'Supports the appearance of a more even, brighter-looking skin tone',
+      'Helps support the appearance of refined pores',
+      'Supports the appearance of a healthy skin barrier and moisture comfort',
+      'Helps support the appearance of calm, even-toned skin',
+      'Pairs with peptides to help support the overall appearance of skin health',
     ],
-    products: ['Regenerating Peptide Serum'],
-    slugs: ['peptide-serum'],
-    why: 'Niacinamide is one of the rare skincare ingredients with broad clinical backing across multiple skin concerns. It amplifies what the peptides do — improving barrier function so the repair signals GHK-Cu sends can actually be acted on.',
+    products: ['Rejuvenate Serum'],
+    slugs: ['rejuvenate-serum'],
+    why: 'Niacinamide is one of the most broadly studied ingredients in skincare across multiple skin concerns. It works alongside the peptides — supporting barrier function so the skin can respond better to everything the formula delivers.',
   },
   {
     name: 'Ceramides',
@@ -116,33 +117,33 @@ const ingredients = [
     tagline: 'The bricks in your skin\'s wall — rebuild them, and everything improves.',
     what: 'Ceramides are lipid molecules that make up roughly 50% of the skin\'s outer layer. They\'re the mortar between your skin cells — without enough of them, your barrier breaks down and moisture escapes.',
     does: [
-      'Restores and strengthens a compromised skin barrier',
-      'Reduces sensitivity, dryness and reactivity caused by barrier damage',
-      'Locks in moisture and prevents transepidermal water loss',
-      'Protects against environmental damage and pollution',
-      'Supports recovery after procedures that disrupt the skin barrier',
+      'Helps support the appearance of a healthy, nourished skin barrier',
+      'Supports the appearance of comfortable, less reactive skin with consistent use',
+      'Helps nourish and support moisture retention throughout the day',
+      'Helps support the appearance of resilient skin against environmental stressors',
+      'Supports the appearance of a more comfortable skin barrier after procedures',
     ],
-    products: ['Peptide Anti-Aging Cream', 'Post-Procedure Recovery Kit'],
-    slugs: ['anti-aging-cream', 'recovery-kit'],
-    why: 'Ceramide levels drop significantly with age and are damaged by over-exfoliation, harsh cleansers, and environmental stress. If your skin feels tight, dry, or reactive — your barrier is likely compromised. Ceramides rebuild it from the inside out.',
+    products: ['Collagen Boost Face Cream', 'Post-Procedure Recovery Kit'],
+    slugs: ['collagen-boost-cream', 'recovery-kit'],
+    why: 'Ceramide levels decline with age and can be disrupted by over-exfoliation, harsh cleansers, and environmental stress. If your skin feels tight, dry, or reactive — your barrier may be compromised. Ceramides help support the appearance of a healthy, nourished barrier.',
   },
   {
     name: 'Centella Asiatica',
     fullName: 'Cica / Gotu Kola Extract',
     accent: '#5BA87A',
     badge: 'Healing Botanical',
-    tagline: 'One of the most studied healing plants in clinical dermatology.',
-    what: 'Centella Asiatica (also known as Cica or Gotu Kola) is a botanical extract with centuries of use in traditional medicine and decades of clinical research in dermatology. It works on both skin repair and anti-inflammatory pathways.',
+    tagline: 'One of the most researched botanical extracts in skincare science.',
+    what: 'Centella Asiatica (also known as Cica or Gotu Kola) is a botanical extract with centuries of use in traditional wellness and decades of research in dermatology. It is formulated to help support the appearance of calm, resilient skin.',
     does: [
-      'Stimulates collagen synthesis through its active compounds (madecassoside, asiaticoside)',
-      'Reduces redness and inflammation — clinically studied for rosacea and irritation',
-      'Accelerates wound healing and barrier recovery',
-      'Soothes and calms skin without sedating other active ingredients',
-      'Supports long-term skin resilience with consistent use',
+      'Supports the appearance of collagen-supported skin through its active plant compounds',
+      'Helps support the appearance of calm, even-toned skin — studied for redness-prone skin',
+      'Supports the appearance of a healthy, recovered skin barrier',
+      'Helps support the appearance of a comfortable, soothed complexion',
+      'Supports the appearance of skin resilience with consistent daily use',
     ],
     products: ['KPV Recovery Moisturizer'],
     slugs: ['kpv-moisturizer'],
-    why: 'Centella Asiatica pairs with KPV to create a dual anti-inflammatory system in the Recovery Moisturizer — one that works from both a peptide pathway and a botanical pathway simultaneously. The combination is more effective than either alone.',
+    why: 'Centella Asiatica pairs with KPV to help support the appearance of calm, comfortable skin from two directions — a peptide approach and a botanical approach simultaneously. The combination is formulated to work better together than either alone.',
   },
   {
     name: 'Squalane',
@@ -152,15 +153,15 @@ const ingredients = [
     tagline: 'The lightweight oil that mimics your skin\'s own sebum.',
     what: 'Squalane is a stable, plant-derived form of squalene — a lipid your skin produces naturally. Because it\'s structurally similar to your own sebum, it absorbs instantly and doesn\'t feel greasy, clog pores, or interfere with other actives.',
     does: [
-      'Deep moisture without heaviness or oiliness',
-      'Strengthens the skin barrier and prevents moisture loss',
-      'Antioxidant — protects against oxidative damage',
-      'Non-comedogenic — suitable for oily, acne-prone and combination skin',
-      'Enhances the texture and absorption of every other ingredient it\'s combined with',
+      'Helps nourish deeply without heaviness or greasiness',
+      'Supports the appearance of a healthy, comfortable skin barrier',
+      'Antioxidant support — helps protect the appearance of healthy skin',
+      'Non-comedogenic — suitable for oily, combination, and sensitive skin',
+      'Helps support the texture and absorption of the formulas it\'s combined with',
     ],
-    products: ['Peptide Anti-Aging Cream'],
-    slugs: ['anti-aging-cream'],
-    why: 'Many rich creams use heavy occlusive oils that sit on the skin and block pores. Squalane is skin-identical — it works with your biology, not against it. It allows the Anti-Aging Cream to feel luxurious without any of the downsides of a heavy face oil.',
+    products: ['Collagen Boost Face Cream'],
+    slugs: ['collagen-boost-cream'],
+    why: 'Many rich creams use heavy occlusive oils that sit on the skin and block pores. Squalane is skin-identical — it works with your biology, not against it. It allows the Collagen Boost Face Cream to feel luxurious without any of the downsides of a heavy face oil.',
   },
 ]
 
@@ -295,11 +296,11 @@ export default function StartHerePage() {
               </p>
               <div className="space-y-6">
                 <Step number="01" title="Cleanse — GHK-Cu Peptide Face Wash"
-                  desc="Morning and evening. Activates GHK-Cu from the first step. Primes skin to absorb everything that follows." />
-                <Step number="02" title="Treat — Regenerating Peptide Serum"
-                  desc="The core product. GHK-Cu + Niacinamide + Hyaluronic Acid (3 weights) — visibly reduces fine lines, firms and brightens." />
+                  desc="Morning and evening. Helps nourish and support skin health from the first step. Primes skin to absorb everything that follows." />
+                <Step number="02" title="Treat — Rejuvenate Serum"
+                  desc="The core product. GHK-Cu + Niacinamide + Hyaluronic Acid (3 weights) — supports the appearance of smoother, firmer, more even skin." />
                 <Step number="03" title="Protect — KPV Recovery Moisturizer"
-                  desc="Seal, calm and strengthen. KPV + Centella Asiatica build your barrier so your skin becomes less reactive over time." />
+                  desc="Nourish, calm and support. KPV + Centella Asiatica help support the appearance of a healthy, comfortable complexion." />
               </div>
               <p style={{ fontFamily: 'Helvetica Neue, Arial, sans-serif', color: '#3A3A3A', fontSize: '11px', letterSpacing: '0.15em', marginTop: '28px' }} className="uppercase">
                 Visible difference expected in 2–4 weeks of consistent use.
@@ -309,7 +310,7 @@ export default function StartHerePage() {
             <div className="space-y-px" style={{ backgroundColor: '#141414' }}>
               {[
                 { name: 'GHK-Cu Peptide Face Wash', price: '$69.99', size: '150ml', slug: 'ghk-cu-face-wash', accent: '#C9A96E', tag: 'Step 01 · Cleanse', key: 'GHK-Cu' },
-                { name: 'Regenerating Peptide Serum', price: '$119.99', size: '30ml', slug: 'peptide-serum', accent: '#8A9E85', tag: 'Step 02 · Treat', key: 'GHK-Cu · Niacinamide · HA' },
+                { name: 'Rejuvenate Serum', price: '$119.99', size: '30ml', slug: 'rejuvenate-serum', accent: '#8A9E85', tag: 'Step 02 · Treat', key: 'GHK-Cu · Niacinamide · HA' },
                 { name: 'KPV Recovery Moisturizer', price: '$79.99', size: '50ml', slug: 'kpv-moisturizer', accent: '#8A7AB0', tag: 'Step 03 · Protect', key: 'KPV · Cica · Beta-Glucan' },
               ].map(prod => (
                 <div key={prod.slug} style={{ backgroundColor: '#080808', padding: '28px 32px' }}>
@@ -362,7 +363,7 @@ export default function StartHerePage() {
               className="uppercase hover:opacity-90 transition-opacity">
               Shop All Products →
             </Link>
-            <Link to="/skincare/peptide-serum"
+            <Link to="/skincare/rejuvenate-serum"
               style={{ border: '1px solid #2A2A2A', color: '#5A5A5A', fontFamily: 'Helvetica Neue, Arial, sans-serif', fontSize: '12px', letterSpacing: '0.18em', padding: '18px 36px', textDecoration: 'none' }}
               className="uppercase hover:border-[#C9A96E] hover:text-[#C9A96E] transition-colors">
               View Flagship Serum

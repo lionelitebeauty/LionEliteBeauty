@@ -38,7 +38,7 @@ export default function SkincarePage() {
             </h1>
             <div style={{ width: '48px', height: '1px', backgroundColor: '#C9A96E', marginBottom: '24px' }}></div>
             <p style={{ fontFamily: 'Helvetica Neue, Arial, sans-serif', color: '#5A5A5A', fontSize: '16px', lineHeight: '1.8', maxWidth: '480px' }}>
-              Medical-grade, copper peptide formulations designed for skin repair, anti-aging, and cellular regeneration. Science-backed — built to deliver visible results.
+              Peptide-powered formulations designed to support the appearance of healthier, more nourished skin. Premium ingredients, purposefully formulated — built to deliver a visible difference.
             </p>
           </div>
         </div>

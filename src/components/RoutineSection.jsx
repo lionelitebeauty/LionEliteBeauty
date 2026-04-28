@@ -8,16 +8,16 @@ const steps = [
     slug: 'ghk-cu-face-wash',
     accent: '#C9A96E',
     when: 'Morning & Evening',
-    micro: 'Clear pores. Activate repair. Prime your skin.',
+    micro: 'Helps nourish and support skin. Primes for better serum absorption.',
   },
   {
     step: '02',
     label: 'Treat',
-    product: 'Regenerating Peptide Serum',
-    slug: 'peptide-serum',
+    product: 'Rejuvenate Serum',
+    slug: 'rejuvenate-serum',
     accent: '#8A9E85',
     when: 'Morning & Evening',
-    micro: 'Reduce fine lines. Firm skin. Support collagen.',
+    micro: 'Supports the appearance of smoother, firmer skin. Helps nourish at depth.',
   },
   {
     step: '03',
@@ -26,7 +26,7 @@ const steps = [
     slug: 'kpv-moisturizer',
     accent: '#8A7AB0',
     when: 'Morning (+ SPF) & Evening',
-    micro: 'Seal hydration. Calm inflammation. Strengthen barrier.',
+    micro: 'Helps nourish and seal. Supports the appearance of a calm, comfortable complexion.',
   },
 ]
 
@@ -107,12 +107,12 @@ export default function RoutineSection() {
           className="flex flex-col md:flex-row items-center justify-between gap-6">
           <div>
             <p style={{ fontFamily: 'Helvetica Neue, Arial, sans-serif', color: '#3A3A3A', fontSize: '9px', letterSpacing: '0.25em', marginBottom: '6px' }} className="uppercase">Evening Add-On</p>
-            <p style={{ fontFamily: 'Georgia, serif', color: '#FAFAF8', fontSize: '1.1rem', marginBottom: '4px' }}>Peptide Anti-Aging Cream</p>
+            <p style={{ fontFamily: 'Georgia, serif', color: '#FAFAF8', fontSize: '1.1rem', marginBottom: '4px' }}>Collagen Boost Face Cream</p>
             <p style={{ fontFamily: 'Helvetica Neue, Arial, sans-serif', color: '#4A4A4A', fontSize: '13px' }}>
-              Apply after serum, before moisturizer — for overnight firming and fine line reduction while you sleep.
+              Apply after serum, before moisturizer — supports the appearance of firmer, more nourished skin while you sleep.
             </p>
           </div>
-          <Link to="/skincare/anti-aging-cream"
+          <Link to="/skincare/collagen-boost-cream"
             style={{
               border: '1px solid #C9A96E44', color: '#C9A96E',
               fontFamily: 'Helvetica Neue, Arial, sans-serif',

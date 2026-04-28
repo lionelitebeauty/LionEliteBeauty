@@ -12,9 +12,10 @@ const programs = [
 
 const skincareItems = [
   { label: 'GHK-Cu Peptide Face Wash', href: '/skincare/ghk-cu-face-wash', desc: '$69.99 · 150ml' },
-  { label: 'Regenerating Peptide Serum', href: '/skincare/peptide-serum', desc: '$119.99 · 30ml' },
-  { label: 'Peptide Anti-Aging Cream', href: '/skincare/anti-aging-cream', desc: '$99.99 · 50ml' },
+  { label: 'Rejuvenate Serum', href: '/skincare/rejuvenate-serum', desc: '$119.99 · 30ml' },
+  { label: 'Collagen Boost Face Cream', href: '/skincare/collagen-boost-cream', desc: '$99.99 · 50ml' },
   { label: 'KPV Recovery Moisturizer', href: '/skincare/kpv-moisturizer', desc: '$79.99 · 50ml' },
+  { label: 'Hydra Boost Body Wash', href: '/skincare/hydra-boost-body-wash', desc: '$49.99 · 250ml' },
   { label: 'Post-Procedure Recovery Kit', href: '/skincare/recovery-kit', desc: '$189.99 · Full Kit' },
 ]
 

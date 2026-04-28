@@ -1,11 +1,12 @@
 import { Link } from 'react-router-dom'
 
 const skincare = [
-  { name: 'GHK-Cu Peptide Face Wash', tagline: 'Copper peptide daily skin renewal', price: '$69.99', accent: '#C9A96E' },
-  { name: 'Regenerating Peptide Serum', tagline: 'Bioactive skin regeneration serum', price: '$119.99', accent: '#8A9E85' },
-  { name: 'Peptide Anti-Aging Cream', tagline: 'Anti-aging peptide skin repair cream', price: '$99.99', accent: '#C9A96E' },
-  { name: 'KPV Recovery Moisturizer', tagline: 'Anti-inflammatory peptide moisturizer', price: '$79.99', accent: '#8A7AB0' },
-  { name: 'Post-Procedure Recovery Kit', tagline: 'Clinical skin repair & recovery kit', price: '$189.99', accent: '#C9A96E' },
+  { name: 'GHK-Cu Peptide Face Wash', tagline: 'Helps nourish & support daily skin health', price: '$69.99', accent: '#C9A96E' },
+  { name: 'Rejuvenate Serum', tagline: 'Supports the appearance of firmer, smoother skin', price: '$119.99', accent: '#8A9E85' },
+  { name: 'Collagen Boost Face Cream', tagline: 'Supports the appearance of skin firmness overnight', price: '$99.99', accent: '#C9A96E' },
+  { name: 'KPV Recovery Moisturizer', tagline: 'Helps calm the appearance of redness & sensitivity', price: '$79.99', accent: '#8A7AB0' },
+  { name: 'Hydra Boost Body Wash', tagline: 'Helps nourish & hydrate skin all over', price: '$49.99', accent: '#7A9FBF' },
+  { name: 'Post-Procedure Recovery Kit', tagline: 'Supports recovery appearance & skin comfort', price: '$189.99', accent: '#C9A96E' },
 ]
 
 const programs = [
@@ -44,7 +45,7 @@ export default function ServicesOverview() {
             </p>
           </div>
 
-          <div className="grid grid-cols-2 lg:grid-cols-5 gap-px" style={{ backgroundColor: '#1A1A1A' }}>
+          <div className="grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 gap-px" style={{ backgroundColor: '#1A1A1A' }}>
             {skincare.map((product) => (
               <div key={product.name}
                 style={{ backgroundColor: '#0A0A0A', padding: '32px' }}
@@ -71,7 +72,7 @@ export default function ServicesOverview() {
           <div style={{ backgroundColor: '#0F0F0F', border: '1px solid #1A1A1A', padding: '20px 32px', marginTop: '1px' }}
             className="flex flex-col sm:flex-row items-center justify-between gap-4">
             <p style={{ fontFamily: 'Helvetica Neue, Arial, sans-serif', color: '#4A4A4A', fontSize: '12px', letterSpacing: '0.1em' }} className="uppercase">
-              Complete Skincare Bundle — All 5 Products
+              Complete Skincare Bundle — All Products
             </p>
             <a href="#skincare"
               style={{

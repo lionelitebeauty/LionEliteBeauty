@@ -56,12 +56,12 @@ export default function Hero() {
             maxWidth: '560px',
             margin: '0 auto',
           }}>
-            Clinically studied peptides shown to visibly improve skin texture, reduce fine lines, and support collagen repair — without the clinic visit.
+            Peptide-powered formulations designed to support the appearance of healthier, firmer, more radiant skin — without the clinic visit.
           </p>
 
           {/* Trust micro-signals */}
           <div className="flex flex-wrap items-center justify-center gap-6 mt-8">
-            {['Lab-Tested Formulas', 'GHK-Cu Peptide Core', 'Visible Results in 2–4 Weeks'].map(t => (
+            {['Premium Grade Formulas', 'GHK-Cu Peptide Core', 'Visible Difference in 2–4 Weeks'].map(t => (
               <div key={t} className="flex items-center gap-2">
                 <div style={{ width: '5px', height: '5px', backgroundColor: '#C9A96E', borderRadius: '50%' }}></div>
                 <span style={{ fontFamily: 'Helvetica Neue, Arial, sans-serif', color: '#4A4A4A', fontSize: '11px', letterSpacing: '0.15em' }} className="uppercase">{t}</span>
@@ -107,9 +107,9 @@ export default function Hero() {
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
             {[
               { stat: '2–4 wks', label: 'Visible Results' },
-              { stat: '4,000+', label: 'Genes Activated by GHK-Cu' },
-              { stat: '5', label: 'Clinical-Grade Products' },
-              { stat: '6', label: 'Targeted Programs' },
+              { stat: '4,000+', label: 'Genes Studied Alongside GHK-Cu' },
+              { stat: '6', label: 'Premium Skincare Products' },
+              { stat: '6', label: 'Targeted Wellness Programs' },
             ].map(item => (
               <div key={item.label}>
                 <p style={{ fontFamily: 'Georgia, serif', color: '#C9A96E', fontSize: '1.4rem', marginBottom: '4px' }}>{item.stat}</p>

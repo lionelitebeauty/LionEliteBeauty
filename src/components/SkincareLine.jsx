@@ -8,32 +8,32 @@ const products = [
     size: '150ml',
     badge: 'Bestseller',
     badgeColor: '#C9A96E',
-    tagline: 'Copper peptide daily skin renewal',
-    benefits: ['Deep pore activation', 'GHK-Cu complex', 'Prepares skin for serum'],
+    tagline: 'Helps nourish & support daily skin health',
+    benefits: ['Deep pore cleansing', 'GHK-Cu peptide complex', 'Primes skin for serum'],
     bg: '#F5F0E8',
     accent: '#C9A96E',
   },
   {
-    slug: 'peptide-serum',
-    name: 'Regenerating\nPeptide Serum',
+    slug: 'rejuvenate-serum',
+    name: 'Rejuvenate\nSerum',
     price: '$119.99',
     size: '30ml',
-    badge: 'Clinical Grade',
+    badge: 'Flagship Product',
     badgeColor: '#8A9E85',
-    tagline: 'Bioactive skin regeneration serum',
-    benefits: ['4,000+ gene activation', 'Collagen stimulation', 'Cellular repair'],
+    tagline: 'Supports the appearance of firmer, smoother skin',
+    benefits: ['Supports skin appearance', 'Niacinamide + GHK-Cu', 'Helps nourish at a deeper level'],
     bg: '#1A1A1A',
     accent: '#C9A96E',
   },
   {
-    slug: 'anti-aging-cream',
-    name: 'Peptide\nAnti-Aging Cream',
+    slug: 'collagen-boost-cream',
+    name: 'Collagen Boost\nFace Cream',
     price: '$99.99',
     size: '50ml',
     badge: 'New Formula',
     badgeColor: '#C9A96E',
-    tagline: 'Anti-aging peptide skin repair cream',
-    benefits: ['Barrier restoration', 'Overnight recovery', 'Firming complex'],
+    tagline: 'Supports the appearance of skin firmness overnight',
+    benefits: ['Supports skin barrier appearance', 'Overnight nourishment', 'Helps support a firmer look'],
     bg: '#F5F0E8',
     accent: '#8A9E85',
   },
@@ -44,11 +44,23 @@ const products = [
     size: '50ml',
     badge: 'New',
     badgeColor: '#8A7AB0',
-    tagline: 'Anti-inflammatory peptide moisturizer',
-    benefits: ['Calms redness & irritation', 'Strengthens skin barrier', 'Deep hydration, no heaviness'],
+    tagline: 'Helps calm the appearance of redness & sensitivity',
+    benefits: ['Helps calm appearance of redness', 'Supports skin barrier', 'Nourishes without heaviness'],
     bg: '#F5F0E8',
     accent: '#8A7AB0',
     label: 'KPV',
+  },
+  {
+    slug: 'hydra-boost-body-wash',
+    name: 'Hydra Boost\nBody Wash',
+    price: '$49.99',
+    size: '250ml',
+    badge: 'New',
+    badgeColor: '#7A9FBF',
+    tagline: 'Helps nourish & hydrate skin all over',
+    benefits: ['GHK-Cu peptide complex', 'Gentle natural cleanse', 'Supports all-over skin appearance'],
+    bg: '#F5F0E8',
+    accent: '#7A9FBF',
   },
   {
     slug: 'recovery-kit',
@@ -57,8 +69,8 @@ const products = [
     size: 'Full Kit',
     badge: 'Complete Kit',
     badgeColor: '#2A2A2A',
-    tagline: 'Clinical skin repair & recovery kit',
-    benefits: ['Post-treatment healing', 'Inflammation control', 'Includes all 3 products'],
+    tagline: 'Supports recovery appearance & skin comfort',
+    benefits: ['Supports post-procedure appearance', 'Helps calm appearance of redness', 'Includes all 3 products'],
     bg: '#2A2A2A',
     accent: '#C9A96E',
   },
@@ -81,7 +93,7 @@ export default function SkincareLine() {
           </h2>
           <div style={{ width: '48px', height: '1px', backgroundColor: '#C9A96E', margin: '24px auto' }}></div>
           <p style={{ fontFamily: 'Helvetica Neue, Arial, sans-serif', color: '#6A6A6A', fontSize: '15px', lineHeight: '1.8', maxWidth: '560px', margin: '0 auto' }}>
-            Medical-grade, copper peptide formulations designed for skin repair, anti-aging, and cellular regeneration — science-backed skincare for high-performance individuals.
+            Peptide-powered formulations designed to support the appearance of healthier, more nourished skin. Premium ingredients. Visible results with consistent use.
           </p>
         </div>
 
@@ -93,7 +105,7 @@ export default function SkincareLine() {
         </div>
 
         {/* Product Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-5">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
           {products.map((p) => (
             <div key={p.name} style={{ backgroundColor: p.bg, display: 'flex', flexDirection: 'column' }}>
               {/* Badge */}
@@ -178,7 +190,7 @@ export default function SkincareLine() {
               Complete Skincare System
             </p>
             <p style={{ fontFamily: 'Helvetica Neue, Arial, sans-serif', color: '#5A5A5A', fontSize: '13px', marginTop: '6px' }}>
-              All 5 products · Save on the full protocol
+              All 6 products · Save on the full protocol
             </p>
           </div>
           <div className="flex items-center gap-6">
