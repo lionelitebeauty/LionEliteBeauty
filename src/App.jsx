@@ -3,6 +3,7 @@ import Navbar from './components/Navbar'
 import Hero from './components/Hero'
 import BrandManifesto from './components/BrandManifesto'
 import ServicesOverview from './components/ServicesOverview'
+import BeforeAfterResults from './components/BeforeAfterResults'
 import SkincareLine from './components/SkincareLine'
 import Testimonials from './components/Testimonials'
 import CTASection from './components/CTASection'
@@ -21,6 +22,7 @@ function HomePage() {
       <Hero />
       <BrandManifesto />
       <ServicesOverview />
+      <BeforeAfterResults />
       <SkincareLine />
       <Testimonials />
       <CTASection />
