@@ -52,7 +52,7 @@ const ingredients = [
     ],
     products: ['KPV Recovery Moisturizer', 'Post-Procedure Recovery Kit'],
     slugs: ['kpv-moisturizer', 'recovery-kit'],
-    why: 'Most "calming" skincare uses botanical extracts that temporarily mask the appearance of redness. KPV is a peptide — formulated to work alongside the skin's own biology to help support a calm, comfortable appearance, not just cover it up.',
+    why: 'Most "calming" skincare uses botanical extracts that temporarily mask the appearance of redness. KPV is a peptide — formulated to work alongside the skin\'s own biology to help support a calm, comfortable appearance, not just cover it up.',
   },
   {
     name: 'Matrixyl 3000',
@@ -60,7 +60,7 @@ const ingredients = [
     accent: '#8A9E85',
     badge: 'Firming Peptide Complex',
     tagline: 'The peptide complex that supports the overnight appearance of firmer skin.',
-    what: 'Matrixyl 3000 is a combination of two peptides — Palmitoyl Tripeptide-1 and Palmitoyl Tetrapeptide-7 — that work together to help support the appearance of the skin's structural framework. It is the key ingredient in the Collagen Boost Face Cream, and Palmitoyl Tripeptide-1 is also present in the Rejuvenate Serum.',
+    what: 'Matrixyl 3000 is a combination of two peptides — Palmitoyl Tripeptide-1 and Palmitoyl Tetrapeptide-7 — that work together to help support the appearance of the skin\'s structural framework. It is the key ingredient in the Collagen Boost Face Cream, and Palmitoyl Tripeptide-1 is also present in the Rejuvenate Serum.',
     does: [
       'Supports the appearance of a smoother, more even skin surface over time',
       'Formulated to help support the appearance of skin firmness and structure',
@@ -114,7 +114,7 @@ const ingredients = [
     accent: '#B8A4D4',
     badge: 'Barrier Complex',
     tagline: 'The barrier-nourishing complex in the Collagen Boost Cream and Recovery Kit.',
-    what: 'Ceramides are lipid molecules naturally found in the skin's outer layer. They are the key structural component of the skin barrier — helping to hold moisture in and keep environmental irritants out. The Collagen Boost Face Cream and Post-Procedure Recovery Kit both contain a ceramide complex.',
+    what: 'Ceramides are lipid molecules naturally found in the skin\'s outer layer. They are the key structural component of the skin barrier — helping to hold moisture in and keep environmental irritants out. The Collagen Boost Face Cream and Post-Procedure Recovery Kit both contain a ceramide complex.',
     does: [
       'Helps support the appearance of a healthy, nourished skin barrier',
       'Supports the appearance of comfortable, less reactive skin with consistent use',
@@ -160,7 +160,7 @@ const ingredients = [
     ],
     products: ['Collagen Boost Face Cream'],
     slugs: ['collagen-boost-cream'],
-    why: 'Many overnight creams use heavy occlusive oils that feel greasy and may block pores. Squalane is structurally similar to the skin's own lipids — so it absorbs quickly and comfortably, allowing the Collagen Boost Face Cream to feel premium to use while still nourishing effectively overnight.',
+    why: 'Many overnight creams use heavy occlusive oils that feel greasy and may block pores. Squalane is structurally similar to the skin\'s own lipids — so it absorbs quickly and comfortably, allowing the Collagen Boost Face Cream to feel premium to use while still nourishing effectively overnight.',
   },
   {
     name: 'Beta-Glucan',
