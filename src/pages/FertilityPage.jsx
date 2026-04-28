@@ -29,11 +29,11 @@ export default function FertilityPage() {
           <p style={{ fontFamily: 'Helvetica Neue, Arial, sans-serif', color: '#7A7A7A', fontSize: '17px', lineHeight: '1.8', maxWidth: '560px', margin: '0 auto 40px' }}>
             A structured, data-driven approach to understanding and supporting your reproductive health. Not guesswork. Precision.
           </p>
-          <a href="mailto:info@lionelitewellness.com"
+          <Link to="/apply?program=fertility"
             style={{ display: 'inline-block', backgroundColor: '#B8A4D4', color: '#fff', fontFamily: 'Helvetica Neue, Arial, sans-serif', letterSpacing: '0.15em', fontSize: '12px', padding: '18px 48px', textDecoration: 'none' }}
             className="uppercase hover:opacity-90 transition-opacity">
-            👉 Apply / Get Started Now
-          </a>
+            Apply / Get Started Now →
+          </Link>
         </div>
       </section>
 
@@ -56,14 +56,11 @@ export default function FertilityPage() {
                   </li>
                 ))}
               </ul>
-              <a href="mailto:info@lionelitewellness.com"
+              <Link to="/apply?program=fertility"
                 style={{ display: 'block', backgroundColor: '#B8A4D4', color: '#fff', fontFamily: 'Helvetica Neue, Arial, sans-serif', fontSize: '12px', letterSpacing: '0.15em', padding: '18px', textAlign: 'center', textDecoration: 'none' }}
                 className="uppercase hover:opacity-90 transition-opacity">
-                👉 Apply / Get Started Now
-              </a>
-              <p style={{ fontFamily: 'Helvetica Neue, Arial, sans-serif', color: '#4A4A5A', fontSize: '11px', textAlign: 'center', marginTop: '16px' }}>
-                Or email us: <a href="mailto:info@lionelitewellness.com" style={{ color: '#B8A4D4', textDecoration: 'none' }}>info@lionelitewellness.com</a>
-              </p>
+                Apply / Get Started Now →
+              </Link>
             </div>
           </div>
         </div>

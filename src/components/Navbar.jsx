@@ -173,7 +173,7 @@ export default function Navbar() {
             Ingredients
           </Link>
 
-          <Link to="/programs/optimization"
+          <Link to="/apply"
             style={{
               backgroundColor: '#C9A96E', color: '#FFFFFF',
               fontFamily: 'Helvetica Neue, Arial, sans-serif',

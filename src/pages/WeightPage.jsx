@@ -27,11 +27,11 @@ export default function WeightPage() {
           <p style={{ fontFamily: 'Helvetica Neue, Arial, sans-serif', color: '#7A7A7A', fontSize: '17px', lineHeight: '1.8', maxWidth: '560px', margin: '0 auto 40px' }}>
             A structured, data-driven system to reduce body fat, control appetite, and improve metabolic efficiency. Not dieting. Precision-based optimization.
           </p>
-          <a href="mailto:info@lionelitewellness.com"
+          <Link to="/apply?program=weight"
             style={{ display: 'inline-block', backgroundColor: '#5BA87A', color: '#fff', fontFamily: 'Helvetica Neue, Arial, sans-serif', letterSpacing: '0.15em', fontSize: '12px', padding: '18px 48px', textDecoration: 'none' }}
             className="uppercase hover:opacity-90 transition-opacity">
-            👉 Apply / Get Started Now
-          </a>
+            Apply / Get Started Now →
+          </Link>
         </div>
       </section>
       <WeightProgram />
@@ -52,14 +52,11 @@ export default function WeightPage() {
                   </li>
                 ))}
               </ul>
-              <a href="mailto:info@lionelitewellness.com"
+              <Link to="/apply?program=weight"
                 style={{ display: 'block', backgroundColor: '#5BA87A', color: '#fff', fontFamily: 'Helvetica Neue, Arial, sans-serif', fontSize: '12px', letterSpacing: '0.15em', padding: '18px', textAlign: 'center', textDecoration: 'none' }}
                 className="uppercase hover:opacity-90 transition-opacity">
-                👉 Apply / Get Started Now
-              </a>
-              <p style={{ fontFamily: 'Helvetica Neue, Arial, sans-serif', color: '#3A4A3A', fontSize: '11px', textAlign: 'center', marginTop: '16px' }}>
-                Or email us: <a href="mailto:info@lionelitewellness.com" style={{ color: '#5BA87A', textDecoration: 'none' }}>info@lionelitewellness.com</a>
-              </p>
+                Apply / Get Started Now →
+              </Link>
             </div>
           </div>
         </div>

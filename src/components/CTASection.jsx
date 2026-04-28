@@ -33,14 +33,14 @@ export default function CTASection() {
             Every Lion Elite program is built on precision testing, personalized strategy, and guided implementation. Your biology is the blueprint.
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-10">
-            <Link to="/programs/optimization"
+            <Link to="/apply"
               style={{
                 display: 'inline-block', backgroundColor: '#C9A96E', color: '#000',
                 fontFamily: 'Helvetica Neue, Arial, sans-serif', fontSize: '12px',
                 letterSpacing: '0.2em', padding: '18px 48px', textDecoration: 'none',
               }}
               className="uppercase hover:opacity-90 transition-opacity">
-              Explore All Programs →
+              Apply Now →
             </Link>
             <a href="mailto:info@lionelitewellness.com"
               style={{

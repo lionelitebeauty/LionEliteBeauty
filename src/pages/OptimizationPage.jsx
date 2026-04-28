@@ -143,11 +143,11 @@ export default function OptimizationPage() {
           <p style={{ fontFamily: 'Helvetica Neue, Arial, sans-serif', color: '#7A7A7A', fontSize: '17px', lineHeight: '1.8', maxWidth: '560px', margin: '0 auto 40px' }}>
             A data-driven system using advanced biomarker testing and personalized performance strategies to help you build, recover, and perform at your highest level.
           </p>
-          <a href="mailto:info@lionelitewellness.com"
+          <Link to="/apply?program=muscle"
             style={{ display: 'inline-block', backgroundColor: '#C9A96E', color: '#000', fontFamily: 'Helvetica Neue, Arial, sans-serif', letterSpacing: '0.15em', fontSize: '12px', padding: '18px 48px', textDecoration: 'none' }}
             className="uppercase hover:opacity-90 transition-opacity">
-            👉 Apply / Get Started Now
-          </a>
+            Apply / Get Started Now →
+          </Link>
         </div>
       </section>
 

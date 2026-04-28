@@ -29,11 +29,11 @@ export default function NeuroPage() {
           <p style={{ fontFamily: 'Helvetica Neue, Arial, sans-serif', color: '#7A7A7A', fontSize: '17px', lineHeight: '1.8', maxWidth: '560px', margin: '0 auto 40px' }}>
             Designed for individuals who want to operate at the highest level — mentally, physically, and strategically. Precision over guesswork.
           </p>
-          <a href="mailto:info@lionelitewellness.com"
+          <Link to="/apply?program=neuro"
             style={{ display: 'inline-block', backgroundColor: '#8A9E85', color: '#fff', fontFamily: 'Helvetica Neue, Arial, sans-serif', letterSpacing: '0.15em', fontSize: '12px', padding: '18px 48px', textDecoration: 'none' }}
             className="uppercase hover:opacity-90 transition-opacity">
-            👉 Apply / Get Started Now
-          </a>
+            Apply / Get Started Now →
+          </Link>
         </div>
       </section>
 
@@ -56,14 +56,11 @@ export default function NeuroPage() {
                   </li>
                 ))}
               </ul>
-              <a href="mailto:info@lionelitewellness.com"
+              <Link to="/apply?program=neuro"
                 style={{ display: 'block', backgroundColor: '#8A9E85', color: '#fff', fontFamily: 'Helvetica Neue, Arial, sans-serif', fontSize: '12px', letterSpacing: '0.15em', padding: '18px', textAlign: 'center', textDecoration: 'none' }}
                 className="uppercase hover:opacity-90 transition-opacity">
-                👉 Apply / Get Started Now
-              </a>
-              <p style={{ fontFamily: 'Helvetica Neue, Arial, sans-serif', color: '#4A4A4A', fontSize: '11px', textAlign: 'center', marginTop: '16px' }}>
-                Or email us: <a href="mailto:info@lionelitewellness.com" style={{ color: '#8A9E85', textDecoration: 'none' }}>info@lionelitewellness.com</a>
-              </p>
+                Apply / Get Started Now →
+              </Link>
             </div>
           </div>
         </div>

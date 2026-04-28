@@ -151,7 +151,7 @@ export default function Testimonials() {
                     </li>
                   ))}
                 </ul>
-                <Link to={p.href}
+                <Link to={`/apply?program=${p.id}`}
                   style={{
                     display: 'block',
                     backgroundColor: p.accent,
@@ -164,7 +164,7 @@ export default function Testimonials() {
                     textDecoration: 'none',
                   }}
                   className="uppercase hover:opacity-90 transition-opacity">
-                  Learn More →
+                  Apply / Get Started →
                 </Link>
               </div>
             </div>

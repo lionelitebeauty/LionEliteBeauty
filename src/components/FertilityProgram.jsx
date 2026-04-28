@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom'
+
 export default function FertilityProgram() {
   return (
     <section id="fertility" style={{ backgroundColor: '#0A0A0F', padding: '100px 0', position: 'relative', overflow: 'hidden' }}>
@@ -215,7 +217,7 @@ export default function FertilityProgram() {
           <p style={{ fontFamily: 'Georgia, serif', color: '#7A7A8A', fontSize: '1.1rem', fontStyle: 'italic', maxWidth: '480px', margin: '0 auto 32px' }}>
             "If you're serious about optimizing your future, this is where you start."
           </p>
-          <a href="#fertility-pricing"
+          <Link to="/apply?program=fertility"
             style={{
               display: 'inline-block',
               backgroundColor: '#B8A4D4',
@@ -227,8 +229,8 @@ export default function FertilityProgram() {
               textDecoration: 'none',
             }}
             className="uppercase hover:opacity-90 transition-opacity">
-            👉 Apply / Get Started Now
-          </a>
+            Apply / Get Started Now →
+          </Link>
         </div>
 
         {/* Disclaimer */}

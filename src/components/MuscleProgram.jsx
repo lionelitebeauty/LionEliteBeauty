@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom'
+
 export default function MuscleProgram() {
   return (
     <section id="muscle" style={{ backgroundColor: '#0C0A08', padding: '100px 0', position: 'relative', overflow: 'hidden' }}>
@@ -174,11 +176,11 @@ export default function MuscleProgram() {
           <p style={{ fontFamily: 'Georgia, serif', color: '#FAFAF8', fontSize: '1.6rem', lineHeight: '1.5', maxWidth: '560px', margin: '0 auto 28px' }} className="font-normal">
             Ready to train harder, recover faster,<br />and build at a higher level?
           </p>
-          <a href="mailto:info@lionelitewellness.com"
+          <Link to="/apply?program=muscle"
             style={{ display: 'inline-block', backgroundColor: '#C9A96E', color: '#000000', fontFamily: 'Helvetica Neue, Arial, sans-serif', fontSize: '12px', letterSpacing: '0.2em', padding: '18px 48px', textDecoration: 'none' }}
             className="uppercase hover:opacity-90 transition-opacity">
-            👉 Apply / Get Started Now
-          </a>
+            Apply / Get Started Now →
+          </Link>
         </div>
 
         {/* Disclaimer */}

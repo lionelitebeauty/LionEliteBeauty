@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom'
+
 export default function WeightProgram() {
   return (
     <section id="weight" style={{ backgroundColor: '#080C08', padding: '100px 0', position: 'relative', overflow: 'hidden' }}>
@@ -173,11 +175,11 @@ export default function WeightProgram() {
           <p style={{ fontFamily: 'Georgia, serif', color: '#FAFAF8', fontSize: '1.6rem', lineHeight: '1.5', maxWidth: '560px', margin: '0 auto 28px' }} className="font-normal">
             Ready to stop fighting your body<br />and start working with it?
           </p>
-          <a href="mailto:info@lionelitewellness.com"
+          <Link to="/apply?program=weight"
             style={{ display: 'inline-block', backgroundColor: '#5BA87A', color: '#FFFFFF', fontFamily: 'Helvetica Neue, Arial, sans-serif', fontSize: '12px', letterSpacing: '0.2em', padding: '18px 48px', textDecoration: 'none' }}
             className="uppercase hover:opacity-90 transition-opacity">
-            👉 Apply / Get Started Now
-          </a>
+            Apply / Get Started Now →
+          </Link>
         </div>
 
         {/* Disclaimer */}

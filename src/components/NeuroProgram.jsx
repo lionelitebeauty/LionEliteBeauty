@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom'
+
 export default function NeuroProgram() {
   return (
     <section id="neuro" style={{ backgroundColor: '#080808', padding: '100px 0', position: 'relative', overflow: 'hidden' }}>
@@ -212,7 +214,7 @@ export default function NeuroProgram() {
           <p style={{ fontFamily: 'Georgia, serif', color: '#7A7A7A', fontSize: '1.1rem', fontStyle: 'italic', maxWidth: '480px', margin: '0 auto 32px' }}>
             "When your brain is optimized, everything else follows."
           </p>
-          <a href="#neuro-pricing"
+          <Link to="/apply?program=neuro"
             style={{
               display: 'inline-block',
               backgroundColor: '#8A9E85',
@@ -224,8 +226,8 @@ export default function NeuroProgram() {
               textDecoration: 'none',
             }}
             className="uppercase hover:opacity-90 transition-opacity">
-            👉 Apply / Get Started Now
-          </a>
+            Apply / Get Started Now →
+          </Link>
         </div>
 
         {/* Disclaimer */}

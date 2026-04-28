@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom'
+
 export default function LongevityProgram() {
   return (
     <section id="longevity" style={{ backgroundColor: '#080A0C', padding: '100px 0', position: 'relative', overflow: 'hidden' }}>
@@ -173,11 +175,11 @@ export default function LongevityProgram() {
           <p style={{ fontFamily: 'Georgia, serif', color: '#FAFAF8', fontSize: '1.6rem', lineHeight: '1.5', maxWidth: '560px', margin: '0 auto 28px' }} className="font-normal">
             Ready to stay strong, recover faster,<br />and perform at a high level for years to come?
           </p>
-          <a href="mailto:info@lionelitewellness.com"
+          <Link to="/apply?program=longevity"
             style={{ display: 'inline-block', backgroundColor: '#7A9FBF', color: '#000000', fontFamily: 'Helvetica Neue, Arial, sans-serif', fontSize: '12px', letterSpacing: '0.2em', padding: '18px 48px', textDecoration: 'none' }}
             className="uppercase hover:opacity-90 transition-opacity">
-            👉 Apply / Get Started Now
-          </a>
+            Apply / Get Started Now →
+          </Link>
         </div>
 
         {/* Disclaimer */}

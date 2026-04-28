@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom'
+
 export default function HairProgram() {
   return (
     <section id="hair" style={{ backgroundColor: '#0C0A08', padding: '100px 0', position: 'relative', overflow: 'hidden' }}>
@@ -170,11 +172,11 @@ export default function HairProgram() {
           <p style={{ fontFamily: 'Georgia, serif', color: '#6A6A5A', fontSize: '1.1rem', fontStyle: 'italic', maxWidth: '400px', margin: '0 auto 32px' }}>
             "Consistency + structure = visible change."
           </p>
-          <a href="mailto:info@lionelitewellness.com"
+          <Link to="/apply?program=hair"
             style={{ display: 'inline-block', backgroundColor: '#C4A265', color: '#FFFFFF', fontFamily: 'Helvetica Neue, Arial, sans-serif', fontSize: '12px', letterSpacing: '0.2em', padding: '18px 48px', textDecoration: 'none' }}
             className="uppercase hover:opacity-90 transition-opacity">
-            👉 Apply / Get Started Now
-          </a>
+            Apply / Get Started Now →
+          </Link>
         </div>
 
         {/* Disclaimer */}
