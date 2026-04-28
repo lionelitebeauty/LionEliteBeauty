@@ -15,7 +15,6 @@ const allPrograms = [
     href: '/programs/optimization',
     price: '$1,000',
     icon: '💪',
-    active: true,
   },
   {
     label: 'Neuro Program',
@@ -110,11 +109,6 @@ export default function OptimizationPage() {
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {allPrograms.map((p) => (
               <div key={p.href} style={{ backgroundColor: p.bg, border: `1px solid ${p.border}`, display: 'flex', flexDirection: 'column', position: 'relative', overflow: 'hidden' }}>
-                {p.active && (
-                  <div style={{ position: 'absolute', top: 0, right: 0, backgroundColor: p.accent, padding: '6px 16px' }}>
-                    <p style={{ fontFamily: 'Helvetica Neue, Arial, sans-serif', color: '#000', fontSize: '9px', letterSpacing: '0.2em' }} className="uppercase">Current Page</p>
-                  </div>
-                )}
                 <div style={{ padding: '40px 36px 32px', flex: 1 }}>
                   <p style={{ fontSize: '2rem', marginBottom: '16px' }}>{p.icon}</p>
                   <p style={{ color: p.accent, fontFamily: 'Helvetica Neue, Arial, sans-serif', letterSpacing: '0.25em', fontSize: '10px', marginBottom: '10px' }} className="uppercase">{p.tagline}</p>
@@ -124,9 +118,9 @@ export default function OptimizationPage() {
                 </div>
                 <div style={{ padding: '0 36px 36px' }}>
                   <Link to={p.href}
-                    style={{ display: 'block', backgroundColor: p.active ? p.accent : 'transparent', border: `1px solid ${p.accent}`, color: p.active ? '#000' : p.accent, fontFamily: 'Helvetica Neue, Arial, sans-serif', fontSize: '11px', letterSpacing: '0.2em', padding: '16px', textAlign: 'center', textDecoration: 'none' }}
+                    style={{ display: 'block', backgroundColor: 'transparent', border: `1px solid ${p.accent}`, color: p.accent, fontFamily: 'Helvetica Neue, Arial, sans-serif', fontSize: '11px', letterSpacing: '0.2em', padding: '16px', textAlign: 'center', textDecoration: 'none' }}
                     className="uppercase hover:opacity-80 transition-opacity">
-                    {p.active ? 'View Program Details' : 'Learn More →'}
+                    Learn More →
                   </Link>
                 </div>
               </div>
