@@ -129,7 +129,7 @@ export default function Testimonials() {
         </div>
 
         {/* 4 program cards */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-5 mb-20">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 gap-5 mb-20">
           {programs.map(p => (
             <div key={p.id} style={{ backgroundColor: '#161616', border: `1px solid ${p.accent}28`, display: 'flex', flexDirection: 'column' }}>
               <div style={{ backgroundColor: '#1A1A1A', padding: '28px 24px 22px', borderBottom: `1px solid ${p.accent}18`, textAlign: 'center' }}>
