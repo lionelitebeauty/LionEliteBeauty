@@ -8,7 +8,7 @@ export default function Hero() {
       {/* Background glow */}
       <div style={{
         position: 'absolute', inset: 0, pointerEvents: 'none',
-        backgroundImage: 'radial-gradient(ellipse at 50% 40%, rgba(201,169,110,0.06) 0%, transparent 65%), radial-gradient(ellipse at 80% 80%, rgba(122,159,191,0.04) 0%, transparent 50%)',
+        backgroundImage: 'radial-gradient(ellipse at 50% 40%, rgba(201,169,110,0.07) 0%, transparent 65%), radial-gradient(ellipse at 80% 80%, rgba(184,164,212,0.04) 0%, transparent 50%)',
       }}></div>
 
       {/* Subtle grid overlay */}
@@ -25,7 +25,7 @@ export default function Hero() {
           <div style={{ border: '1px solid #2A2A2A', padding: '8px 24px', display: 'inline-flex', alignItems: 'center', gap: '10px' }}>
             <div style={{ width: '6px', height: '6px', backgroundColor: '#C9A96E', borderRadius: '50%' }}></div>
             <span style={{ fontFamily: 'Helvetica Neue, Arial, sans-serif', color: '#6A6A6A', letterSpacing: '0.3em', fontSize: '10px' }} className="uppercase">
-              Lion Elite · Precision Wellness
+              Lion Elite Beauty · Advanced Skincare &amp; Wellness
             </span>
             <div style={{ width: '6px', height: '6px', backgroundColor: '#C9A96E', borderRadius: '50%' }}></div>
           </div>
@@ -39,14 +39,13 @@ export default function Hero() {
             lineHeight: '1.08',
             letterSpacing: '-0.02em',
           }} className="text-5xl md:text-6xl lg:text-7xl font-normal mb-8">
-            The System Behind<br />
+            Beauty Rooted in<br />
             <span style={{
               background: 'linear-gradient(90deg, #C9A96E 0%, #E8D5A8 50%, #C9A96E 100%)',
               WebkitBackgroundClip: 'text',
               WebkitTextFillColor: 'transparent',
               backgroundClip: 'text',
-            }}>High-Performance</span><br />
-            Individuals.
+            }}>Science &amp; Precision.</span>
           </h1>
 
           <p style={{
@@ -54,16 +53,16 @@ export default function Hero() {
             color: '#6A6A6A',
             fontSize: '18px',
             lineHeight: '1.8',
-            maxWidth: '560px',
+            maxWidth: '580px',
             margin: '0 auto',
           }}>
-            Advanced peptide skincare. Clinical-grade formulations. Data-driven optimization programs — science-backed, high-performance, and built for people who take their body seriously.
+            Advanced peptide skincare, clinical-grade formulations, and targeted wellness programs — designed to work with your biology, not against it.
           </p>
         </div>
 
         {/* CTAs */}
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-20">
-          <Link to="/programs/optimization"
+          <a href="#services"
             style={{
               backgroundColor: '#C9A96E',
               fontFamily: 'Helvetica Neue, Arial, sans-serif',
@@ -75,8 +74,8 @@ export default function Hero() {
               textDecoration: 'none',
             }}
             className="uppercase hover:opacity-90 transition-opacity">
-            Explore All Programs →
-          </Link>
+            Explore Our Offerings →
+          </a>
           <a href="#skincare"
             style={{
               border: '1px solid #2A2A2A',
@@ -97,9 +96,9 @@ export default function Hero() {
         <div style={{ borderTop: '1px solid #1A1A1A', borderBottom: '1px solid #1A1A1A', padding: '28px 0' }}>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
             {[
-              { stat: '6', label: 'Optimization Programs' },
+              { stat: '5', label: 'Skincare Products' },
+              { stat: '6', label: 'Wellness Programs' },
               { stat: 'Clinical', label: 'Grade Formulations' },
-              { stat: 'Data', label: 'Driven Protocols' },
               { stat: 'Peptide', label: 'Powered Science' },
             ].map(item => (
               <div key={item.label}>

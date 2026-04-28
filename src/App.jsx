@@ -2,13 +2,8 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import Navbar from './components/Navbar'
 import Hero from './components/Hero'
 import BrandManifesto from './components/BrandManifesto'
+import ServicesOverview from './components/ServicesOverview'
 import SkincareLine from './components/SkincareLine'
-import NeuroProgram from './components/NeuroProgram'
-import FertilityProgram from './components/FertilityProgram'
-import HairProgram from './components/HairProgram'
-import MuscleProgram from './components/MuscleProgram'
-import LongevityProgram from './components/LongevityProgram'
-import WeightProgram from './components/WeightProgram'
 import Testimonials from './components/Testimonials'
 import CTASection from './components/CTASection'
 import Footer from './components/Footer'
@@ -25,13 +20,8 @@ function HomePage() {
       <Navbar />
       <Hero />
       <BrandManifesto />
-      <MuscleProgram />
+      <ServicesOverview />
       <SkincareLine />
-      <NeuroProgram />
-      <FertilityProgram />
-      <HairProgram />
-      <WeightProgram />
-      <LongevityProgram />
       <Testimonials />
       <CTASection />
       <Footer />

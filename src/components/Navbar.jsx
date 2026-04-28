@@ -33,9 +33,9 @@ export default function Navbar() {
         {/* Logo */}
         <Link to="/" style={{ textDecoration: 'none' }} className="flex flex-col">
           <span style={{ fontFamily: 'Georgia, serif', color: '#2A2A2A', letterSpacing: '0.15em', fontSize: '18px' }}
-            className="uppercase">Lion Elite</span>
+            className="uppercase">Lion Elite Beauty</span>
           <span style={{ color: '#C9A96E', fontFamily: 'Helvetica Neue, Arial, sans-serif', letterSpacing: '0.2em', fontSize: '10px' }}
-            className="uppercase font-light">Wellness</span>
+            className="uppercase font-light">Powered by Lion Elite Wellness</span>
         </Link>
 
         {/* Desktop nav */}

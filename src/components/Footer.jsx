@@ -18,11 +18,11 @@ export default function Footer() {
           {/* Brand */}
           <div className="md:col-span-1">
             <div className="mb-4">
-              <p style={{ fontFamily: 'Georgia, serif', color: '#FAFAF8', letterSpacing: '0.15em', fontSize: '16px' }} className="uppercase">Lion Elite</p>
-              <p style={{ color: '#C9A96E', fontFamily: 'Helvetica Neue, Arial, sans-serif', letterSpacing: '0.2em', fontSize: '10px' }} className="uppercase mt-1">Wellness</p>
+              <p style={{ fontFamily: 'Georgia, serif', color: '#FAFAF8', letterSpacing: '0.15em', fontSize: '16px' }} className="uppercase">Lion Elite Beauty</p>
+              <p style={{ color: '#C9A96E', fontFamily: 'Helvetica Neue, Arial, sans-serif', letterSpacing: '0.2em', fontSize: '10px' }} className="uppercase mt-1">Powered by Lion Elite Wellness</p>
             </div>
             <p style={{ fontFamily: 'Helvetica Neue, Arial, sans-serif', color: '#3A3A3A', fontSize: '13px', lineHeight: '1.8', marginTop: '16px' }}>
-              Precision biomarker testing. Clinical-grade formulations. Data-driven programs — built for people who take their body seriously.
+              Advanced peptide skincare and clinical-grade wellness programs — designed to work with your biology and deliver real, lasting results.
             </p>
             <div className="flex gap-3 mt-6">
               {['IG', 'TK', 'FB'].map(s => (
@@ -81,7 +81,7 @@ export default function Footer() {
 
         <div className="flex flex-col md:flex-row items-center justify-between pt-8 gap-4">
           <p style={{ fontFamily: 'Helvetica Neue, Arial, sans-serif', color: '#282828', fontSize: '11px', letterSpacing: '0.08em' }}>
-            © {new Date().getFullYear()} Lion Elite Wellness · info@lionelitewellness.com
+            © {new Date().getFullYear()} Lion Elite Beauty · info@lionelitewellness.com
           </p>
           <div className="flex gap-6">
             {['Privacy Policy', 'Terms of Service'].map(link => (
