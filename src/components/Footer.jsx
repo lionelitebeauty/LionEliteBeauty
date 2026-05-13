@@ -48,10 +48,17 @@ export default function Footer() {
           {/* Skincare */}
           <div>
             <p style={{ fontFamily: 'Helvetica Neue, Arial, sans-serif', color: '#FAFAF8', fontSize: '11px', letterSpacing: '0.2em', marginBottom: '20px' }} className="uppercase">Skincare</p>
-            {['GHK-Cu Face Wash', 'Peptide Serum', 'Anti-Aging Cream', 'KPV Moisturizer', 'Recovery Kit'].map(item => (
-              <a key={item} href="#skincare"
+            {[
+              { label: 'GHK-Cu Peptide Face Wash', href: '/skincare/ghk-cu-face-wash' },
+              { label: 'Rejuvenate Serum', href: '/skincare/rejuvenate-serum' },
+              { label: 'Collagen Boost Face Cream', href: '/skincare/collagen-boost-cream' },
+              { label: 'KPV Recovery Moisturizer', href: '/skincare/kpv-moisturizer' },
+              { label: 'Hydra Boost Body Wash', href: '/skincare/hydra-boost-body-wash' },
+              { label: 'Post-Procedure Recovery Kit', href: '/skincare/recovery-kit' },
+            ].map(item => (
+              <Link key={item.label} to={item.href}
                 style={{ fontFamily: 'Helvetica Neue, Arial, sans-serif', color: '#3A3A3A', fontSize: '13px', lineHeight: '1.5', display: 'block', marginBottom: '12px', textDecoration: 'none' }}
-                className="hover:text-[#C9A96E] transition-colors">{item}</a>
+                className="hover:text-[#C9A96E] transition-colors">{item.label}</Link>
             ))}
           </div>
 
@@ -59,8 +66,8 @@ export default function Footer() {
           <div>
             <p style={{ fontFamily: 'Helvetica Neue, Arial, sans-serif', color: '#FAFAF8', fontSize: '11px', letterSpacing: '0.2em', marginBottom: '20px' }} className="uppercase">Company</p>
             {[
-              { label: 'About Us', href: '#' },
-              { label: 'Contact', href: 'mailto:info@lionelitebeauty.com' },
+              { label: 'Apply for a Program', href: '/apply' },
+              { label: 'Contact Us', href: 'mailto:info@lionelitebeauty.com' },
               { label: 'lionelitewellness.com', href: 'https://lionelitewellness.com', external: true },
             ].map(item => (
               <a key={item.label} href={item.href}
