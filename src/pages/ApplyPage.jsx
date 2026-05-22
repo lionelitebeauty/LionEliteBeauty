@@ -1,7 +1,13 @@
 import { useState, useEffect } from 'react'
 import { Link, useSearchParams } from 'react-router-dom'
+import emailjs from '@emailjs/browser'
 import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
+
+const SERVICE_ID  = import.meta.env.VITE_EMAILJS_SERVICE_ID
+const ADMIN_TID   = import.meta.env.VITE_EMAILJS_ADMIN_TEMPLATE_ID
+const CLIENT_TID  = import.meta.env.VITE_EMAILJS_CLIENT_TEMPLATE_ID
+const PUBLIC_KEY  = import.meta.env.VITE_EMAILJS_PUBLIC_KEY
 
 const programs = [
   { value: 'muscle', label: 'Muscle & Recovery', accent: '#C9A96E' },
@@ -32,6 +38,8 @@ export default function ApplyPage() {
   const programTag = searchParams.get('program') || ''
   const [form, setForm] = useState({ ...initialForm, goal: programTag })
   const [submitted, setSubmitted] = useState(false)
+  const [sending, setSending] = useState(false)
+  const [sendError, setSendError] = useState(false)
   const [errors, setErrors] = useState({})
 
   useEffect(() => { window.scrollTo(0, 0) }, [])
@@ -53,12 +61,43 @@ export default function ApplyPage() {
     if (errors[field]) setErrors(e => { const n = { ...e }; delete n[field]; return n })
   }
 
-  function handleSubmit(e) {
+  async function handleSubmit(e) {
     e.preventDefault()
     const errs = validate()
     if (Object.keys(errs).length) { setErrors(errs); return }
-    setSubmitted(true)
-    window.scrollTo(0, 0)
+
+    setSending(true)
+    setSendError(false)
+
+    const goalLabel = programs.find(p => p.value === form.goal)?.label || form.goal
+
+    const templateParams = {
+      client_name:    form.name,
+      client_email:   form.email,
+      client_phone:   form.phone || 'Not provided',
+      goal:           goalLabel,
+      experience:     form.experience,
+      struggle:       form.struggle || 'Not provided',
+      timeline:       form.timeline,
+      investment:     form.investment,
+      commitment:     form.commitment,
+      health:         form.health || 'Not provided',
+      reply_to:       form.email,
+    }
+
+    try {
+      // Notify admin
+      await emailjs.send(SERVICE_ID, ADMIN_TID, templateParams, PUBLIC_KEY)
+      // Confirmation to client
+      await emailjs.send(SERVICE_ID, CLIENT_TID, templateParams, PUBLIC_KEY)
+      setSubmitted(true)
+      window.scrollTo(0, 0)
+    } catch (err) {
+      console.error('EmailJS error:', err)
+      setSendError(true)
+    } finally {
+      setSending(false)
+    }
   }
 
   if (submitted) {
@@ -310,16 +349,24 @@ export default function ApplyPage() {
                 </p>
               )}
 
+              {sendError && (
+                <p style={{ fontFamily: 'Helvetica Neue, Arial, sans-serif', color: '#E05A5A', fontSize: '13px', marginBottom: '20px', lineHeight: '1.7' }}>
+                  Something went wrong sending your application. Please try again or email us directly at{' '}
+                  <a href="mailto:info@lionelitebeauty.com" style={{ color: '#C9A96E', textDecoration: 'none' }}>info@lionelitebeauty.com</a>.
+                </p>
+              )}
+
               <button type="submit"
+                disabled={sending}
                 style={{
-                  width: '100%', backgroundColor: '#C9A96E', color: '#000',
+                  width: '100%', backgroundColor: sending ? '#6A5A3A' : '#C9A96E', color: '#000',
                   fontFamily: 'Helvetica Neue, Arial, sans-serif',
                   fontSize: '13px', letterSpacing: '0.2em',
-                  padding: '20px', border: 'none', cursor: 'pointer',
-                  textTransform: 'uppercase',
+                  padding: '20px', border: 'none', cursor: sending ? 'not-allowed' : 'pointer',
+                  textTransform: 'uppercase', transition: 'background-color 0.2s',
                 }}
                 className="hover:opacity-90 transition-opacity">
-                Submit My Application →
+                {sending ? 'Sending…' : 'Submit My Application →'}
               </button>
             </div>
           </form>
