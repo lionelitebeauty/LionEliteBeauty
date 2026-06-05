@@ -102,18 +102,14 @@ export default function ServicesOverview() {
                 style={{ backgroundColor: '#0A0A0A', padding: '32px', display: 'flex', flexDirection: 'column' }}
                 className="group hover:bg-[#0F0F0F] transition-colors">
                 <div style={{ width: '8px', height: '8px', backgroundColor: program.accent, borderRadius: '50%', marginBottom: '20px' }}></div>
-                <Link to={program.href} style={{ textDecoration: 'none', flex: 1 }}>
+                <div style={{ flex: 1 }}>
                   <p style={{ fontFamily: 'Georgia, serif', color: '#FAFAF8', fontSize: '16px', lineHeight: '1.3', marginBottom: '8px' }}>
                     {program.name}
                   </p>
                   <p style={{ fontFamily: 'Helvetica Neue, Arial, sans-serif', color: '#8A8A8A', fontSize: '12px', lineHeight: '1.7', marginBottom: '20px' }}>
                     {program.tagline}
                   </p>
-                  <p style={{ fontFamily: 'Helvetica Neue, Arial, sans-serif', color: program.accent, fontSize: '10px', letterSpacing: '0.15em' }}
-                    className="uppercase opacity-100 transition-opacity mb-4">
-                    Learn More →
-                  </p>
-                </Link>
+                </div>
                 <Link to={program.applyHref}
                   style={{
                     display: 'block', backgroundColor: program.accent, color: '#000', textAlign: 'center',
