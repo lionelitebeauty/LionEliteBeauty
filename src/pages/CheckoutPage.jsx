@@ -40,8 +40,12 @@ export default function CheckoutPage() {
       })
       if (!res.ok) throw new Error('API error')
     } catch (err) {
-      console.error('Order error:', err)
-      // Don't block — show payment info regardless
+      console.error('API failed, using mailto fallback:', err)
+      const subject = encodeURIComponent(`New Order: ${items.map(i => i.name).join(', ')}`)
+      const body = encodeURIComponent(
+        `Name: ${name}\nEmail: ${email}\nPhone: ${phone || 'Not provided'}\nItems:\n${items.map(i => `  ${i.name} × ${i.quantity} — $${(i.priceNum * i.quantity).toFixed(2)}`).join('\n')}\nTotal: $${subtotal.toFixed(2)}\n\nNotes: ${notes || 'None'}`
+      )
+      window.open(`mailto:orders@lionelitebeauty.com?subject=${subject}&body=${body}`, '_blank')
     } finally {
       setSending(false)
       setPlaced(true)
