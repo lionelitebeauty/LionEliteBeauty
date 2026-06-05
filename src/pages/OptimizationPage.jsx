@@ -157,12 +157,7 @@ export default function OptimizationPage() {
                     ))}
                   </div>
                 </div>
-                <div style={{ padding: '0 36px 36px', display: 'flex', flexDirection: 'column', gap: '10px' }}>
-                  <Link to={p.href}
-                    style={{ display: 'block', backgroundColor: 'transparent', border: `1px solid ${p.accent}`, color: p.accent, fontFamily: 'Helvetica Neue, Arial, sans-serif', fontSize: '10px', letterSpacing: '0.2em', padding: '14px', textAlign: 'center', textDecoration: 'none' }}
-                    className="uppercase hover:opacity-80 transition-opacity">
-                    View Program Details →
-                  </Link>
+                <div style={{ padding: '0 36px 36px' }}>
                   <Link to={`/apply?program=${p.id}`}
                     style={{ display: 'block', backgroundColor: p.accent, color: '#000', fontFamily: 'Helvetica Neue, Arial, sans-serif', fontSize: '10px', letterSpacing: '0.2em', padding: '14px', textAlign: 'center', textDecoration: 'none' }}
                     className="uppercase hover:opacity-90 transition-opacity">
