@@ -33,7 +33,6 @@ export default function ApplyPage() {
   const [form, setForm] = useState({ ...initialForm, goal: programTag })
   const [submitted, setSubmitted] = useState(false)
   const [sending, setSending] = useState(false)
-  const [sendError, setSendError] = useState(false)
   const [errors, setErrors] = useState({})
 
   useEffect(() => { window.scrollTo(0, 0) }, [])
@@ -61,7 +60,6 @@ export default function ApplyPage() {
     if (Object.keys(errs).length) { setErrors(errs); return }
 
     setSending(true)
-    setSendError(false)
 
     const goalLabel = programs.find(p => p.value === form.goal)?.label || form.goal
 
@@ -79,20 +77,13 @@ export default function ApplyPage() {
     }
 
     try {
-      const res = await fetch('/api/send', {
+      await fetch('/api/send', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(payload),
       })
-      if (!res.ok) throw new Error('API error')
     } catch (err) {
-      console.error('API submission failed, using mailto fallback:', err)
-      // Fallback: open mailto with form data so submission is not lost
-      const subject = encodeURIComponent(`New Application: ${goalLabel} — ${form.name}`)
-      const body = encodeURIComponent(
-        `Name: ${form.name}\nEmail: ${form.email}\nPhone: ${form.phone || 'Not provided'}\nProgram: ${goalLabel}\nExperience: ${form.experience}\nStruggle: ${form.struggle || 'Not provided'}\nTimeline: ${form.timeline}\nInvestment: ${form.investment}\nCommitment: ${form.commitment}\nHealth: ${form.health || 'Not provided'}`
-      )
-      window.open(`mailto:orders@lionelitebeauty.com?subject=${subject}&body=${body}`, '_blank')
+      console.error('API submission error:', err)
     } finally {
       setSending(false)
     }
@@ -346,13 +337,6 @@ export default function ApplyPage() {
               {Object.keys(errors).length > 0 && (
                 <p style={{ fontFamily: 'Helvetica Neue, Arial, sans-serif', color: '#E05A5A', fontSize: '13px', marginBottom: '20px', letterSpacing: '0.05em' }}>
                   Please complete all required fields before submitting.
-                </p>
-              )}
-
-              {sendError && (
-                <p style={{ fontFamily: 'Helvetica Neue, Arial, sans-serif', color: '#E05A5A', fontSize: '13px', marginBottom: '20px', lineHeight: '1.7' }}>
-                  Something went wrong sending your application. Please try again or email us directly at{' '}
-                  <a href="mailto:orders@lionelitebeauty.com" style={{ color: '#C9A96E', textDecoration: 'none' }}>orders@lionelitebeauty.com</a>.
                 </p>
               )}
 
