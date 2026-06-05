@@ -85,14 +85,19 @@ export default function ApplyPage() {
         body: JSON.stringify(payload),
       })
       if (!res.ok) throw new Error('API error')
-      setSubmitted(true)
-      window.scrollTo(0, 0)
     } catch (err) {
-      console.error('Submission error:', err)
-      setSendError(true)
+      console.error('API submission failed, using mailto fallback:', err)
+      // Fallback: open mailto with form data so submission is not lost
+      const subject = encodeURIComponent(`New Application: ${goalLabel} — ${form.name}`)
+      const body = encodeURIComponent(
+        `Name: ${form.name}\nEmail: ${form.email}\nPhone: ${form.phone || 'Not provided'}\nProgram: ${goalLabel}\nExperience: ${form.experience}\nStruggle: ${form.struggle || 'Not provided'}\nTimeline: ${form.timeline}\nInvestment: ${form.investment}\nCommitment: ${form.commitment}\nHealth: ${form.health || 'Not provided'}`
+      )
+      window.open(`mailto:orders@lionelitebeauty.com?subject=${subject}&body=${body}`, '_blank')
     } finally {
       setSending(false)
     }
+    setSubmitted(true)
+    window.scrollTo(0, 0)
   }
 
   if (submitted) {
