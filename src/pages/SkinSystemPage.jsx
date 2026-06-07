@@ -2,6 +2,7 @@ import { useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
+import SEO from '../components/SEO'
 
 const steps = [
   {
@@ -50,6 +51,7 @@ export default function SkinSystemPage() {
 
   return (
     <div style={{ backgroundColor: '#080808', minHeight: '100vh' }}>
+      <SEO title="The Lion Elite Skin System" description="A simple 3-step peptide-powered daily skincare routine designed to visibly improve skin appearance. Cleanse, Treat, Protect." />
       <Navbar />
 
       {/* Hero */}

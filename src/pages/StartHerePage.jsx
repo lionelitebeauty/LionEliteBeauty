@@ -2,6 +2,7 @@ import { useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
+import SEO from '../components/SEO'
 
 function Step({ number, title, desc, accent = '#C9A96E' }) {
   return (
@@ -334,6 +335,7 @@ export default function StartHerePage() {
 
   return (
     <div style={{ backgroundColor: '#0A0A0A', minHeight: '100vh' }}>
+      <SEO title="Ingredients — What's Inside" description="Complete ingredient transparency for the Lion Elite Beauty skincare range. Every active ingredient explained — what it is, what it does, and why it's there." />
       <Navbar />
 
       {/* Hero */}

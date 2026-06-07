@@ -4,6 +4,7 @@ import { useCart } from '../context/CartContext'
 import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
 import { skincareProducts, bundles } from '../data/skincareProducts'
+import SEO from '../components/SEO'
 
 function ProductBottle({ accent, label, isDark }) {
   return (
@@ -27,6 +28,7 @@ export default function SkincarePage() {
 
   return (
     <div style={{ backgroundColor: '#FAFAF8', minHeight: '100vh' }}>
+      <SEO title="Advanced Peptide Skincare" description="Clinical-grade peptide-powered skincare for healthier, more radiant skin. GHK-Cu, KPV, and Matrixyl formulations." />
       <Navbar />
 
       {/* Hero */}
@@ -97,7 +99,21 @@ export default function SkincarePage() {
                       </ul>
 
                       <div className="flex items-center gap-6">
-                        {p.badge === 'Coming Soon' ? (
+                        {p.badge === 'Pre-Order' ? (
+                          <>
+                            <p style={{ fontFamily: 'Georgia, serif', color: p.accent, fontSize: '1.8rem' }}>{p.price}</p>
+                            <Link to={`/skincare/${p.slug}`}
+                              style={{
+                                backgroundColor: p.accent, color: '#000',
+                                fontFamily: 'Helvetica Neue, Arial, sans-serif',
+                                fontSize: '11px', letterSpacing: '0.18em',
+                                padding: '14px 28px', textDecoration: 'none',
+                              }}
+                              className="uppercase hover:opacity-90 transition-opacity">
+                              Pre-Order Now →
+                            </Link>
+                          </>
+                        ) : p.badge === 'Coming Soon' ? (
                           <>
                             <p style={{ fontFamily: 'Georgia, serif', color: p.accent, fontSize: '1.3rem', letterSpacing: '0.1em' }}>Coming Soon</p>
                             <Link to={`/skincare/${p.slug}`}

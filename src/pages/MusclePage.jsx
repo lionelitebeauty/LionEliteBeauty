@@ -3,11 +3,13 @@ import { Link } from 'react-router-dom'
 import Navbar from '../components/Navbar'
 import MuscleProgram from '../components/MuscleProgram'
 import Footer from '../components/Footer'
+import SEO from '../components/SEO'
 
 export default function MusclePage() {
   useEffect(() => { window.scrollTo(0, 0) }, [])
   return (
     <div style={{ backgroundColor: '#0C0A08', minHeight: '100vh' }}>
+      <SEO title="Muscle & Recovery Program" description="Personalized peptide protocol designed to accelerate recovery, support lean muscle development, and help you perform at a consistently higher level." />
       <Navbar />
 
       {/* Back */}
@@ -21,8 +23,11 @@ export default function MusclePage() {
       </div>
 
       {/* Hero */}
-      <section style={{ padding: '56px 0 72px' }}>
-        <div className="max-w-3xl mx-auto px-6 text-center">
+      <section style={{ padding: '56px 0 72px', position: 'relative', overflow: 'hidden' }}>
+        <div style={{ position: 'absolute', top: '-100px', right: '-60px', width: '350px', height: '350px', border: '1px solid #C9A96E08', borderRadius: '50%' }}></div>
+        <div style={{ position: 'absolute', bottom: '-120px', left: '-80px', width: '400px', height: '400px', border: '1px solid #C9A96E06', borderRadius: '50%' }}></div>
+        <div style={{ position: 'absolute', top: '35%', right: '10%', width: '2px', height: '100px', background: 'linear-gradient(to bottom, #C9A96E00, #C9A96E12, #C9A96E00)' }}></div>
+        <div className="max-w-3xl mx-auto px-6 text-center" style={{ position: 'relative', zIndex: 1 }}>
           <p style={{ color: '#C9A96E', fontFamily: 'Helvetica Neue, Arial, sans-serif', letterSpacing: '0.35em', fontSize: '10px', marginBottom: '20px' }} className="uppercase">
             Performance & Recovery
           </p>

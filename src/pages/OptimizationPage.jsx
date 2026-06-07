@@ -2,6 +2,7 @@ import { useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
+import SEO from '../components/SEO'
 
 const allPrograms = [
   {
@@ -88,6 +89,7 @@ export default function OptimizationPage() {
   useEffect(() => { window.scrollTo(0, 0) }, [])
   return (
     <div style={{ backgroundColor: '#080808', minHeight: '100vh' }}>
+      <SEO title="Wellness Programs" description="Personalized peptide programs for muscle recovery, cognitive performance, fertility, hair restoration, weight loss, and longevity." />
       <Navbar />
 
       {/* Back */}
@@ -101,8 +103,13 @@ export default function OptimizationPage() {
       </div>
 
       {/* Hero */}
-      <section style={{ padding: '60px 0 80px' }}>
-        <div className="max-w-3xl mx-auto px-6 text-center">
+      <section style={{ padding: '60px 0 80px', position: 'relative', overflow: 'hidden' }}>
+        {/* Decorative background elements */}
+        <div style={{ position: 'absolute', top: '-120px', right: '-80px', width: '400px', height: '400px', border: '1px solid #C9A96E08', borderRadius: '50%' }}></div>
+        <div style={{ position: 'absolute', bottom: '-160px', left: '-100px', width: '500px', height: '500px', border: '1px solid #C9A96E06', borderRadius: '50%' }}></div>
+        <div style={{ position: 'absolute', top: '40%', right: '15%', width: '2px', height: '120px', background: 'linear-gradient(to bottom, #C9A96E00, #C9A96E15, #C9A96E00)' }}></div>
+        <div style={{ position: 'absolute', top: '30%', left: '10%', width: '2px', height: '80px', background: 'linear-gradient(to bottom, #C9A96E00, #C9A96E10, #C9A96E00)' }}></div>
+        <div className="max-w-3xl mx-auto px-6 text-center" style={{ position: 'relative', zIndex: 1 }}>
           <p style={{ color: '#C9A96E', fontFamily: 'Helvetica Neue, Arial, sans-serif', letterSpacing: '0.35em', fontSize: '10px', marginBottom: '20px' }} className="uppercase">
             Lion Elite Programs
           </p>

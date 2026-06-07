@@ -3,11 +3,13 @@ import { Link } from 'react-router-dom'
 import Navbar from '../components/Navbar'
 import LongevityProgram from '../components/LongevityProgram'
 import Footer from '../components/Footer'
+import SEO from '../components/SEO'
 
 export default function LongevityPage() {
   useEffect(() => { window.scrollTo(0, 0) }, [])
   return (
     <div style={{ backgroundColor: '#060709', minHeight: '100vh' }}>
+      <SEO title="Longevity & Anti-Aging Program" description="Premium peptide protocol for cellular health, reduced inflammation, and sustained strength, sharpness, and vitality long-term." />
       <Navbar />
 
       {/* Back */}
@@ -21,8 +23,11 @@ export default function LongevityPage() {
       </div>
 
       {/* Hero */}
-      <section style={{ padding: '56px 0 72px' }}>
-        <div className="max-w-3xl mx-auto px-6 text-center">
+      <section style={{ padding: '56px 0 72px', position: 'relative', overflow: 'hidden' }}>
+        <div style={{ position: 'absolute', top: '-100px', right: '-60px', width: '350px', height: '350px', border: '1px solid #7A9FBF08', borderRadius: '50%' }}></div>
+        <div style={{ position: 'absolute', bottom: '-120px', left: '-80px', width: '400px', height: '400px', border: '1px solid #7A9FBF06', borderRadius: '50%' }}></div>
+        <div style={{ position: 'absolute', top: '35%', right: '10%', width: '2px', height: '100px', background: 'linear-gradient(to bottom, #7A9FBF00, #7A9FBF12, #7A9FBF00)' }}></div>
+        <div className="max-w-3xl mx-auto px-6 text-center" style={{ position: 'relative', zIndex: 1 }}>
           <p style={{ color: '#7A9FBF', fontFamily: 'Helvetica Neue, Arial, sans-serif', letterSpacing: '0.35em', fontSize: '10px', marginBottom: '20px' }} className="uppercase">
             Longevity & Anti-Aging
           </p>

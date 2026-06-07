@@ -3,11 +3,13 @@ import { Link } from 'react-router-dom'
 import Navbar from '../components/Navbar'
 import WeightProgram from '../components/WeightProgram'
 import Footer from '../components/Footer'
+import SEO from '../components/SEO'
 
 export default function WeightPage() {
   useEffect(() => { window.scrollTo(0, 0) }, [])
   return (
     <div style={{ backgroundColor: '#060906', minHeight: '100vh' }}>
+      <SEO title="Weight & Metabolic Program" description="Personalized peptide protocol for fat loss, appetite control, and metabolic reset — precision-based optimization, not dieting." />
       <Navbar />
 
       {/* Back */}
@@ -21,8 +23,11 @@ export default function WeightPage() {
       </div>
 
       {/* Hero */}
-      <section style={{ padding: '56px 0 72px' }}>
-        <div className="max-w-3xl mx-auto px-6 text-center">
+      <section style={{ padding: '56px 0 72px', position: 'relative', overflow: 'hidden' }}>
+        <div style={{ position: 'absolute', top: '-100px', right: '-60px', width: '350px', height: '350px', border: '1px solid #5BA87A08', borderRadius: '50%' }}></div>
+        <div style={{ position: 'absolute', bottom: '-120px', left: '-80px', width: '400px', height: '400px', border: '1px solid #5BA87A06', borderRadius: '50%' }}></div>
+        <div style={{ position: 'absolute', top: '35%', right: '10%', width: '2px', height: '100px', background: 'linear-gradient(to bottom, #5BA87A00, #5BA87A12, #5BA87A00)' }}></div>
+        <div className="max-w-3xl mx-auto px-6 text-center" style={{ position: 'relative', zIndex: 1 }}>
           <p style={{ color: '#5BA87A', fontFamily: 'Helvetica Neue, Arial, sans-serif', letterSpacing: '0.35em', fontSize: '10px', marginBottom: '20px' }} className="uppercase">
             Fat Loss & Metabolic Reset
           </p>
