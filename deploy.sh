@@ -14,7 +14,7 @@ else
 fi
 
 # Push to GitHub → triggers Vercel auto-deploy
-git push github master:main --force
+git push github master:main --force 2>&1
 
 echo ""
 echo "✅ Done! Vercel is now building your site."
