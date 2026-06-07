@@ -32,7 +32,7 @@ const wrap = (content) => `
 </html>`
 
 // ── Admin notification content ──────────────────────────────────────────────
-function adminBody({ name, email, phone, program, experience, struggle, timeline, investment, commitment, health, products }) {
+function adminBody({ name, email, phone, program, experience, struggle, timeline, investment, commitment, health, products, address, discountCode }) {
   const rows = []
   if (name) rows.push(['Name', name])
   if (email) rows.push(['Email', email])
@@ -45,6 +45,8 @@ function adminBody({ name, email, phone, program, experience, struggle, timeline
   if (commitment) rows.push(['Commitment', commitment])
   if (health) rows.push(['Health Notes', health])
   if (products) rows.push(['Products Ordered', products.join(', ')])
+  if (address) rows.push(['Shipping Address', address])
+  if (discountCode && discountCode !== 'None') rows.push(['Discount Code', discountCode])
 
   const rowsHtml = rows.map(([label, val]) =>
     `<tr><td style="padding:10px 16px; border-bottom:1px solid #1A1A1A; color:#6A6A6A; font-family:'Helvetica Neue',Arial,sans-serif; font-size:13px; white-space:nowrap; vertical-align:top;"><strong style="color:#C9A96E;">${label}</strong></td><td style="padding:10px 16px; border-bottom:1px solid #1A1A1A; color:#FAFAF8; font-family:'Helvetica Neue',Arial,sans-serif; font-size:13px;">${val}</td></tr>`

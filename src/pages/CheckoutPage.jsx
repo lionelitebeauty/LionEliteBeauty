@@ -11,41 +11,47 @@ export default function CheckoutPage() {
   const [name, setName] = useState('')
   const [email, setEmail] = useState('')
   const [phone, setPhone] = useState('')
-  const [notes, setNotes] = useState('')
+  const [address, setAddress] = useState('')
+  const [city, setCity] = useState('')
+  const [state, setState] = useState('')
+  const [zip, setZip] = useState('')
+  const [discountCode, setDiscountCode] = useState('')
+  const [discountApplied, setDiscountApplied] = useState(false)
   const [sending, setSending] = useState(false)
   const [placed, setPlaced] = useState(false)
-  const [sendError, setSendError] = useState(false)
+
+  function handleApplyDiscount() {
+    if (discountCode.trim().toUpperCase() === 'WELCOME10') {
+      setDiscountApplied(true)
+    } else {
+      alert('Invalid discount code')
+    }
+  }
 
   async function handlePlaceOrder(e) {
     e.preventDefault()
-    if (!name.trim() || !email.trim()) return
+    if (!name.trim() || !email.trim() || !address.trim() || !city.trim() || !state.trim() || !zip.trim()) return
     setSending(true)
-    setSendError(false)
 
     const payload = {
       type: 'order',
       name,
       email,
       phone: phone || 'Not provided',
-      notes: notes || 'None',
+      address: `${address}, ${city}, ${state} ${zip}`,
+      discountCode: discountApplied ? discountCode : 'None',
       products: items.map(i => `${i.name} × ${i.quantity}`),
       total: `$${subtotal.toFixed(2)}`,
     }
 
     try {
-      const res = await fetch('/api/send', {
+      await fetch('/api/send', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(payload),
       })
-      if (!res.ok) throw new Error('API error')
     } catch (err) {
-      console.error('API failed, using mailto fallback:', err)
-      const subject = encodeURIComponent(`New Order: ${items.map(i => i.name).join(', ')}`)
-      const body = encodeURIComponent(
-        `Name: ${name}\nEmail: ${email}\nPhone: ${phone || 'Not provided'}\nItems:\n${items.map(i => `  ${i.name} × ${i.quantity} — $${(i.priceNum * i.quantity).toFixed(2)}`).join('\n')}\nTotal: $${subtotal.toFixed(2)}\n\nNotes: ${notes || 'None'}`
-      )
-      window.open(`mailto:orders@lionelitebeauty.com?subject=${subject}&body=${body}`, '_blank')
+      console.error('API error:', err)
     } finally {
       setSending(false)
       setPlaced(true)
@@ -109,13 +115,13 @@ export default function CheckoutPage() {
                 </p>
               </div>
 
-              <p style={{ fontFamily: 'Helvetica Neue, Arial, sans-serif', color: '#4A4A4A', fontSize: '12px', lineHeight: '1.7', textAlign: 'center' }}>
+              <p style={{ fontFamily: 'Helvetica Neue, Arial, sans-serif', color: '#6A6A6A', fontSize: '12px', lineHeight: '1.7', textAlign: 'center' }}>
                 Your order will ship once payment is confirmed. We'll notify you by email.
               </p>
             </div>
 
             <Link to="/"
-              style={{ fontFamily: 'Helvetica Neue, Arial, sans-serif', color: '#3A3A3A', fontSize: '12px', letterSpacing: '0.15em', textDecoration: 'none', display: 'inline-block', marginTop: '40px' }}
+              style={{ fontFamily: 'Helvetica Neue, Arial, sans-serif', color: '#8A8A8A', fontSize: '12px', letterSpacing: '0.15em', textDecoration: 'none', display: 'inline-block', marginTop: '40px' }}
               className="uppercase hover:text-[#C9A96E] transition-colors">
               ← Return Home
             </Link>
@@ -132,7 +138,7 @@ export default function CheckoutPage() {
         <Navbar />
         <section style={{ paddingTop: '140px', paddingBottom: '100px', textAlign: 'center' }}>
           <div className="max-w-2xl mx-auto px-6">
-            <p style={{ fontFamily: 'Georgia, serif', color: '#4A4A4A', fontSize: '1.2rem', marginBottom: '24px' }}>
+            <p style={{ fontFamily: 'Georgia, serif', color: '#7A7A7A', fontSize: '1.2rem', marginBottom: '24px' }}>
               Your cart is empty.
             </p>
             <Link to="/skincare"
@@ -145,6 +151,13 @@ export default function CheckoutPage() {
         <Footer />
       </div>
     )
+  }
+
+  const inputStyle = {
+    width: '100%', padding: '14px 18px', backgroundColor: '#0A0A0A',
+    border: '1px solid #2A2A2A', color: '#FAFAF8',
+    fontFamily: 'Helvetica Neue, Arial, sans-serif', fontSize: '14px',
+    outline: 'none',
   }
 
   return (
@@ -168,6 +181,8 @@ export default function CheckoutPage() {
             {/* Left — Form */}
             <div className="md:col-span-3">
               <form onSubmit={handlePlaceOrder}>
+
+                {/* Contact */}
                 <div style={{ marginBottom: '40px' }}>
                   <p style={{ fontFamily: 'Helvetica Neue, Arial, sans-serif', color: '#C9A96E', letterSpacing: '0.25em', fontSize: '10px', marginBottom: '20px' }}
                     className="uppercase">Contact Information</p>
@@ -175,28 +190,76 @@ export default function CheckoutPage() {
                     <div>
                       <label style={{ fontFamily: 'Helvetica Neue, Arial, sans-serif', color: '#8A8A8A', fontSize: '11px', letterSpacing: '0.1em', display: 'block', marginBottom: '6px' }} className="uppercase">Full Name *</label>
                       <input type="text" value={name} onChange={e => setName(e.target.value)} required
-                        style={{ width: '100%', padding: '14px 18px', backgroundColor: '#0A0A0A', border: '1px solid #2A2A2A', color: '#FAFAF8', fontFamily: 'Helvetica Neue, Arial, sans-serif', fontSize: '14px', outline: 'none' }}
-                        placeholder="Your full name" />
+                        style={inputStyle} placeholder="Your full name" />
                     </div>
                     <div>
                       <label style={{ fontFamily: 'Helvetica Neue, Arial, sans-serif', color: '#8A8A8A', fontSize: '11px', letterSpacing: '0.1em', display: 'block', marginBottom: '6px' }} className="uppercase">Email *</label>
                       <input type="email" value={email} onChange={e => setEmail(e.target.value)} required
-                        style={{ width: '100%', padding: '14px 18px', backgroundColor: '#0A0A0A', border: '1px solid #2A2A2A', color: '#FAFAF8', fontFamily: 'Helvetica Neue, Arial, sans-serif', fontSize: '14px', outline: 'none' }}
-                        placeholder="your@email.com" />
+                        style={inputStyle} placeholder="your@email.com" />
                     </div>
                     <div>
                       <label style={{ fontFamily: 'Helvetica Neue, Arial, sans-serif', color: '#8A8A8A', fontSize: '11px', letterSpacing: '0.1em', display: 'block', marginBottom: '6px' }} className="uppercase">Phone</label>
                       <input type="tel" value={phone} onChange={e => setPhone(e.target.value)}
-                        style={{ width: '100%', padding: '14px 18px', backgroundColor: '#0A0A0A', border: '1px solid #2A2A2A', color: '#FAFAF8', fontFamily: 'Helvetica Neue, Arial, sans-serif', fontSize: '14px', outline: 'none' }}
-                        placeholder="+1 (000) 000-0000" />
-                    </div>
-                    <div>
-                      <label style={{ fontFamily: 'Helvetica Neue, Arial, sans-serif', color: '#8A8A8A', fontSize: '11px', letterSpacing: '0.1em', display: 'block', marginBottom: '6px' }} className="uppercase">Order Notes</label>
-                      <textarea value={notes} onChange={e => setNotes(e.target.value)} rows={3}
-                        style={{ width: '100%', padding: '14px 18px', backgroundColor: '#0A0A0A', border: '1px solid #2A2A2A', color: '#FAFAF8', fontFamily: 'Helvetica Neue, Arial, sans-serif', fontSize: '14px', outline: 'none', resize: 'vertical' }}
-                        placeholder="Anything we should know?" />
+                        style={inputStyle} placeholder="+1 (000) 000-0000" />
                     </div>
                   </div>
+                </div>
+
+                {/* Shipping */}
+                <div style={{ marginBottom: '40px' }}>
+                  <p style={{ fontFamily: 'Helvetica Neue, Arial, sans-serif', color: '#C9A96E', letterSpacing: '0.25em', fontSize: '10px', marginBottom: '20px' }}
+                    className="uppercase">Shipping Address</p>
+                  <div className="space-y-4">
+                    <div>
+                      <label style={{ fontFamily: 'Helvetica Neue, Arial, sans-serif', color: '#8A8A8A', fontSize: '11px', letterSpacing: '0.1em', display: 'block', marginBottom: '6px' }} className="uppercase">Street Address *</label>
+                      <input type="text" value={address} onChange={e => setAddress(e.target.value)} required
+                        style={inputStyle} placeholder="123 Main Street" />
+                    </div>
+                    <div className="grid grid-cols-3 gap-3">
+                      <div className="col-span-1">
+                        <label style={{ fontFamily: 'Helvetica Neue, Arial, sans-serif', color: '#8A8A8A', fontSize: '11px', letterSpacing: '0.1em', display: 'block', marginBottom: '6px' }} className="uppercase">City *</label>
+                        <input type="text" value={city} onChange={e => setCity(e.target.value)} required
+                          style={inputStyle} placeholder="City" />
+                      </div>
+                      <div className="col-span-1">
+                        <label style={{ fontFamily: 'Helvetica Neue, Arial, sans-serif', color: '#8A8A8A', fontSize: '11px', letterSpacing: '0.1em', display: 'block', marginBottom: '6px' }} className="uppercase">State *</label>
+                        <input type="text" value={state} onChange={e => setState(e.target.value)} required
+                          style={inputStyle} placeholder="State" />
+                      </div>
+                      <div className="col-span-1">
+                        <label style={{ fontFamily: 'Helvetica Neue, Arial, sans-serif', color: '#8A8A8A', fontSize: '11px', letterSpacing: '0.1em', display: 'block', marginBottom: '6px' }} className="uppercase">Zip Code *</label>
+                        <input type="text" value={zip} onChange={e => setZip(e.target.value)} required
+                          style={inputStyle} placeholder="00000" />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Discount Code */}
+                <div style={{ marginBottom: '40px' }}>
+                  <p style={{ fontFamily: 'Helvetica Neue, Arial, sans-serif', color: '#C9A96E', letterSpacing: '0.25em', fontSize: '10px', marginBottom: '20px' }}
+                    className="uppercase">Discount Code</p>
+                  <div className="flex gap-3">
+                    <input type="text" value={discountCode} onChange={e => setDiscountCode(e.target.value)}
+                      style={{ ...inputStyle, flex: 1 }} placeholder="Enter code"
+                      disabled={discountApplied} />
+                    <button type="button" onClick={handleApplyDiscount}
+                      disabled={discountApplied || !discountCode.trim()}
+                      style={{
+                        backgroundColor: discountApplied ? '#5BA87A' : '#C9A96E',
+                        color: '#000', border: 'none', padding: '14px 24px',
+                        fontFamily: 'Helvetica Neue, Arial, sans-serif',
+                        fontSize: '10px', letterSpacing: '0.2em', cursor: 'pointer',
+                      }}
+                      className="uppercase hover:opacity-90 transition-opacity whitespace-nowrap">
+                      {discountApplied ? 'Applied ✓' : 'Apply'}
+                    </button>
+                  </div>
+                  {discountApplied && (
+                    <p style={{ fontFamily: 'Helvetica Neue, Arial, sans-serif', color: '#5BA87A', fontSize: '12px', marginTop: '8px' }}>
+                      Discount applied! We'll adjust the total before processing payment.
+                    </p>
+                  )}
                 </div>
 
                 {/* Payment methods */}
@@ -213,7 +276,7 @@ export default function CheckoutPage() {
                         <span style={{ color: '#FFF', fontFamily: 'Helvetica Neue, Arial, sans-serif', fontSize: '9px', letterSpacing: '0.1em', fontWeight: 'bold' }}>Z</span>
                       </div>
                       <p style={{ fontFamily: 'Helvetica Neue, Arial, sans-serif', color: '#FAFAF8', fontSize: '13px' }}>Zelle</p>
-                      <p style={{ fontFamily: 'Helvetica Neue, Arial, sans-serif', color: '#4A4A4A', fontSize: '10px', marginTop: '4px' }}>
+                      <p style={{ fontFamily: 'Helvetica Neue, Arial, sans-serif', color: '#7A7A7A', fontSize: '10px', marginTop: '4px' }}>
                         orders@lionelitebeauty.com
                       </p>
                     </div>
@@ -222,20 +285,12 @@ export default function CheckoutPage() {
                         <span style={{ color: '#FFF', fontFamily: 'Helvetica Neue, Arial, sans-serif', fontSize: '9px', letterSpacing: '0.1em', fontWeight: 'bold' }}>$</span>
                       </div>
                       <p style={{ fontFamily: 'Helvetica Neue, Arial, sans-serif', color: '#FAFAF8', fontSize: '13px' }}>CashApp</p>
-                      <p style={{ fontFamily: 'Helvetica Neue, Arial, sans-serif', color: '#4A4A4A', fontSize: '10px', marginTop: '4px' }}>
+                      <p style={{ fontFamily: 'Helvetica Neue, Arial, sans-serif', color: '#7A7A7A', fontSize: '10px', marginTop: '4px' }}>
                         $LionElite
                       </p>
                     </div>
                   </div>
                 </div>
-
-                {sendError && (
-                  <p style={{ fontFamily: 'Helvetica Neue, Arial, sans-serif', color: '#E05A5A', fontSize: '13px', marginBottom: '16px' }}>
-                    There was an issue sending your confirmation. You can still complete your order —{' '}
-                    <a href={`mailto:orders@lionelitebeauty.com?subject=New Order: ${encodeURIComponent(items.map(i => i.name).join(', '))}&body=Name: ${encodeURIComponent(name)}%0AEmail: ${encodeURIComponent(email)}%0APhone: ${encodeURIComponent(phone)}%0AItems: ${encodeURIComponent(items.map(i => `${i.name} × ${i.quantity}`).join(', '))}%0ATotal: $${subtotal.toFixed(2)}`}
-                      style={{ color: '#C9A96E', textDecoration: 'none' }}>email your order instead</a>.
-                  </p>
-                )}
 
                 <button type="submit" disabled={sending}
                   style={{
@@ -275,7 +330,13 @@ export default function CheckoutPage() {
                     <span style={{ fontFamily: 'Helvetica Neue, Arial, sans-serif', color: '#8A8A8A', fontSize: '13px' }}>Subtotal</span>
                     <span style={{ fontFamily: 'Georgia, serif', color: '#FAFAF8', fontSize: '18px' }}>${subtotal.toFixed(2)}</span>
                   </div>
-                  <p style={{ fontFamily: 'Helvetica Neue, Arial, sans-serif', color: '#4A4A4A', fontSize: '11px', marginTop: '8px' }}>
+                  {discountApplied && (
+                    <div className="flex justify-between mb-1">
+                      <span style={{ fontFamily: 'Helvetica Neue, Arial, sans-serif', color: '#5BA87A', fontSize: '13px' }}>Discount</span>
+                      <span style={{ fontFamily: 'Helvetica Neue, Arial, sans-serif', color: '#5BA87A', fontSize: '14px' }}>Applied at payment</span>
+                    </div>
+                  )}
+                  <p style={{ fontFamily: 'Helvetica Neue, Arial, sans-serif', color: '#7A7A7A', fontSize: '11px', marginTop: '8px' }}>
                     You'll receive payment instructions after placing your order.
                   </p>
                 </div>
