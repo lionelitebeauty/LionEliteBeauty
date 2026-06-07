@@ -24,21 +24,25 @@ import SkinSystemPage from './pages/SkinSystemPage'
 import ApplyPage from './pages/ApplyPage'
 import CartPage from './pages/CartPage'
 import CheckoutPage from './pages/CheckoutPage'
+import SEO from './components/SEO'
 
 function HomePage() {
   return (
-    <div style={{ backgroundColor: '#0D0D0D' }}>
-      <Navbar />
-      <Hero />
-      <BrandManifesto />
-      <RoutineSection />
-      <ServicesOverview />
-      <BeforeAfterResults />
-      <SkincareLine />
-      <Testimonials />
-      <CTASection />
-      <Footer />
-    </div>
+    <>
+      <SEO title="Premium Peptide Skincare & Wellness" description="Science-backed peptide skincare and personalized wellness programs. Feel good in your own skin with Lion Elite Beauty." />
+      <div style={{ backgroundColor: '#0D0D0D' }}>
+        <Navbar />
+        <Hero />
+        <BrandManifesto />
+        <RoutineSection />
+        <ServicesOverview />
+        <BeforeAfterResults />
+        <SkincareLine />
+        <Testimonials />
+        <CTASection />
+        <Footer />
+      </div>
+    </>
   )
 }
 

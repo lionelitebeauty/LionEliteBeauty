@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import { useCart } from '../context/CartContext'
 import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
+import SEO from '../components/SEO'
 
 export default function CartPage() {
   const { items, removeItem, updateQuantity, subtotal, itemCount } = useCart()
@@ -10,6 +11,7 @@ export default function CartPage() {
 
   return (
     <div style={{ backgroundColor: '#080808', minHeight: '100vh' }}>
+      <SEO title="Shopping Cart" description="Review your peptide skincare and wellness selections." />
       <Navbar />
 
       {/* Hero */}
@@ -46,29 +48,34 @@ export default function CartPage() {
           ) : (
             <div className="grid md:grid-cols-3 gap-10">
               {/* Cart items */}
-              <div className="md:col-span-2 space-y-px" style={{ backgroundColor: '#111' }}>
-                {items.map(item => (
-                  <div key={item.slug} style={{ backgroundColor: '#0A0A0A', padding: '28px 32px' }}
-                    className="flex items-center justify-between gap-6">
-                    <div className="flex-1">
-                      <p style={{ fontFamily: 'Georgia, serif', color: '#FAFAF8', fontSize: '15px', lineHeight: '1.3', marginBottom: '4px' }}>
-                        {item.name}
-                      </p>
-                      <p style={{ fontFamily: 'Helvetica Neue, Arial, sans-serif', color: '#6A6A6A', fontSize: '11px', letterSpacing: '0.1em' }} className="uppercase">
-                        {item.size || ''}
-                      </p>
+              <div className="md:col-span-2 space-y-px" style={{ backgroundColor: '#141414' }}>
+                {items.map((item, idx) => (
+                  <div key={item.slug} style={{ backgroundColor: '#0A0A0A', padding: '28px 32px', borderLeft: '2px solid transparent' }}
+                    className="flex items-center justify-between gap-6 hover:bg-[#0D0D0D] transition-colors group">
+                    <div className="flex-1 flex items-center gap-4">
+                      <div style={{ width: '4px', height: '32px', backgroundColor: '#C9A96E', opacity: '0.3', flexShrink: 0 }}></div>
+                      <div>
+                        <p style={{ fontFamily: 'Georgia, serif', color: '#FAFAF8', fontSize: '15px', lineHeight: '1.3', marginBottom: '4px' }}>
+                          {item.name}
+                        </p>
+                        <p style={{ fontFamily: 'Helvetica Neue, Arial, sans-serif', color: '#6A6A6A', fontSize: '11px', letterSpacing: '0.1em' }} className="uppercase">
+                          {item.size || ''}
+                        </p>
+                      </div>
                     </div>
                     <div className="flex items-center gap-4">
                       <div className="flex items-center" style={{ border: '1px solid #2A2A2A' }}>
                         <button onClick={() => updateQuantity(item.slug, item.quantity - 1)}
-                          style={{ padding: '8px 12px', backgroundColor: 'transparent', border: 'none', color: '#CACACA', cursor: 'pointer', fontFamily: 'Helvetica Neue, Arial, sans-serif', fontSize: '14px' }}>
+                          style={{ padding: '8px 12px', backgroundColor: 'transparent', border: 'none', color: '#CACACA', cursor: 'pointer', fontFamily: 'Helvetica Neue, Arial, sans-serif', fontSize: '14px' }}
+                          className="hover:text-[#C9A96E] transition-colors">
                           −
                         </button>
                         <span style={{ padding: '8px 12px', color: '#FAFAF8', fontFamily: 'Helvetica Neue, Arial, sans-serif', fontSize: '13px', borderLeft: '1px solid #2A2A2A', borderRight: '1px solid #2A2A2A' }}>
                           {item.quantity}
                         </span>
                         <button onClick={() => updateQuantity(item.slug, item.quantity + 1)}
-                          style={{ padding: '8px 12px', backgroundColor: 'transparent', border: 'none', color: '#CACACA', cursor: 'pointer', fontFamily: 'Helvetica Neue, Arial, sans-serif', fontSize: '14px' }}>
+                          style={{ padding: '8px 12px', backgroundColor: 'transparent', border: 'none', color: '#CACACA', cursor: 'pointer', fontFamily: 'Helvetica Neue, Arial, sans-serif', fontSize: '14px' }}
+                          className="hover:text-[#C9A96E] transition-colors">
                           +
                         </button>
                       </div>
@@ -76,8 +83,8 @@ export default function CartPage() {
                         ${(item.priceNum * item.quantity).toFixed(2)}
                       </p>
                       <button onClick={() => removeItem(item.slug)}
-                        style={{ backgroundColor: 'transparent', border: 'none', color: '#4A4A4A', cursor: 'pointer', fontSize: '16px', padding: '4px' }}
-                        className="hover:text-[#C9A96E] transition-colors">
+                        style={{ backgroundColor: 'transparent', border: '1px solid #2A2A2A', color: '#4A4A4A', cursor: 'pointer', fontSize: '13px', padding: '6px 10px', lineHeight: '1' }}
+                        className="hover:border-[#C9A96E44] hover:text-[#C9A96E] transition-colors">
                         ✕
                       </button>
                     </div>

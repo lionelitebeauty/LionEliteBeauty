@@ -4,6 +4,7 @@ import { useCart } from '../context/CartContext'
 import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
 import { skincareProducts } from '../data/skincareProducts'
+import SEO from '../components/SEO'
 
 function ProductBottle({ accent, label, large }) {
   const w = large ? '90px' : '64px'
@@ -30,6 +31,7 @@ export default function ProductPage() {
   if (!product) return <Navigate to="/skincare" replace />
 
   const p = product
+  const isPreOrder = p.badge === 'Pre-Order' || p.badge === 'Coming Soon'
   const isComingSoon = p.badge === 'Coming Soon'
   const isDark = p.bg === '#1A1A1A' || p.bg === '#2A2A2A'
   const relatedProducts = p.pairsWith
@@ -80,6 +82,7 @@ export default function ProductPage() {
 
   return (
     <div style={{ backgroundColor: '#0A0A0A', minHeight: '100vh' }}>
+      <SEO title={p.name} description={`${p.name} — ${p.tagline}. ${p.description ? p.description.substring(0, 120) : 'Premium peptide skincare from Lion Elite Beauty.'}`} />
       <Navbar />
 
       {/* Breadcrumb */}
@@ -146,38 +149,42 @@ export default function ProductPage() {
               )}
 
               {/* Price + CTA */}
-              {isComingSoon ? (
-                <div className="mb-8">
-                  <p style={{ fontFamily: 'Georgia, serif', color: '#C9A96E', fontSize: '1.2rem', marginBottom: '20px', letterSpacing: '0.05em' }}>
-                    Coming Soon — Be the first to know.
-                  </p>
-                  {!notifySent ? (
-                    <form onSubmit={handleNotify} className="flex gap-3 items-stretch">
-                      <input type="email" value={notifyEmail} onChange={e => setNotifyEmail(e.target.value)}
-                        placeholder="Enter your email"
-                        style={{
-                          flex: 1, padding: '14px 18px', backgroundColor: '#111',
-                          border: '1px solid #2A2A2A', color: '#FAFAF8',
-                          fontFamily: 'Helvetica Neue, Arial, sans-serif', fontSize: '13px', outline: 'none',
-                        }}
-                        required />
-                      <button type="submit" disabled={notifySending}
-                        style={{
-                          backgroundColor: '#C9A96E', color: '#000', border: 'none',
-                          fontFamily: 'Helvetica Neue, Arial, sans-serif',
-                          fontSize: '11px', letterSpacing: '0.15em',
-                          padding: '14px 28px', cursor: notifySending ? 'not-allowed' : 'pointer',
-                          whiteSpace: 'nowrap',
-                        }}
-                        className="uppercase hover:opacity-90 transition-opacity">
-                        {notifySending ? 'Sending…' : 'Notify Me →'}
-                      </button>
-                    </form>
-                  ) : (
-                    <p style={{ fontFamily: 'Helvetica Neue, Arial, sans-serif', color: '#5BA87A', fontSize: '14px' }}>
-                      You're on the list. We'll let you know when it launches.
+              {isPreOrder ? (
+                <div className="mb-8" style={{ border: '1px solid #C9A96E33', padding: '28px', backgroundColor: '#0C0A08' }}>
+                  <div className="flex items-center justify-between mb-4">
+                    <p style={{ fontFamily: 'Georgia, serif', color: '#C9A96E', fontSize: '1.8rem', letterSpacing: '0.02em' }}>
+                      ${p.priceNum.toFixed(2)}
                     </p>
-                  )}
+                    <div style={{ backgroundColor: '#C9A96E', padding: '4px 12px' }}>
+                      <span style={{ fontFamily: 'Helvetica Neue, Arial, sans-serif', color: '#000', fontSize: '9px', letterSpacing: '0.2em' }} className="uppercase">Pre-Order</span>
+                    </div>
+                  </div>
+                  <p style={{ fontFamily: 'Helvetica Neue, Arial, sans-serif', color: '#CACACA', fontSize: '13px', lineHeight: '1.7', marginBottom: '20px' }}>
+                    Secure your order now. First batch ships <strong style={{ color: '#FAFAF8' }}>Est. 2026</strong>. You'll be charged when your order ships.
+                  </p>
+                  <div className="flex items-center gap-3">
+                    <button onClick={handleAddToCart}
+                      style={{
+                        backgroundColor: addedToCart ? '#5BA87A' : '#C9A96E', color: '#000', border: 'none',
+                        fontFamily: 'Helvetica Neue, Arial, sans-serif',
+                        fontSize: '11px', letterSpacing: '0.2em',
+                        padding: '16px 36px', cursor: 'pointer', flex: 1,
+                      }}
+                      className="uppercase hover:opacity-90 transition-opacity">
+                      {addedToCart ? '✓ Added to Cart' : 'Pre-Order Now →'}
+                    </button>
+                    {addedToCart && (
+                      <Link to="/cart"
+                        style={{
+                          fontFamily: 'Helvetica Neue, Arial, sans-serif',
+                          color: '#C9A96E', fontSize: '10px', letterSpacing: '0.15em',
+                          textDecoration: 'none', borderBottom: '1px solid #C9A96E44', paddingBottom: '2px',
+                        }}
+                        className="uppercase hover:opacity-70 transition-opacity whitespace-nowrap">
+                        View Cart →
+                      </Link>
+                    )}
+                  </div>
                 </div>
               ) : (
                 <div className="flex items-center gap-5 mb-8">

@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 import { Link, useSearchParams } from 'react-router-dom'
 import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
+import SEO from '../components/SEO'
 
 const programs = [
   { value: 'muscle', label: 'Muscle & Recovery', accent: '#C9A96E' },
@@ -94,6 +95,7 @@ export default function ApplyPage() {
   if (submitted) {
     return (
       <div style={{ backgroundColor: '#080808', minHeight: '100vh' }}>
+        <SEO title="Application Received" description="Your application for a personalized peptide program has been received. We'll respond within 24-48 hours." />
         <Navbar />
         <section style={{ paddingTop: '140px', paddingBottom: '100px' }}>
           <div className="max-w-2xl mx-auto px-6 text-center">
@@ -140,6 +142,7 @@ export default function ApplyPage() {
 
   return (
     <div style={{ backgroundColor: '#080808', minHeight: '100vh' }}>
+      <SEO title="Apply for a Program" description="Apply for a personalized peptide optimization program. We review every application personally and respond within 24-48 hours." />
       <Navbar />
 
       {/* Hero */}
@@ -438,6 +441,6 @@ function inputStyle(error) {
     border: error ? '1px solid #E05A5A' : '1px solid #141414',
     color: '#FAFAF8', fontFamily: 'Helvetica Neue, Arial, sans-serif',
     fontSize: '14px', padding: '14px 16px',
-    outline: 'none',
+    outline: 'none', transition: 'border-color 0.2s, box-shadow 0.2s',
   }
 }

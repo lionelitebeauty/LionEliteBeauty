@@ -3,11 +3,13 @@ import { Link } from 'react-router-dom'
 import Navbar from '../components/Navbar'
 import NeuroProgram from '../components/NeuroProgram'
 import Footer from '../components/Footer'
+import SEO from '../components/SEO'
 
 export default function NeuroPage() {
   useEffect(() => { window.scrollTo(0, 0) }, [])
   return (
     <div style={{ backgroundColor: '#060806', minHeight: '100vh' }}>
+      <SEO title="Neuro / Cognitive Program" description="Personalized peptide protocol designed to sharpen focus, eliminate brain fog, and sustain peak cognitive performance under pressure." />
       <Navbar />
 
       {/* Back */}
@@ -21,8 +23,11 @@ export default function NeuroPage() {
       </div>
 
       {/* Hero */}
-      <section style={{ padding: '56px 0 72px' }}>
-        <div className="max-w-3xl mx-auto px-6 text-center">
+      <section style={{ padding: '56px 0 72px', position: 'relative', overflow: 'hidden' }}>
+        <div style={{ position: 'absolute', top: '-100px', right: '-60px', width: '350px', height: '350px', border: '1px solid #8A9E8508', borderRadius: '50%' }}></div>
+        <div style={{ position: 'absolute', bottom: '-120px', left: '-80px', width: '400px', height: '400px', border: '1px solid #8A9E8506', borderRadius: '50%' }}></div>
+        <div style={{ position: 'absolute', top: '35%', right: '10%', width: '2px', height: '100px', background: 'linear-gradient(to bottom, #8A9E8500, #8A9E8512, #8A9E8500)' }}></div>
+        <div className="max-w-3xl mx-auto px-6 text-center" style={{ position: 'relative', zIndex: 1 }}>
           <p style={{ color: '#8A9E85', fontFamily: 'Helvetica Neue, Arial, sans-serif', letterSpacing: '0.35em', fontSize: '10px', marginBottom: '20px' }} className="uppercase">
             Neuro & Cognitive Performance
           </p>

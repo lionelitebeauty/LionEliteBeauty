@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import { useCart } from '../context/CartContext'
 import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
+import SEO from '../components/SEO'
 
 export default function CheckoutPage() {
   const { items, subtotal, clearCart } = useCart()
@@ -162,6 +163,7 @@ export default function CheckoutPage() {
 
   return (
     <div style={{ backgroundColor: '#080808', minHeight: '100vh' }}>
+      <SEO title="Checkout" description="Complete your order for peptide skincare and wellness products." />
       <Navbar />
 
       <section style={{ paddingTop: '140px', paddingBottom: '64px', borderBottom: '1px solid #111' }}>
