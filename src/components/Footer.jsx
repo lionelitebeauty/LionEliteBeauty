@@ -11,9 +11,9 @@ export default function Footer() {
   ]
 
   return (
-    <footer style={{ backgroundColor: '#040404', padding: '60px 0 32px', borderTop: '1px solid #111' }}>
+    <footer style={{ backgroundColor: '#2A2A2A', padding: '60px 0 32px', borderTop: '1px solid #3A3A3A' }}>
       <div className="max-w-7xl mx-auto px-6">
-        <div className="grid md:grid-cols-4 gap-10 pb-12" style={{ borderBottom: '1px solid #141414' }}>
+        <div className="grid md:grid-cols-4 gap-10 pb-12" style={{ borderBottom: '1px solid #3A3A3A' }}>
 
           {/* Brand */}
           <div className="md:col-span-1">
@@ -27,7 +27,7 @@ export default function Footer() {
             <div className="flex gap-3 mt-6">
               {['IG', 'TK', 'FB'].map(s => (
                 <a key={s} href="#"
-                  style={{ width: '30px', height: '30px', border: '1px solid #1E1E1E', display: 'flex', alignItems: 'center', justifyContent: 'center' }}
+                  style={{ width: '30px', height: '30px', border: '1px solid #4A4A4A', display: 'flex', alignItems: 'center', justifyContent: 'center' }}
                   className="hover:border-[#C9A96E] transition-colors">
                   <span style={{ fontFamily: 'Helvetica Neue, Arial, sans-serif', color: '#8A8A8A', fontSize: '9px' }}>{s}</span>
                 </a>
@@ -73,27 +73,27 @@ export default function Footer() {
               <a key={item.label} href={item.href}
                 target={item.external ? '_blank' : undefined}
                 rel={item.external ? 'noopener noreferrer' : undefined}
-                style={{ fontFamily: 'Helvetica Neue, Arial, sans-serif', color: item.external ? '#C9A96E' : '#3A3A3A', fontSize: '13px', lineHeight: '1.5', display: 'block', marginBottom: '12px', textDecoration: 'none' }}
+                style={{ fontFamily: 'Helvetica Neue, Arial, sans-serif', color: item.external ? '#C9A96E' : '#8A8A8A', fontSize: '13px', lineHeight: '1.5', display: 'block', marginBottom: '12px', textDecoration: 'none' }}
                 className="hover:text-[#C9A96E] transition-colors">{item.label}</a>
             ))}
           </div>
         </div>
 
         {/* Disclaimer */}
-        <div style={{ borderBottom: '1px solid #141414', padding: '32px 0' }}>
-          <p style={{ fontFamily: 'Helvetica Neue, Arial, sans-serif', color: '#282828', fontSize: '11px', lineHeight: '1.9', maxWidth: '900px' }}>
+        <div style={{ borderBottom: '1px solid #3A3A3A', padding: '32px 0' }}>
+          <p style={{ fontFamily: 'Helvetica Neue, Arial, sans-serif', color: '#6A6A6A', fontSize: '11px', lineHeight: '1.9', maxWidth: '900px' }}>
             The products and information provided through this program have not been evaluated by the Food and Drug Administration. This program is not intended to diagnose, treat, cure, or prevent any disease. All information is for educational and informational purposes only and should not be considered medical advice. Always consult with a qualified healthcare professional before making any health decisions.
           </p>
         </div>
 
         <div className="flex flex-col md:flex-row items-center justify-between pt-8 gap-4">
-          <p style={{ fontFamily: 'Helvetica Neue, Arial, sans-serif', color: '#282828', fontSize: '11px', letterSpacing: '0.08em' }}>
+          <p style={{ fontFamily: 'Helvetica Neue, Arial, sans-serif', color: '#6A6A6A', fontSize: '11px', letterSpacing: '0.08em' }}>
             © {new Date().getFullYear()} Lion Elite Beauty · info@lionelitebeauty.com
           </p>
           <div className="flex gap-6">
             {['Privacy Policy', 'Terms of Service'].map(link => (
               <a key={link} href="#"
-                style={{ fontFamily: 'Helvetica Neue, Arial, sans-serif', color: '#282828', fontSize: '11px', letterSpacing: '0.08em', textDecoration: 'none' }}
+                style={{ fontFamily: 'Helvetica Neue, Arial, sans-serif', color: '#6A6A6A', fontSize: '11px', letterSpacing: '0.08em', textDecoration: 'none' }}
                 className="hover:text-[#C9A96E] transition-colors">{link}</a>
             ))}
           </div>

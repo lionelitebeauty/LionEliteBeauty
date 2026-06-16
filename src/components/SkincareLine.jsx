@@ -98,8 +98,8 @@ export default function SkincareLine() {
         </div>
 
         {/* Connection callout */}
-        <div style={{ backgroundColor: '#1A1A1A', padding: '20px 40px', maxWidth: '680px', margin: '0 auto 60px', textAlign: 'center' }}>
-          <p style={{ fontFamily: 'Helvetica Neue, Arial, sans-serif', color: '#7A7A7A', fontSize: '13px', lineHeight: '1.7', letterSpacing: '0.05em' }}>
+        <div style={{ backgroundColor: '#2A2A2A', padding: '20px 40px', maxWidth: '680px', margin: '0 auto 60px', textAlign: 'center' }}>
+          <p style={{ fontFamily: 'Helvetica Neue, Arial, sans-serif', color: '#8A8A8A', fontSize: '13px', lineHeight: '1.7', letterSpacing: '0.05em' }}>
             <span style={{ color: '#C9A96E' }}>Coming soon:</span> Optimization Program clients will receive direct access to lionelitewellness.com peptide protocols — integrated with your personalized plan.
           </p>
         </div>
@@ -181,7 +181,7 @@ export default function SkincareLine() {
         </div>
 
         {/* Bundle CTA */}
-        <div style={{ marginTop: '48px', backgroundColor: '#1A1A1A', padding: '40px 48px' }}
+        <div style={{ marginTop: '48px', backgroundColor: '#2A2A2A', padding: '40px 48px' }}
           className="flex flex-col md:flex-row items-center justify-between gap-6">
           <div>
             <p style={{ fontFamily: 'Helvetica Neue, Arial, sans-serif', color: '#CACACA', fontSize: '10px', letterSpacing: '0.3em', marginBottom: '8px' }}

@@ -32,22 +32,22 @@ const steps = [
 
 export default function RoutineSection() {
   return (
-    <section style={{ backgroundColor: '#050505', padding: '100px 0', borderTop: '1px solid #0F0F0F' }}>
+    <section style={{ backgroundColor: '#F5F0E8', padding: '100px 0', borderTop: '1px solid #E8DDD0' }}>
       <div className="max-w-7xl mx-auto px-6">
 
         {/* Header */}
         <div className="grid md:grid-cols-2 gap-16 items-end mb-16">
           <div>
-            <p style={{ fontFamily: 'Helvetica Neue, Arial, sans-serif', color: '#C9A96E', letterSpacing: '0.3em', fontSize: '10px', marginBottom: '16px' }}
+            <p style={{ fontFamily: 'Helvetica Neue, Arial, sans-serif', color: '#8A9E85', letterSpacing: '0.3em', fontSize: '10px', marginBottom: '16px' }}
               className="uppercase">Your Daily Routine</p>
-            <h2 style={{ fontFamily: 'Georgia, serif', color: '#FAFAF8', fontSize: '2.4rem', lineHeight: '1.15', letterSpacing: '-0.01em' }}
+            <h2 style={{ fontFamily: 'Georgia, serif', color: '#2A2A2A', fontSize: '2.4rem', lineHeight: '1.15', letterSpacing: '-0.01em' }}
               className="font-normal">
               Three steps.<br />Every day.<br />Real results.
             </h2>
           </div>
           <div>
             <div style={{ width: '32px', height: '1px', backgroundColor: '#C9A96E', marginBottom: '20px' }}></div>
-            <p style={{ fontFamily: 'Helvetica Neue, Arial, sans-serif', color: '#8A8A8A', fontSize: '15px', lineHeight: '1.9' }}>
+            <p style={{ fontFamily: 'Helvetica Neue, Arial, sans-serif', color: '#6A6A6A', fontSize: '15px', lineHeight: '1.9' }}>
               You don't need ten products. You need the right three — in the right order. This is the Lion Elite Beauty core routine: cleanse, treat, protect. Simple enough to do every day. Powerful enough to change your skin.
             </p>
             <p style={{ fontFamily: 'Helvetica Neue, Arial, sans-serif', color: '#C9A96E', fontSize: '12px', letterSpacing: '0.15em', marginTop: '20px' }}
@@ -58,9 +58,9 @@ export default function RoutineSection() {
         </div>
 
         {/* Steps */}
-        <div className="grid md:grid-cols-3 gap-px" style={{ backgroundColor: '#141414' }}>
+        <div className="grid md:grid-cols-3 gap-px" style={{ backgroundColor: '#E0D5C5' }}>
           {steps.map((s) => (
-            <div key={s.step} style={{ backgroundColor: '#080808', padding: '48px 40px' }}>
+            <div key={s.step} style={{ backgroundColor: '#FAF7F2', padding: '48px 40px' }}>
 
               {/* Step number */}
               <div className="flex items-center gap-4 mb-8">
@@ -80,7 +80,7 @@ export default function RoutineSection() {
                 <p style={{ fontFamily: 'Georgia, serif', color: '#FFF', fontSize: '5px', letterSpacing: '0.1em', textAlign: 'center', lineHeight: '2', opacity: 0.9 }}>LION<br />ELITE</p>
               </div>
 
-              <p style={{ fontFamily: 'Georgia, serif', color: '#FAFAF8', fontSize: '1.1rem', lineHeight: '1.3', marginBottom: '8px' }}>
+              <p style={{ fontFamily: 'Georgia, serif', color: '#2A2A2A', fontSize: '1.1rem', lineHeight: '1.3', marginBottom: '8px' }}>
                 {s.product}
               </p>
               <p style={{ fontFamily: 'Helvetica Neue, Arial, sans-serif', color: '#8A8A8A', fontSize: '10px', letterSpacing: '0.15em', marginBottom: '20px' }} className="uppercase">
@@ -89,7 +89,7 @@ export default function RoutineSection() {
 
               <div style={{ width: '24px', height: '1px', backgroundColor: s.accent, marginBottom: '16px' }}></div>
 
-              <p style={{ fontFamily: 'Helvetica Neue, Arial, sans-serif', color: '#8A8A8A', fontSize: '13px', lineHeight: '1.7', marginBottom: '28px' }}>
+              <p style={{ fontFamily: 'Helvetica Neue, Arial, sans-serif', color: '#6A6A6A', fontSize: '13px', lineHeight: '1.7', marginBottom: '28px' }}>
                 {s.micro}
               </p>
 
@@ -103,12 +103,12 @@ export default function RoutineSection() {
         </div>
 
         {/* Advanced night step */}
-        <div style={{ backgroundColor: '#0A0A0A', border: '1px solid #141414', marginTop: '1px', padding: '32px 40px' }}
+        <div style={{ backgroundColor: '#FAF7F2', border: '1px solid #E0D5C5', marginTop: '1px', padding: '32px 40px' }}
           className="flex flex-col md:flex-row items-center justify-between gap-6">
           <div>
             <p style={{ fontFamily: 'Helvetica Neue, Arial, sans-serif', color: '#8A8A8A', fontSize: '9px', letterSpacing: '0.25em', marginBottom: '6px' }} className="uppercase">Evening Add-On</p>
-            <p style={{ fontFamily: 'Georgia, serif', color: '#FAFAF8', fontSize: '1.1rem', marginBottom: '4px' }}>Collagen Boost Face Cream</p>
-            <p style={{ fontFamily: 'Helvetica Neue, Arial, sans-serif', color: '#8A8A8A', fontSize: '13px' }}>
+            <p style={{ fontFamily: 'Georgia, serif', color: '#2A2A2A', fontSize: '1.1rem', marginBottom: '4px' }}>Collagen Boost Face Cream</p>
+            <p style={{ fontFamily: 'Helvetica Neue, Arial, sans-serif', color: '#6A6A6A', fontSize: '13px' }}>
               Apply after serum, before moisturizer — supports the appearance of firmer, more nourished skin while you sleep.
             </p>
           </div>
@@ -129,7 +129,7 @@ export default function RoutineSection() {
         <div className="text-center mt-16">
           <Link to="/skincare"
             style={{
-              backgroundColor: '#C9A96E', color: '#000',
+              backgroundColor: '#8A9E85', color: '#FFF',
               fontFamily: 'Helvetica Neue, Arial, sans-serif',
               fontSize: '12px', letterSpacing: '0.18em',
               padding: '18px 48px', textDecoration: 'none',

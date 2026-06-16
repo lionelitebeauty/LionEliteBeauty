@@ -21,18 +21,18 @@ const programs = [
 
 export default function ServicesOverview() {
   return (
-    <section id="services" style={{ backgroundColor: '#0A0A0A', padding: '100px 0' }}>
+    <section id="services" style={{ backgroundColor: '#FAF7F2', padding: '100px 0' }}>
       <div className="max-w-7xl mx-auto px-6">
 
         {/* Section header */}
         <div className="text-center mb-20">
-          <p style={{ fontFamily: 'Helvetica Neue, Arial, sans-serif', color: '#C9A96E', letterSpacing: '0.3em', fontSize: '10px' }}
+          <p style={{ fontFamily: 'Helvetica Neue, Arial, sans-serif', color: '#8A9E85', letterSpacing: '0.3em', fontSize: '10px' }}
             className="uppercase mb-4">What We Offer</p>
-          <h2 style={{ fontFamily: 'Georgia, serif', color: '#FAFAF8', fontSize: '2.5rem', lineHeight: '1.15', letterSpacing: '-0.01em' }}
+          <h2 style={{ fontFamily: 'Georgia, serif', color: '#2A2A2A', fontSize: '2.5rem', lineHeight: '1.15', letterSpacing: '-0.01em' }}
             className="font-normal mb-6">
             Skincare &amp; Wellness,<br />Built Around Your Biology.
           </h2>
-          <p style={{ fontFamily: 'Helvetica Neue, Arial, sans-serif', color: '#CACACA', fontSize: '15px', lineHeight: '1.8', maxWidth: '520px', margin: '0 auto' }}>
+          <p style={{ fontFamily: 'Helvetica Neue, Arial, sans-serif', color: '#6A6A6A', fontSize: '15px', lineHeight: '1.8', maxWidth: '520px', margin: '0 auto' }}>
             From clinical-grade peptide skincare to targeted wellness programs — everything designed to help you look, feel, and perform at your best.
           </p>
         </div>
@@ -40,22 +40,22 @@ export default function ServicesOverview() {
         {/* ── SKINCARE ── */}
         <div className="mb-20">
           <div className="flex items-center gap-4 mb-10">
-            <div style={{ width: '32px', height: '1px', backgroundColor: '#C9A96E' }}></div>
-            <p style={{ fontFamily: 'Helvetica Neue, Arial, sans-serif', color: '#C9A96E', letterSpacing: '0.25em', fontSize: '10px' }} className="uppercase">
+            <div style={{ width: '32px', height: '1px', backgroundColor: '#8A9E85' }}></div>
+            <p style={{ fontFamily: 'Helvetica Neue, Arial, sans-serif', color: '#8A9E85', letterSpacing: '0.25em', fontSize: '10px' }} className="uppercase">
               Advanced Peptide Skincare
             </p>
           </div>
 
-          <div className="grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 gap-px" style={{ backgroundColor: '#1A1A1A' }}>
+          <div className="grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 gap-px" style={{ backgroundColor: '#E0D5C5' }}>
             {skincare.map((product) => (
               <div key={product.name}
-                style={{ backgroundColor: '#0A0A0A', padding: '32px' }}
-                className="group hover:bg-[#0F0F0F] transition-colors">
+                style={{ backgroundColor: '#FFFFFF', padding: '32px' }}
+                className="group hover:bg-[#FAF7F2] transition-colors">
                 <div style={{ width: '8px', height: '8px', backgroundColor: product.accent, borderRadius: '50%', marginBottom: '20px' }}></div>
-                <p style={{ fontFamily: 'Georgia, serif', color: '#FAFAF8', fontSize: '16px', lineHeight: '1.3', marginBottom: '8px' }}>
+                <p style={{ fontFamily: 'Georgia, serif', color: '#2A2A2A', fontSize: '16px', lineHeight: '1.3', marginBottom: '8px' }}>
                   {product.name}
                 </p>
-                <p style={{ fontFamily: 'Helvetica Neue, Arial, sans-serif', color: '#8A8A8A', fontSize: '12px', lineHeight: '1.7', marginBottom: '20px' }}>
+                <p style={{ fontFamily: 'Helvetica Neue, Arial, sans-serif', color: '#6A6A6A', fontSize: '12px', lineHeight: '1.7', marginBottom: '20px' }}>
                   {product.tagline}
                 </p>
                 <div className="flex items-center justify-between">
@@ -70,14 +70,14 @@ export default function ServicesOverview() {
             ))}
           </div>
 
-          <div style={{ backgroundColor: '#0F0F0F', border: '1px solid #1A1A1A', padding: '20px 32px', marginTop: '1px' }}
+          <div style={{ backgroundColor: '#F5F0E8', border: '1px solid #E0D5C5', padding: '20px 32px', marginTop: '1px' }}
             className="flex flex-col sm:flex-row items-center justify-between gap-4">
-            <p style={{ fontFamily: 'Helvetica Neue, Arial, sans-serif', color: '#8A8A8A', fontSize: '12px', letterSpacing: '0.1em' }} className="uppercase">
+            <p style={{ fontFamily: 'Helvetica Neue, Arial, sans-serif', color: '#6A6A6A', fontSize: '12px', letterSpacing: '0.1em' }} className="uppercase">
               Complete Skincare Bundle — All Products
             </p>
             <Link to="/skincare"
               style={{
-                backgroundColor: '#C9A96E', color: '#000',
+                backgroundColor: '#8A9E85', color: '#FFF',
                 fontFamily: 'Helvetica Neue, Arial, sans-serif',
                 letterSpacing: '0.15em', fontSize: '11px',
                 padding: '12px 28px', textDecoration: 'none',
@@ -91,29 +91,29 @@ export default function ServicesOverview() {
         {/* ── WELLNESS PROGRAMS ── */}
         <div>
           <div className="flex items-center gap-4 mb-10">
-            <div style={{ width: '32px', height: '1px', backgroundColor: '#C9A96E' }}></div>
-            <p style={{ fontFamily: 'Helvetica Neue, Arial, sans-serif', color: '#C9A96E', letterSpacing: '0.25em', fontSize: '10px' }} className="uppercase">
+            <div style={{ width: '32px', height: '1px', backgroundColor: '#8A9E85' }}></div>
+            <p style={{ fontFamily: 'Helvetica Neue, Arial, sans-serif', color: '#8A9E85', letterSpacing: '0.25em', fontSize: '10px' }} className="uppercase">
               Optimization Programs
             </p>
           </div>
 
-          <div className="grid grid-cols-2 md:grid-cols-3 gap-px" style={{ backgroundColor: '#1A1A1A' }}>
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-px" style={{ backgroundColor: '#E0D5C5' }}>
             {programs.map((program) => (
               <div key={program.name}
-                style={{ backgroundColor: '#0A0A0A', padding: '32px', display: 'flex', flexDirection: 'column' }}
-                className="group hover:bg-[#0F0F0F] transition-colors">
+                style={{ backgroundColor: '#FFFFFF', padding: '32px', display: 'flex', flexDirection: 'column' }}
+                className="group hover:bg-[#FAF7F2] transition-colors">
                 <div style={{ width: '8px', height: '8px', backgroundColor: program.accent, borderRadius: '50%', marginBottom: '20px' }}></div>
                 <div style={{ flex: 1 }}>
-                  <p style={{ fontFamily: 'Georgia, serif', color: '#FAFAF8', fontSize: '16px', lineHeight: '1.3', marginBottom: '8px' }}>
+                  <p style={{ fontFamily: 'Georgia, serif', color: '#2A2A2A', fontSize: '16px', lineHeight: '1.3', marginBottom: '8px' }}>
                     {program.name}
                   </p>
-                  <p style={{ fontFamily: 'Helvetica Neue, Arial, sans-serif', color: '#8A8A8A', fontSize: '12px', lineHeight: '1.7', marginBottom: '20px' }}>
+                  <p style={{ fontFamily: 'Helvetica Neue, Arial, sans-serif', color: '#6A6A6A', fontSize: '12px', lineHeight: '1.7', marginBottom: '20px' }}>
                     {program.tagline}
                   </p>
                 </div>
                 <Link to={program.applyHref}
                   style={{
-                    display: 'block', backgroundColor: program.accent, color: '#000', textAlign: 'center',
+                    display: 'block', backgroundColor: program.accent, color: '#FFF', textAlign: 'center',
                     fontFamily: 'Helvetica Neue, Arial, sans-serif',
                     fontSize: '10px', letterSpacing: '0.2em',
                     padding: '12px', textDecoration: 'none',

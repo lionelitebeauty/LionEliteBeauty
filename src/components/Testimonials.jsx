@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom'
 
-// Pricing section — all four programs
+// Pricing section — all six programs
 export default function Testimonials() {
   const programs = [
     {
@@ -19,7 +19,7 @@ export default function Testimonials() {
         'Strength, performance & recovery insights',
         'Ongoing recommendations',
       ],
-      cta: '👉 Apply / Get Started Now',
+      cta: 'Apply / Get Started Now',
     },
     {
       id: 'neuro',
@@ -37,7 +37,7 @@ export default function Testimonials() {
         'Trusted resources & structured frameworks',
         'Preferred client-level opportunities',
       ],
-      cta: '👉 Apply / Get Started Now',
+      cta: 'Apply / Get Started Now',
     },
     {
       id: 'fertility',
@@ -55,7 +55,7 @@ export default function Testimonials() {
         'Advanced fertility support pathways',
         'Preferred client-level opportunities',
       ],
-      cta: '👉 Apply / Get Started Now',
+      cta: 'Apply / Get Started Now',
     },
     {
       id: 'hair',
@@ -73,7 +73,7 @@ export default function Testimonials() {
         'Advanced hair-support pathway access',
         'Preferred client-level opportunities',
       ],
-      cta: '👉 Apply / Get Started Now',
+      cta: 'Apply / Get Started Now',
     },
     {
       id: 'weight',
@@ -91,7 +91,7 @@ export default function Testimonials() {
         'Advanced metabolic pathway access',
         'Preferred client-level opportunities',
       ],
-      cta: '👉 Apply / Get Started Now',
+      cta: 'Apply / Get Started Now',
     },
     {
       id: 'longevity',
@@ -109,45 +109,45 @@ export default function Testimonials() {
         'Advanced cellular repair pathway access',
         'Preferred client-level opportunities',
       ],
-      cta: '👉 Apply / Get Started Now',
+      cta: 'Apply / Get Started Now',
     },
   ]
 
   return (
-    <section id="pricing" style={{ backgroundColor: '#0D0D0D', padding: '100px 0' }}>
+    <section id="pricing" style={{ backgroundColor: '#FAF7F2', padding: '100px 0' }}>
       <div className="max-w-7xl mx-auto px-6">
 
         <div className="text-center mb-16">
-          <p style={{ color: '#C9A96E', fontFamily: 'Helvetica Neue, Arial, sans-serif', letterSpacing: '0.3em', fontSize: '11px' }}
+          <p style={{ color: '#8A9E85', fontFamily: 'Helvetica Neue, Arial, sans-serif', letterSpacing: '0.3em', fontSize: '11px' }}
             className="uppercase mb-4">Investment</p>
-          <h2 style={{ fontFamily: 'Georgia, serif', color: '#FAFAF8', fontSize: '2.5rem', lineHeight: '1.2' }}
+          <h2 style={{ fontFamily: 'Georgia, serif', color: '#2A2A2A', fontSize: '2.5rem', lineHeight: '1.2' }}
             className="font-normal">
             Choose Your<br />
-            <span style={{ color: '#C9A96E' }}>Optimization Path</span>
+            <span style={{ color: '#8A9E85' }}>Optimization Path</span>
           </h2>
           <div style={{ width: '48px', height: '1px', backgroundColor: '#C9A96E', margin: '24px auto 0' }}></div>
         </div>
 
-        {/* 4 program cards */}
+        {/* Program cards */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 gap-5 mb-20">
           {programs.map(p => (
-            <div key={p.id} style={{ backgroundColor: '#161616', border: `1px solid ${p.accent}28`, display: 'flex', flexDirection: 'column' }}>
-              <div style={{ backgroundColor: '#1A1A1A', padding: '28px 24px 22px', borderBottom: `1px solid ${p.accent}18`, textAlign: 'center' }}>
+            <div key={p.id} style={{ backgroundColor: '#FFFFFF', border: '1px solid #E0D5C5', display: 'flex', flexDirection: 'column' }}>
+              <div style={{ backgroundColor: '#F5F0E8', padding: '28px 24px 22px', borderBottom: '1px solid #E0D5C5', textAlign: 'center' }}>
                 <p style={{ fontFamily: 'Helvetica Neue, Arial, sans-serif', color: p.accent, fontSize: '9px', letterSpacing: '0.3em', marginBottom: '10px' }}
                   className="uppercase">{p.eyebrow}</p>
-                <p style={{ fontFamily: 'Georgia, serif', color: '#FAFAF8', fontSize: '0.9rem', lineHeight: '1.4', marginBottom: '14px' }}>{p.name}</p>
-                <p style={{ fontFamily: 'Helvetica Neue, Arial, sans-serif', color: '#CACACA', fontSize: '9px', letterSpacing: '0.15em' }}>
+                <p style={{ fontFamily: 'Georgia, serif', color: '#2A2A2A', fontSize: '0.9rem', lineHeight: '1.4', marginBottom: '14px' }}>{p.name}</p>
+                <p style={{ fontFamily: 'Helvetica Neue, Arial, sans-serif', color: '#6A6A6A', fontSize: '9px', letterSpacing: '0.15em' }}>
                   Premium Access
                 </p>
               </div>
               <div style={{ padding: '22px 24px', flex: 1, display: 'flex', flexDirection: 'column' }}>
-                <p style={{ fontFamily: 'Helvetica Neue, Arial, sans-serif', color: '#8A8A8A', fontSize: '9px', letterSpacing: '0.25em', marginBottom: '14px' }}
+                <p style={{ fontFamily: 'Helvetica Neue, Arial, sans-serif', color: '#6A6A6A', fontSize: '9px', letterSpacing: '0.25em', marginBottom: '14px' }}
                   className="uppercase">What's Included</p>
                 <ul className="space-y-2.5 mb-6 flex-1">
                   {p.includes.map(item => (
                     <li key={item} className="flex items-start gap-2">
                       <span style={{ color: p.accent, fontSize: '11px', flexShrink: 0, marginTop: '2px' }}>✔</span>
-                      <span style={{ fontFamily: 'Helvetica Neue, Arial, sans-serif', color: '#CACACA', fontSize: '12px', lineHeight: '1.5' }}>{item}</span>
+                      <span style={{ fontFamily: 'Helvetica Neue, Arial, sans-serif', color: '#4A4A4A', fontSize: '12px', lineHeight: '1.5' }}>{item}</span>
                     </li>
                   ))}
                 </ul>
@@ -155,7 +155,7 @@ export default function Testimonials() {
                   style={{
                     display: 'block',
                     backgroundColor: p.accent,
-                    color: '#FFFFFF',
+                    color: '#FFF',
                     fontFamily: 'Helvetica Neue, Arial, sans-serif',
                     fontSize: '10px',
                     letterSpacing: '0.12em',
@@ -173,9 +173,9 @@ export default function Testimonials() {
 
         {/* Testimonials */}
         <div>
-          <p style={{ fontFamily: 'Helvetica Neue, Arial, sans-serif', color: '#8A8A8A', fontSize: '10px', letterSpacing: '0.3em', textAlign: 'center', marginBottom: '16px' }}
+          <p style={{ fontFamily: 'Helvetica Neue, Arial, sans-serif', color: '#8A9E85', fontSize: '10px', letterSpacing: '0.3em', textAlign: 'center', marginBottom: '16px' }}
             className="uppercase">What Clients Say</p>
-          <p style={{ fontFamily: 'Georgia, serif', color: '#FAFAF8', fontSize: '1.8rem', textAlign: 'center', marginBottom: '48px', lineHeight: '1.3' }}
+          <p style={{ fontFamily: 'Georgia, serif', color: '#2A2A2A', fontSize: '1.8rem', textAlign: 'center', marginBottom: '48px', lineHeight: '1.3' }}
             className="font-normal">Real people. Real results.</p>
           <div className="grid md:grid-cols-3 gap-5">
             {[
@@ -201,13 +201,13 @@ export default function Testimonials() {
                 photo: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=200&q=80',
               },
             ].map((t) => (
-              <div key={t.name} style={{ backgroundColor: '#111111', border: '1px solid #1E1E1E', padding: '36px', display: 'flex', flexDirection: 'column' }}>
+              <div key={t.name} style={{ backgroundColor: '#FFFFFF', border: '1px solid #E0D5C5', padding: '36px', display: 'flex', flexDirection: 'column' }}>
                 <div className="flex gap-1 mb-5">
                   {Array.from({ length: 5 }).map((_, i) => (
                     <span key={i} style={{ color: t.accent, fontSize: '13px' }}>★</span>
                   ))}
                 </div>
-                <p style={{ fontFamily: 'Georgia, serif', color: '#CACACA', fontSize: '0.95rem', lineHeight: '1.8', fontStyle: 'italic', marginBottom: '28px', flex: 1 }}>
+                <p style={{ fontFamily: 'Georgia, serif', color: '#4A4A4A', fontSize: '0.95rem', lineHeight: '1.8', fontStyle: 'italic', marginBottom: '28px', flex: 1 }}>
                   "{t.quote}"
                 </p>
                 <div style={{ width: '28px', height: '1px', backgroundColor: t.accent, marginBottom: '20px' }}></div>
@@ -218,8 +218,8 @@ export default function Testimonials() {
                     style={{ width: '44px', height: '44px', borderRadius: '50%', objectFit: 'cover', border: `1px solid ${t.accent}44` }}
                   />
                   <div>
-                    <p style={{ fontFamily: 'Helvetica Neue, Arial, sans-serif', color: '#FAFAF8', fontSize: '13px' }}>{t.name}</p>
-                    <p style={{ fontFamily: 'Helvetica Neue, Arial, sans-serif', color: '#8A8A8A', fontSize: '11px', letterSpacing: '0.1em', marginTop: '2px' }}
+                    <p style={{ fontFamily: 'Helvetica Neue, Arial, sans-serif', color: '#2A2A2A', fontSize: '13px' }}>{t.name}</p>
+                    <p style={{ fontFamily: 'Helvetica Neue, Arial, sans-serif', color: '#6A6A6A', fontSize: '11px', letterSpacing: '0.1em', marginTop: '2px' }}
                       className="uppercase">{t.detail}</p>
                   </div>
                 </div>
