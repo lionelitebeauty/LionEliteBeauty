@@ -390,262 +390,248 @@ export default function CheckoutPage() {
 
             {/* ── Left — Form ─────────────────────────────────────────────── */}
             <div className="md:col-span-3" style={{ backgroundColor: '#FAF7F2', padding: '40px' }}>
-              <form onSubmit={handlePayNow}>
 
-                {/* Contact */}
-                <div style={{ marginBottom: '40px' }}>
-                  <p style={{ fontFamily: 'Helvetica Neue, Arial, sans-serif', color: '#8A9E85', letterSpacing: '0.25em', fontSize: '10px', marginBottom: '20px' }}
-                    className="uppercase">Contact Information</p>
-                  <div className="space-y-4">
-                    <div>
-                      <label style={{ fontFamily: 'Helvetica Neue, Arial, sans-serif', color: '#6A6A6A', fontSize: '11px', letterSpacing: '0.1em', display: 'block', marginBottom: '6px' }} className="uppercase">Full Name *</label>
-                      <input type="text" value={name} onChange={e => setName(e.target.value)} required style={inputStyle} placeholder="Your full name" />
+              {!showCardForm && (
+                <form onSubmit={handlePayNow}>
+
+                  {/* Contact */}
+                  <div style={{
+                    backgroundColor: '#FFFFFF', border: '1px solid #E0D5C5', padding: '28px',
+                    marginBottom: '16px',
+                  }}>
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '20px' }}>
+                      <div style={{ width: '3px', height: '18px', backgroundColor: '#C9A96E' }}></div>
+                      <p style={{ fontFamily: 'Helvetica Neue, Arial, sans-serif', color: '#2A2A2A', letterSpacing: '0.2em', fontSize: '10px', fontWeight: '600' }}
+                        className="uppercase">Contact</p>
                     </div>
-                    <div>
-                      <label style={{ fontFamily: 'Helvetica Neue, Arial, sans-serif', color: '#6A6A6A', fontSize: '11px', letterSpacing: '0.1em', display: 'block', marginBottom: '6px' }} className="uppercase">Email *</label>
-                      <input type="email" value={email} onChange={e => setEmail(e.target.value)} required style={inputStyle} placeholder="your@email.com" />
-                    </div>
-                    <div>
-                      <label style={{ fontFamily: 'Helvetica Neue, Arial, sans-serif', color: '#6A6A6A', fontSize: '11px', letterSpacing: '0.1em', display: 'block', marginBottom: '6px' }} className="uppercase">Phone</label>
-                      <input type="tel" value={phone} onChange={e => setPhone(e.target.value)} style={inputStyle} placeholder="+1 (000) 000-0000" />
+                    <div className="space-y-4">
+                      <div>
+                        <label style={{ fontFamily: 'Helvetica Neue, Arial, sans-serif', color: '#6A6A6A', fontSize: '11px', letterSpacing: '0.1em', display: 'block', marginBottom: '6px' }} className="uppercase">Full Name *</label>
+                        <input type="text" value={name} onChange={e => setName(e.target.value)} required style={inputStyle} placeholder="Your full name" />
+                      </div>
+                      <div>
+                        <label style={{ fontFamily: 'Helvetica Neue, Arial, sans-serif', color: '#6A6A6A', fontSize: '11px', letterSpacing: '0.1em', display: 'block', marginBottom: '6px' }} className="uppercase">Email *</label>
+                        <input type="email" value={email} onChange={e => setEmail(e.target.value)} required style={inputStyle} placeholder="your@email.com" />
+                      </div>
+                      <div>
+                        <label style={{ fontFamily: 'Helvetica Neue, Arial, sans-serif', color: '#6A6A6A', fontSize: '11px', letterSpacing: '0.1em', display: 'block', marginBottom: '6px' }} className="uppercase">Phone</label>
+                        <input type="tel" value={phone} onChange={e => setPhone(e.target.value)} style={inputStyle} placeholder="+1 (000) 000-0000" />
+                      </div>
                     </div>
                   </div>
-                </div>
 
-                {/* Shipping — with address verification */}
-                <div style={{ marginBottom: '40px' }}>
-                  <p style={{ fontFamily: 'Helvetica Neue, Arial, sans-serif', color: '#8A9E85', letterSpacing: '0.25em', fontSize: '10px', marginBottom: '20px' }}
-                    className="uppercase">Shipping Address</p>
-                  <div className="space-y-4">
-                    <div>
-                      <label style={{ fontFamily: 'Helvetica Neue, Arial, sans-serif', color: '#6A6A6A', fontSize: '11px', letterSpacing: '0.1em', display: 'block', marginBottom: '6px' }} className="uppercase">Street Address *</label>
-                      <input type="text" value={address}
-                        onChange={e => setAddress(e.target.value)}
-                        onBlur={() => handleAddressBlur('address')}
+                  {/* Shipping */}
+                  <div style={{
+                    backgroundColor: '#FFFFFF', border: '1px solid #E0D5C5', padding: '28px',
+                    marginBottom: '16px',
+                  }}>
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '20px' }}>
+                      <div style={{ width: '3px', height: '18px', backgroundColor: '#C9A96E' }}></div>
+                      <p style={{ fontFamily: 'Helvetica Neue, Arial, sans-serif', color: '#2A2A2A', letterSpacing: '0.2em', fontSize: '10px', fontWeight: '600' }}
+                        className="uppercase">Shipping</p>
+                    </div>
+                    <div className="space-y-4">
+                      <div>
+                        <label style={{ fontFamily: 'Helvetica Neue, Arial, sans-serif', color: '#6A6A6A', fontSize: '11px', letterSpacing: '0.1em', display: 'block', marginBottom: '6px' }} className="uppercase">Street Address *</label>
+                        <input type="text" value={address}
+                          onChange={e => setAddress(e.target.value)}
+                          onBlur={() => handleAddressBlur('address')}
+                          style={{
+                            ...inputStyle,
+                            borderColor: addressErrors.address && addressTouched.address ? '#E05A5A' : addressTouched.address && !addressErrors.address ? '#5BA87A' : inputStyle.borderColor,
+                          }}
+                          placeholder="123 Main Street" />
+                        {addressErrors.address && addressTouched.address && (
+                          <p style={{ fontFamily: 'Helvetica Neue, Arial, sans-serif', color: '#E05A5A', fontSize: '11px', marginTop: '4px' }}>{addressErrors.address}</p>
+                        )}
+                      </div>
+                      <div className="grid grid-cols-3 gap-3">
+                        <div className="col-span-1">
+                          <label style={{ fontFamily: 'Helvetica Neue, Arial, sans-serif', color: '#6A6A6A', fontSize: '11px', letterSpacing: '0.1em', display: 'block', marginBottom: '6px' }} className="uppercase">City *</label>
+                          <input type="text" value={city}
+                            onChange={e => setCity(e.target.value)}
+                            onBlur={() => handleAddressBlur('city')}
+                            style={{
+                              ...inputStyle,
+                              borderColor: addressErrors.city && addressTouched.city ? '#E05A5A' : addressTouched.city && !addressErrors.city ? '#5BA87A' : inputStyle.borderColor,
+                            }}
+                            placeholder="City" />
+                          {addressErrors.city && addressTouched.city && (
+                            <p style={{ fontFamily: 'Helvetica Neue, Arial, sans-serif', color: '#E05A5A', fontSize: '11px', marginTop: '4px' }}>{addressErrors.city}</p>
+                          )}
+                        </div>
+                        <div className="col-span-1">
+                          <label style={{ fontFamily: 'Helvetica Neue, Arial, sans-serif', color: '#6A6A6A', fontSize: '11px', letterSpacing: '0.1em', display: 'block', marginBottom: '6px' }} className="uppercase">State *</label>
+                          <select value={state}
+                            onChange={e => setState(e.target.value)}
+                            onBlur={() => handleAddressBlur('state')}
+                            style={{
+                              ...inputStyle,
+                              borderColor: addressErrors.state && addressTouched.state ? '#E05A5A' : addressTouched.state && !addressErrors.state ? '#5BA87A' : inputStyle.borderColor,
+                              appearance: 'none', cursor: 'pointer',
+                              backgroundImage: 'url("data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 width=%2712%27 height=%2712%27 fill=%27%236A6A6A%27 viewBox=%270 0 16 16%27%3E%3Cpath d=%27M8 11L3 6h10z%27/%3E%3C/svg%3E")',
+                              backgroundRepeat: 'no-repeat',
+                              backgroundPosition: 'right 14px center',
+                              paddingRight: '36px',
+                            }}>
+                            <option value="" style={{ color: '#8A8A8A' }}>State</option>
+                            {US_STATES.map(st => (
+                              <option key={st} value={st}>{st}</option>
+                            ))}
+                          </select>
+                          {addressErrors.state && addressTouched.state && (
+                            <p style={{ fontFamily: 'Helvetica Neue, Arial, sans-serif', color: '#E05A5A', fontSize: '11px', marginTop: '4px' }}>{addressErrors.state}</p>
+                          )}
+                        </div>
+                        <div className="col-span-1">
+                          <label style={{ fontFamily: 'Helvetica Neue, Arial, sans-serif', color: '#6A6A6A', fontSize: '11px', letterSpacing: '0.1em', display: 'block', marginBottom: '6px' }} className="uppercase">Zip Code *</label>
+                          <input type="text" value={zip}
+                            onChange={e => setZip(formatZip(e.target.value))}
+                            onBlur={() => handleAddressBlur('zip')}
+                            style={{
+                              ...inputStyle,
+                              borderColor: addressErrors.zip && addressTouched.zip ? '#E05A5A' : addressTouched.zip && !addressErrors.zip ? '#5BA87A' : inputStyle.borderColor,
+                            }}
+                            placeholder="00000" maxLength={10} />
+                          {addressErrors.zip && addressTouched.zip && (
+                            <p style={{ fontFamily: 'Helvetica Neue, Arial, sans-serif', color: '#E05A5A', fontSize: '11px', marginTop: '4px' }}>{addressErrors.zip}</p>
+                          )}
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Discount Code */}
+                  <div style={{
+                    backgroundColor: '#FFFFFF', border: '1px solid #E0D5C5', padding: '28px',
+                    marginBottom: '16px',
+                  }}>
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '20px' }}>
+                      <div style={{ width: '3px', height: '18px', backgroundColor: '#C9A96E' }}></div>
+                      <p style={{ fontFamily: 'Helvetica Neue, Arial, sans-serif', color: '#2A2A2A', letterSpacing: '0.2em', fontSize: '10px', fontWeight: '600' }}
+                        className="uppercase">Discount</p>
+                    </div>
+                    <div className="flex gap-3">
+                      <input type="text" value={discountCode} onChange={e => setDiscountCode(e.target.value)}
+                        style={{ ...inputStyle, flex: 1 }} placeholder="Enter code"
+                        disabled={discountApplied} />
+                      <button type="button" onClick={handleApplyDiscount}
+                        disabled={discountApplied || !discountCode.trim()}
                         style={{
-                          ...inputStyle,
-                          borderColor: addressErrors.address && addressTouched.address ? '#E05A5A' : addressTouched.address && !addressErrors.address ? '#5BA87A' : inputStyle.borderColor,
+                          backgroundColor: discountApplied ? '#5BA87A' : '#C9A96E',
+                          color: '#000', border: 'none', padding: '14px 24px',
+                          fontFamily: 'Helvetica Neue, Arial, sans-serif',
+                          fontSize: '10px', letterSpacing: '0.2em', cursor: 'pointer',
                         }}
-                        placeholder="123 Main Street" />
-                      {addressErrors.address && addressTouched.address && (
-                        <p style={{ fontFamily: 'Helvetica Neue, Arial, sans-serif', color: '#E05A5A', fontSize: '11px', marginTop: '4px' }}>{addressErrors.address}</p>
+                        className="uppercase hover:opacity-90 transition-opacity whitespace-nowrap">
+                        {discountApplied ? 'Applied ✓' : 'Apply'}
+                      </button>
+                    </div>
+                    {discountApplied && (
+                      <p style={{ fontFamily: 'Helvetica Neue, Arial, sans-serif', color: '#5BA87A', fontSize: '12px', marginTop: '8px' }}>
+                        10% discount applied — reflected in the total.
+                      </p>
+                    )}
+                  </div>
+
+                  {/* Payment Methods */}
+                  <div style={{
+                    backgroundColor: '#FFFFFF', border: '1px solid #E0D5C5', padding: '28px',
+                    marginBottom: '16px',
+                  }}>
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '20px' }}>
+                      <div style={{ width: '3px', height: '18px', backgroundColor: '#C9A96E' }}></div>
+                      <p style={{ fontFamily: 'Helvetica Neue, Arial, sans-serif', color: '#2A2A2A', letterSpacing: '0.2em', fontSize: '10px', fontWeight: '600' }}
+                        className="uppercase">Payment</p>
+                    </div>
+
+                    {/* Credit/Debit Card */}
+                    <div style={{
+                      border: paymentMethod === 'stripe' ? '2px solid #C9A96E' : '1px solid #E0D5C5',
+                      marginBottom: '12px', overflow: 'hidden',
+                    }}>
+                      <button type="button" onClick={() => setPaymentMethod('stripe')}
+                        style={{
+                          width: '100%', backgroundColor: paymentMethod === 'stripe' ? '#FDF8F0' : '#F9F7F4',
+                          border: 'none', padding: '16px 20px', cursor: 'pointer',
+                          display: 'flex', alignItems: 'center',
+                          justifyContent: 'space-between',
+                        }}>
+                        <div className="flex items-center gap-3">
+                          <div style={{
+                            width: '20px', height: '20px', borderRadius: '50%',
+                            border: paymentMethod === 'stripe' ? '6px solid #C9A96E' : '2px solid #D0C8BA',
+                            transition: 'border 0.15s',
+                          }}></div>
+                          <span style={{ fontFamily: 'Helvetica Neue, Arial, sans-serif', color: '#2A2A2A', fontSize: '14px', fontWeight: paymentMethod === 'stripe' ? '600' : '400' }}>
+                            Credit / Debit Card
+                          </span>
+                        </div>
+                        <div className="flex gap-2">
+                          {['Visa', 'MC', 'Amex', 'Disc'].map(m => (
+                            <span key={m} style={{ fontFamily: 'Helvetica Neue, Arial, sans-serif', color: '#6A6A6A', fontSize: '9px', letterSpacing: '0.08em', border: '1px solid #D0C8BA', padding: '2px 8px' }}>{m}</span>
+                          ))}
+                        </div>
+                      </button>
+                      {paymentMethod === 'stripe' && (
+                        <div style={{ backgroundColor: '#FDF8F0', borderTop: '1px solid #E0D5C5', padding: '20px 24px' }}>
+                          <p style={{ fontFamily: 'Helvetica Neue, Arial, sans-serif', color: '#6A6A6A', fontSize: '13px', lineHeight: '1.7' }}>
+                            <span style={{ color: '#C9A96E', fontWeight: '600' }}>✦</span> Pay with card, Klarna, Afterpay, or Affirm — secured by Stripe.
+                          </p>
+                        </div>
                       )}
                     </div>
-                    <div className="grid grid-cols-3 gap-3">
-                      <div className="col-span-1">
-                        <label style={{ fontFamily: 'Helvetica Neue, Arial, sans-serif', color: '#6A6A6A', fontSize: '11px', letterSpacing: '0.1em', display: 'block', marginBottom: '6px' }} className="uppercase">City *</label>
-                        <input type="text" value={city}
-                          onChange={e => setCity(e.target.value)}
-                          onBlur={() => handleAddressBlur('city')}
-                          style={{
-                            ...inputStyle,
-                            borderColor: addressErrors.city && addressTouched.city ? '#E05A5A' : addressTouched.city && !addressErrors.city ? '#5BA87A' : inputStyle.borderColor,
-                          }}
-                          placeholder="City" />
-                        {addressErrors.city && addressTouched.city && (
-                          <p style={{ fontFamily: 'Helvetica Neue, Arial, sans-serif', color: '#E05A5A', fontSize: '11px', marginTop: '4px' }}>{addressErrors.city}</p>
-                        )}
-                      </div>
-                      <div className="col-span-1">
-                        <label style={{ fontFamily: 'Helvetica Neue, Arial, sans-serif', color: '#6A6A6A', fontSize: '11px', letterSpacing: '0.1em', display: 'block', marginBottom: '6px' }} className="uppercase">State *</label>
-                        <select value={state}
-                          onChange={e => setState(e.target.value)}
-                          onBlur={() => handleAddressBlur('state')}
-                          style={{
-                            ...inputStyle,
-                            borderColor: addressErrors.state && addressTouched.state ? '#E05A5A' : addressTouched.state && !addressErrors.state ? '#5BA87A' : inputStyle.borderColor,
-                            appearance: 'none', cursor: 'pointer',
-                            backgroundImage: 'url("data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 width=%2712%27 height=%2712%27 fill=%27%236A6A6A%27 viewBox=%270 0 16 16%27%3E%3Cpath d=%27M8 11L3 6h10z%27/%3E%3C/svg%3E")',
-                            backgroundRepeat: 'no-repeat',
-                            backgroundPosition: 'right 14px center',
-                            paddingRight: '36px',
-                          }}>
-                          <option value="" style={{ color: '#8A8A8A' }}>State</option>
-                          {US_STATES.map(st => (
-                            <option key={st} value={st}>{st}</option>
-                          ))}
-                        </select>
-                        {addressErrors.state && addressTouched.state && (
-                          <p style={{ fontFamily: 'Helvetica Neue, Arial, sans-serif', color: '#E05A5A', fontSize: '11px', marginTop: '4px' }}>{addressErrors.state}</p>
-                        )}
-                      </div>
-                      <div className="col-span-1">
-                        <label style={{ fontFamily: 'Helvetica Neue, Arial, sans-serif', color: '#6A6A6A', fontSize: '11px', letterSpacing: '0.1em', display: 'block', marginBottom: '6px' }} className="uppercase">Zip Code *</label>
-                        <input type="text" value={zip}
-                          onChange={e => setZip(formatZip(e.target.value))}
-                          onBlur={() => handleAddressBlur('zip')}
-                          style={{
-                            ...inputStyle,
-                            borderColor: addressErrors.zip && addressTouched.zip ? '#E05A5A' : addressTouched.zip && !addressErrors.zip ? '#5BA87A' : inputStyle.borderColor,
-                          }}
-                          placeholder="00000" maxLength={10} />
-                        {addressErrors.zip && addressTouched.zip && (
-                          <p style={{ fontFamily: 'Helvetica Neue, Arial, sans-serif', color: '#E05A5A', fontSize: '11px', marginTop: '4px' }}>{addressErrors.zip}</p>
-                        )}
-                      </div>
+
+                    {/* Zelle */}
+                    <div style={{
+                      border: paymentMethod === 'zelle' ? '2px solid #C9A96E' : '1px solid #E0D5C5',
+                      marginBottom: '12px', overflow: 'hidden',
+                    }}>
+                      <button type="button" onClick={() => setPaymentMethod('zelle')}
+                        style={{
+                          width: '100%', backgroundColor: paymentMethod === 'zelle' ? '#FDF8F0' : '#F9F7F4',
+                          border: 'none', padding: '16px 20px', cursor: 'pointer',
+                          display: 'flex', alignItems: 'center',
+                          justifyContent: 'space-between',
+                        }}>
+                        <div className="flex items-center gap-3">
+                          <div style={{
+                            width: '20px', height: '20px', borderRadius: '50%',
+                            border: paymentMethod === 'zelle' ? '6px solid #C9A96E' : '2px solid #D0C8BA',
+                            transition: 'border 0.15s',
+                          }}></div>
+                          <span style={{ fontFamily: 'Helvetica Neue, Arial, sans-serif', color: '#2A2A2A', fontSize: '14px', fontWeight: paymentMethod === 'zelle' ? '600' : '400' }}>
+                            Zelle
+                          </span>
+                        </div>
+                        <div style={{ width: '20px', height: '20px', borderRadius: '50%', backgroundColor: '#6C1FD1', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                          <span style={{ color: '#FFF', fontFamily: 'Helvetica Neue, Arial, sans-serif', fontSize: '9px', fontWeight: 'bold' }}>Z</span>
+                        </div>
+                      </button>
+                      {paymentMethod === 'zelle' && (
+                        <div style={{ backgroundColor: '#FDF8F0', borderTop: '1px solid #E0D5C5', padding: '20px 24px 24px' }}>
+                          <p style={{ fontFamily: 'Helvetica Neue, Arial, sans-serif', color: '#4A4A4A', fontSize: '13px', lineHeight: '1.7' }}>
+                            Send payment to <strong style={{ color: '#C9A96E' }}>orders@lionelitebeauty.com</strong> via Zelle. Your order will be processed once payment is confirmed.
+                          </p>
+                        </div>
+                      )}
                     </div>
                   </div>
-                </div>
 
-                {/* Discount Code */}
-                <div style={{ marginBottom: '40px' }}>
-                  <p style={{ fontFamily: 'Helvetica Neue, Arial, sans-serif', color: '#C9A96E', letterSpacing: '0.25em', fontSize: '10px', marginBottom: '20px' }}
-                    className="uppercase">Discount Code</p>
-                  <div className="flex gap-3">
-                    <input type="text" value={discountCode} onChange={e => setDiscountCode(e.target.value)}
-                      style={{ ...inputStyle, flex: 1 }} placeholder="Enter code"
-                      disabled={discountApplied} />
-                    <button type="button" onClick={handleApplyDiscount}
-                      disabled={discountApplied || !discountCode.trim()}
-                      style={{
-                        backgroundColor: discountApplied ? '#5BA87A' : '#C9A96E',
-                        color: '#000', border: 'none', padding: '14px 24px',
-                        fontFamily: 'Helvetica Neue, Arial, sans-serif',
-                        fontSize: '10px', letterSpacing: '0.2em', cursor: 'pointer',
-                      }}
-                      className="uppercase hover:opacity-90 transition-opacity whitespace-nowrap">
-                      {discountApplied ? 'Applied ✓' : 'Apply'}
-                    </button>
-                  </div>
-                  {discountApplied && (
-                    <p style={{ fontFamily: 'Helvetica Neue, Arial, sans-serif', color: '#5BA87A', fontSize: '12px', marginTop: '8px' }}>
-                      10% discount applied — reflected in the total below.
-                    </p>
+                  {stripeError && (
+                    <div style={{ backgroundColor: '#FFF0F0', border: '1px solid #E05A5A44', padding: '14px 18px', marginBottom: '16px' }}>
+                      <p style={{ fontFamily: 'Helvetica Neue, Arial, sans-serif', color: '#E05A5A', fontSize: '13px' }}>{stripeError}</p>
+                    </div>
                   )}
-                </div>
 
-                
-                {/* Payment Methods */}
-                <div style={{ marginBottom: '40px' }}>
-                  <p style={{ fontFamily: 'Helvetica Neue, Arial, sans-serif', color: '#8A9E85', letterSpacing: '0.25em', fontSize: '10px', marginBottom: '20px' }}
-                    className="uppercase">Payment Method</p>
-
-                  {/* Credit/Debit Card */}
-                  <div style={{
-                    border: paymentMethod === 'stripe' ? '1px solid #C9A96E' : '1px solid #E0D5C5',
-                    marginBottom: '12px', overflow: 'hidden',
-                  }}>
-                    <button type="button" onClick={() => setPaymentMethod('stripe')}
-                      style={{
-                        width: '100%', backgroundColor: '#F5F0E8', border: 'none',
-                        padding: '16px 20px', cursor: 'pointer',
-                        display: 'flex', alignItems: 'center',
-                        justifyContent: 'space-between',
-                      }}>
-                      <div className="flex items-center gap-3">
-                        <div style={{
-                          width: '20px', height: '20px', borderRadius: '50%',
-                          border: paymentMethod === 'stripe' ? '6px solid #C9A96E' : '2px solid #D0C8BA',
-                          transition: 'border 0.15s',
-                        }}></div>
-                        <span style={{ fontFamily: 'Helvetica Neue, Arial, sans-serif', color: '#2A2A2A', fontSize: '14px' }}>
-                          Credit / Debit Card
-                        </span>
-                      </div>
-                      <div className="flex gap-2">
-                        {['Visa', 'MC', 'Amex', 'Disc'].map(m => (
-                          <span key={m} style={{ fontFamily: 'Helvetica Neue, Arial, sans-serif', color: '#6A6A6A', fontSize: '9px', letterSpacing: '0.08em', border: '1px solid #D0C8BA', padding: '2px 8px' }}>{m}</span>
-                        ))}
-                      </div>
-                    </button>
-                    {paymentMethod === 'stripe' && (
-                      <div style={{ backgroundColor: '#F5F0E8', borderTop: '1px solid #E0D5C5', padding: '24px' }}>
-                        <p style={{ fontFamily: 'Helvetica Neue, Arial, sans-serif', color: '#6A6A6A', fontSize: '12px', lineHeight: '1.7' }}>
-                          Pay with card, Klarna, Afterpay, or Affirm — secured by Stripe.
-                        </p>
-                      </div>
-                    )}
-                  </div>
-
-                  {/* Zelle */}
-                  <div style={{
-                    border: paymentMethod === 'zelle' ? '1px solid #C9A96E' : '1px solid #E0D5C5',
-                    marginBottom: '12px', overflow: 'hidden',
-                  }}>
-                    <button type="button" onClick={() => setPaymentMethod('zelle')}
-                      style={{
-                        width: '100%', backgroundColor: '#F5F0E8', border: 'none',
-                        padding: '16px 20px', cursor: 'pointer',
-                        display: 'flex', alignItems: 'center',
-                        justifyContent: 'space-between',
-                      }}>
-                      <div className="flex items-center gap-3">
-                        <div style={{
-                          width: '20px', height: '20px', borderRadius: '50%',
-                          border: paymentMethod === 'zelle' ? '6px solid #C9A96E' : '2px solid #D0C8BA',
-                          transition: 'border 0.15s',
-                        }}></div>
-                        <span style={{ fontFamily: 'Helvetica Neue, Arial, sans-serif', color: '#2A2A2A', fontSize: '14px' }}>
-                          Zelle
-                        </span>
-                      </div>
-                    </button>
-                    {paymentMethod === 'zelle' && (
-                      <div style={{ backgroundColor: '#F5F0E8', borderTop: '1px solid #E0D5C5', padding: '20px 24px 24px' }}>
-                        <p style={{ fontFamily: 'Helvetica Neue, Arial, sans-serif', color: '#4A4A4A', fontSize: '13px', lineHeight: '1.7' }}>
-                          Send payment to <strong style={{ color: '#C9A96E' }}>orders@lionelitebeauty.com</strong> via Zelle. Your order will be processed once payment is confirmed.
-                        </p>
-                      </div>
-                    )}
-                  </div>
-                </div>
-
-                {/* Inline Card Payment Form */}
-                {showCardForm && clientSecret && paymentMethod === 'stripe' && (
-                  <div style={{
-                    backgroundColor: '#FFFFFF', border: '2px solid #C9A96E',
-                    padding: '28px', marginBottom: '24px',
-                  }}>
-                    <p style={{ fontFamily: 'Helvetica Neue, Arial, sans-serif', color: '#8A9E85', letterSpacing: '0.25em', fontSize: '10px', marginBottom: '20px' }}
-                      className="uppercase">Secure Card Payment</p>
-
-                    <Elements
-                      stripe={getStripe()}
-                      options={{
-                        clientSecret,
-                        appearance: {
-                          theme: 'stripe',
-                          labels: 'floating',
-                          variables: {
-                            colorPrimary: '#C9A96E',
-                            colorBackground: '#FFFFFF',
-                            colorText: '#2A2A2A',
-                            colorDanger: '#E05A5A',
-                            fontFamily: 'Helvetica Neue, Arial, sans-serif',
-                            borderRadius: '0px',
-                          },
-                        },
-                      }}
-                    >
-                      <StripePaymentSection
-                        email={email}
-                        name={name}
-                        finalTotal={finalTotal}
-                        onSuccess={handleCardSuccess}
-                        onError={handleCardError}
-                      />
-                    </Elements>
-
-                    <p style={{ fontFamily: 'Helvetica Neue, Arial, sans-serif', color: '#8A8A8A', fontSize: '11px', marginTop: '16px', textAlign: 'center' }}>
-                      Secured by Stripe · Your card details are encrypted
-                    </p>
-                  </div>
-                )}
-
-                {stripeError && !showCardForm && (
-                  <div style={{ backgroundColor: '#FFF0F0', border: '1px solid #E05A5A44', padding: '14px 18px', marginBottom: '20px' }}>
-                    <p style={{ fontFamily: 'Helvetica Neue, Arial, sans-serif', color: '#E05A5A', fontSize: '13px' }}>{stripeError}</p>
-                  </div>
-                )}
-
-                {/* Submit Button */}
-                {!showCardForm ? (
+                  {/* Submit Button */}
                   <button type="submit" disabled={sending}
                     style={{
                       width: '100%', backgroundColor: sending ? '#6A5A3A' : '#C9A96E', color: '#000', border: 'none',
                       fontFamily: 'Helvetica Neue, Arial, sans-serif',
                       fontSize: '13px', letterSpacing: '0.2em',
                       padding: '18px', cursor: sending ? 'not-allowed' : 'pointer',
+                      boxShadow: sending ? 'none' : '0 2px 12px rgba(201, 169, 110, 0.3)',
                     }}
                     className="uppercase hover:opacity-90 transition-opacity">
                     {sending
@@ -655,8 +641,50 @@ export default function CheckoutPage() {
                         : 'Place Order — See Payment Details →'
                     }
                   </button>
-                ) : null}
-              </form>
+                </form>
+              )}
+
+              {/* Inline Card Payment Form — OUTSIDE main form to prevent nested form bug */}
+              {showCardForm && clientSecret && paymentMethod === 'stripe' && (
+                <div style={{
+                  backgroundColor: '#FFFFFF', border: '2px solid #C9A96E',
+                  padding: '28px',
+                }}>
+                  <p style={{ fontFamily: 'Helvetica Neue, Arial, sans-serif', color: '#2A2A2A', letterSpacing: '0.2em', fontSize: '10px', fontWeight: '600', marginBottom: '20px' }}
+                    className="uppercase">Secure Card Payment</p>
+
+                  <Elements
+                    stripe={getStripe()}
+                    options={{
+                      clientSecret,
+                      appearance: {
+                        theme: 'stripe',
+                        labels: 'floating',
+                        variables: {
+                          colorPrimary: '#C9A96E',
+                          colorBackground: '#FFFFFF',
+                          colorText: '#2A2A2A',
+                          colorDanger: '#E05A5A',
+                          fontFamily: 'Helvetica Neue, Arial, sans-serif',
+                          borderRadius: '0px',
+                        },
+                      },
+                    }}
+                  >
+                    <StripePaymentSection
+                      email={email}
+                      name={name}
+                      finalTotal={finalTotal}
+                      onSuccess={handleCardSuccess}
+                      onError={handleCardError}
+                    />
+                  </Elements>
+
+                  <p style={{ fontFamily: 'Helvetica Neue, Arial, sans-serif', color: '#8A8A8A', fontSize: '11px', marginTop: '16px', textAlign: 'center' }}>
+                    Secured by Stripe · Your card details are encrypted
+                  </p>
+                </div>
+              )}
             </div>
 
             {/* ── Right — Rewards + Order Summary ──────────────────────────── */}
