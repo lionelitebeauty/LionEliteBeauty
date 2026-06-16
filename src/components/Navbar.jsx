@@ -97,6 +97,21 @@ export default function Navbar() {
                     </div>
                   </Link>
                 ))}
+                <div style={{ borderTop: '1px solid #E8DDD0', padding: '8px 0' }}>
+                  <Link to="/apply"
+                    style={{ display: 'block', padding: '14px 22px', textDecoration: 'none' }}
+                    className="hover:bg-[#FAFAF8] transition-colors group">
+                    <div className="flex items-center gap-3">
+                      <div style={{ width: '7px', height: '7px', backgroundColor: '#8A9E85', borderRadius: '50%', flexShrink: 0 }}></div>
+                      <div className="flex-1">
+                        <p style={{ fontFamily: 'Helvetica Neue, Arial, sans-serif', color: '#1A1A1A', fontSize: '11px', letterSpacing: '0.1em' }}
+                          className="uppercase">Foundation Coaching</p>
+                        <p style={{ fontFamily: 'Helvetica Neue, Arial, sans-serif', color: '#9A9A9A', fontSize: '11px', marginTop: '2px' }}>$299.99/month · Starter program</p>
+                      </div>
+                      <span style={{ color: '#8A9E85', fontSize: '14px' }} className="opacity-0 group-hover:opacity-100 transition-opacity">→</span>
+                    </div>
+                  </Link>
+                </div>
                 <div style={{ padding: '12px 22px', backgroundColor: '#FAFAF8' }}>
                   <Link to="/programs/optimization"
                     style={{ fontFamily: 'Helvetica Neue, Arial, sans-serif', color: '#C9A96E', fontSize: '11px', letterSpacing: '0.1em', textDecoration: 'none' }}
@@ -243,6 +258,20 @@ export default function Navbar() {
               <span style={{ color: p.accent, fontSize: '14px' }}>→</span>
             </Link>
           ))}
+
+          <div style={{ borderTop: '1px solid #E0D5C5', margin: '8px 0', paddingTop: '8px' }}>
+            <Link to="/apply"
+              style={{ textDecoration: 'none', padding: '12px 0', borderBottom: '1px solid #F0EAE0' }}
+              className="flex items-center gap-3 group">
+              <div style={{ width: '7px', height: '7px', backgroundColor: '#8A9E85', borderRadius: '50%', flexShrink: 0 }}></div>
+              <div className="flex-1">
+                <p style={{ fontFamily: 'Helvetica Neue, Arial, sans-serif', color: '#2A2A2A', fontSize: '12px', letterSpacing: '0.1em' }}
+                  className="uppercase">Foundation Coaching</p>
+                <p style={{ fontFamily: 'Helvetica Neue, Arial, sans-serif', color: '#9A9A9A', fontSize: '11px', marginTop: '2px' }}>$299.99/month · Starter program</p>
+              </div>
+              <span style={{ color: '#8A9E85', fontSize: '14px' }}>→</span>
+            </Link>
+          </div>
 
           <p style={{ fontFamily: 'Helvetica Neue, Arial, sans-serif', color: '#BABABA', fontSize: '9px', letterSpacing: '0.25em', marginTop: '16px', marginBottom: '8px' }}
             className="uppercase">Skincare</p>

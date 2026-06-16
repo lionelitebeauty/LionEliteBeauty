@@ -124,7 +124,7 @@ export default function ApplyPage() {
 
   if (submitted) {
     return (
-      <div style={{ backgroundColor: '#080808', minHeight: '100vh' }}>
+      <div style={{ backgroundColor: '#FAF7F2', minHeight: '100vh' }}>
         <SEO title="Application Received" description="Your application for a personalized peptide program has been received. We'll respond within 24-48 hours." />
         <Navbar />
         <section style={{ paddingTop: '140px', paddingBottom: '100px' }}>
@@ -134,22 +134,22 @@ export default function ApplyPage() {
             </div>
             <p style={{ fontFamily: 'Helvetica Neue, Arial, sans-serif', color: '#C9A96E', letterSpacing: '0.3em', fontSize: '10px', marginBottom: '20px' }}
               className="uppercase">Application Received</p>
-            <h1 style={{ fontFamily: 'Georgia, serif', color: '#FAFAF8', fontSize: '2.6rem', lineHeight: '1.12', marginBottom: '20px' }}
+            <h1 style={{ fontFamily: 'Georgia, serif', color: '#2A2A2A', fontSize: '2.6rem', lineHeight: '1.12', marginBottom: '20px' }}
               className="font-normal">
               We've received<br />your application.
             </h1>
             <div style={{ width: '48px', height: '1px', backgroundColor: '#C9A96E', margin: '0 auto 28px' }}></div>
-            <p style={{ fontFamily: 'Helvetica Neue, Arial, sans-serif', color: '#CACACA', fontSize: '16px', lineHeight: '1.9', marginBottom: '48px' }}>
-              We review every application personally. You'll hear from us within <strong style={{ color: '#FAFAF8' }}>24–48 hours</strong> with next steps tailored to your goals.
+            <p style={{ fontFamily: 'Helvetica Neue, Arial, sans-serif', color: '#4A4A4A', fontSize: '16px', lineHeight: '1.9', marginBottom: '48px' }}>
+              We review every application personally. You'll hear from us within <strong style={{ color: '#2A2A2A' }}>24–48 hours</strong> with next steps tailored to your goals.
             </p>
 
             {/* ── Consultation call ── */}
-            <div style={{ backgroundColor: '#0A0A0A', border: '1px solid #141414', padding: '40px', marginBottom: '32px' }}>
+            <div style={{ backgroundColor: '#FFFFFF', border: '1px solid #E8DDD0', padding: '40px', marginBottom: '32px' }}>
               <p style={{ fontFamily: 'Helvetica Neue, Arial, sans-serif', color: '#C9A96E', letterSpacing: '0.25em', fontSize: '10px', marginBottom: '16px' }}
                 className="uppercase">Want to move faster?</p>
-              <h2 style={{ fontFamily: 'Georgia, serif', color: '#FAFAF8', fontSize: '1.4rem', lineHeight: '1.3', marginBottom: '12px' }}
+              <h2 style={{ fontFamily: 'Georgia, serif', color: '#2A2A2A', fontSize: '1.4rem', lineHeight: '1.3', marginBottom: '12px' }}
                 className="font-normal">Book a consultation call directly.</h2>
-              <p style={{ fontFamily: 'Helvetica Neue, Arial, sans-serif', color: '#8A8A8A', fontSize: '14px', lineHeight: '1.8', marginBottom: '24px' }}>
+              <p style={{ fontFamily: 'Helvetica Neue, Arial, sans-serif', color: '#6A6A6A', fontSize: '14px', lineHeight: '1.8', marginBottom: '24px' }}>
                 Skip the wait — schedule a 20-minute call and we'll walk through your goals and the right protocol for you.
               </p>
               <a href="https://calendly.com/a-ringfield-trustetc" target="_blank" rel="noopener noreferrer"
@@ -161,24 +161,24 @@ export default function ApplyPage() {
 
             {/* ── VIP Account ── */}
             <div style={{
-              backgroundColor: '#0C0A08', border: '1px solid #C9A96E33', padding: '40px',
+              backgroundColor: '#FFFFFF', border: '1px solid #C9A96E33', padding: '40px',
               marginBottom: '32px', position: 'relative', overflow: 'hidden',
             }}>
               <div style={{
                 position: 'absolute', top: '0', right: '0', width: '50px', height: '50px',
-                background: 'linear-gradient(135deg, transparent 50%, #C9A96E15 50%)',
+                background: 'linear-gradient(135deg, transparent 50%, #C9A96E10 50%)',
               }}></div>
 
               {!vipAccount ? (
                 <>
                   <p style={{ fontFamily: 'Helvetica Neue, Arial, sans-serif', color: '#C9A96E', letterSpacing: '0.25em', fontSize: '9px', marginBottom: '12px' }}
                     className="uppercase">Lion Elite VIP</p>
-                  <h2 style={{ fontFamily: 'Georgia, serif', color: '#FAFAF8', fontSize: '1.3rem', lineHeight: '1.3', marginBottom: '12px' }}
+                  <h2 style={{ fontFamily: 'Georgia, serif', color: '#2A2A2A', fontSize: '1.3rem', lineHeight: '1.3', marginBottom: '12px' }}
                     className="font-normal">Create your VIP account</h2>
-                  <p style={{ fontFamily: 'Helvetica Neue, Arial, sans-serif', color: '#8A8A8A', fontSize: '13px', lineHeight: '1.7', marginBottom: '20px' }}>
+                  <p style={{ fontFamily: 'Helvetica Neue, Arial, sans-serif', color: '#6A6A6A', fontSize: '13px', lineHeight: '1.7', marginBottom: '20px' }}>
                     Get instant access to your program checkout and membership portal. Your VIP account links all your program details in one place.
                   </p>
-                  <p style={{ fontFamily: 'Helvetica Neue, Arial, sans-serif', color: '#6A6A6A', fontSize: '12px', marginBottom: '16px' }}>
+                  <p style={{ fontFamily: 'Helvetica Neue, Arial, sans-serif', color: '#8A8A8A', fontSize: '12px', marginBottom: '16px' }}>
                     Account will be created for: <strong style={{ color: '#C9A96E' }}>{form.email}</strong>
                   </p>
                   {vipError && (
@@ -186,7 +186,7 @@ export default function ApplyPage() {
                   )}
                   <button onClick={handleCreateVip} disabled={vipLoading}
                     style={{
-                      backgroundColor: vipLoading ? '#5A5040' : '#C9A96E', color: '#000', border: 'none',
+                      backgroundColor: vipLoading ? '#B0A080' : '#C9A96E', color: '#000', border: 'none',
                       fontFamily: 'Helvetica Neue, Arial, sans-serif', fontSize: '11px', letterSpacing: '0.2em',
                       padding: '14px 36px', cursor: vipLoading ? 'not-allowed' : 'pointer',
                     }}
@@ -198,40 +198,40 @@ export default function ApplyPage() {
                 <>
                   <p style={{ fontFamily: 'Helvetica Neue, Arial, sans-serif', color: '#C9A96E', letterSpacing: '0.25em', fontSize: '9px', marginBottom: '12px' }}
                     className="uppercase">✓ VIP Account Active</p>
-                  <h2 style={{ fontFamily: 'Georgia, serif', color: '#FAFAF8', fontSize: '1.3rem', lineHeight: '1.3', marginBottom: '8px' }}
+                  <h2 style={{ fontFamily: 'Georgia, serif', color: '#2A2A2A', fontSize: '1.3rem', lineHeight: '1.3', marginBottom: '8px' }}
                     className="font-normal">Welcome, {vipAccount.name}!</h2>
-                  <p style={{ fontFamily: 'Helvetica Neue, Arial, sans-serif', color: '#8A8A8A', fontSize: '12px', marginBottom: '4px' }}>
+                  <p style={{ fontFamily: 'Helvetica Neue, Arial, sans-serif', color: '#6A6A6A', fontSize: '12px', marginBottom: '4px' }}>
                     VIP ID: <strong style={{ color: '#C9A96E', letterSpacing: '0.15em' }}>{vipAccount.vipId}</strong>
                   </p>
-                  <p style={{ fontFamily: 'Helvetica Neue, Arial, sans-serif', color: '#6A6A6A', fontSize: '11px', marginBottom: '24px' }}>
+                  <p style={{ fontFamily: 'Helvetica Neue, Arial, sans-serif', color: '#8A8A8A', fontSize: '11px', marginBottom: '24px' }}>
                     Program: {vipAccount.program}
                   </p>
-                  <div style={{ borderTop: '1px solid #1A1A1A', paddingTop: '24px' }}>
+                  <div style={{ borderTop: '1px solid #E8DDD0', paddingTop: '24px' }}>
                     <p style={{ fontFamily: 'Helvetica Neue, Arial, sans-serif', color: '#C9A96E', letterSpacing: '0.25em', fontSize: '9px', marginBottom: '16px' }}
                       className="uppercase">Choose Your Program Tier</p>
 
                     {/* VIP — Primary */}
                     <div style={{
-                      backgroundColor: '#0A0A0A', border: '1px solid #C9A96E44', padding: '24px',
+                      backgroundColor: '#F5F0E8', border: '1px solid #C9A96E', padding: '24px',
                       marginBottom: '16px', position: 'relative', overflow: 'hidden',
                     }}>
                       <div style={{
                         position: 'absolute', top: 0, right: 0,
-                        background: 'linear-gradient(135deg, transparent 50%, #C9A96E10 50%)',
+                        background: 'linear-gradient(135deg, transparent 50%, #C9A96E15 50%)',
                         width: '60px', height: '60px',
                       }}></div>
                       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '12px' }}>
                         <div>
                           <p style={{ fontFamily: 'Helvetica Neue, Arial, sans-serif', color: '#C9A96E', letterSpacing: '0.15em', fontSize: '9px', marginBottom: '4px' }}
                             className="uppercase">Most Popular</p>
-                          <h3 style={{ fontFamily: 'Georgia, serif', color: '#FAFAF8', fontSize: '1.1rem' }}>VIP Transformation Program</h3>
+                          <h3 style={{ fontFamily: 'Georgia, serif', color: '#2A2A2A', fontSize: '1.1rem' }}>VIP Transformation Program</h3>
                         </div>
                         <div style={{ textAlign: 'right' }}>
                           <p style={{ fontFamily: 'Georgia, serif', color: '#C9A96E', fontSize: '22px', lineHeight: '1' }}>$2,400</p>
-                          <p style={{ fontFamily: 'Helvetica Neue, Arial, sans-serif', color: '#6A6A6A', fontSize: '10px', letterSpacing: '0.1em' }}>/ 6 MONTHS</p>
+                          <p style={{ fontFamily: 'Helvetica Neue, Arial, sans-serif', color: '#8A8A8A', fontSize: '10px', letterSpacing: '0.1em' }}>/ 6 MONTHS</p>
                         </div>
                       </div>
-                      <p style={{ fontFamily: 'Helvetica Neue, Arial, sans-serif', color: '#8A8A8A', fontSize: '12px', lineHeight: '1.7', marginBottom: '16px' }}>
+                      <p style={{ fontFamily: 'Helvetica Neue, Arial, sans-serif', color: '#6A6A6A', fontSize: '12px', lineHeight: '1.7', marginBottom: '16px' }}>
                         Full biomarker testing, fully personalized protocol, bi-weekly check-ins, lab review, direct messaging with your specialist.
                       </p>
                       <Link to={`/programs/checkout?tier=vip&vip=${vipAccount.vipId}&email=${encodeURIComponent(form.email)}&name=${encodeURIComponent(form.name)}&program=${encodeURIComponent(vipAccount.program)}`}
@@ -248,19 +248,19 @@ export default function ApplyPage() {
                     {/* Foundation — Secondary */}
                     <Link to={`/programs/checkout?tier=foundation&vip=${vipAccount.vipId}&email=${encodeURIComponent(form.email)}&name=${encodeURIComponent(form.name)}&program=${encodeURIComponent(vipAccount.program)}`}
                       style={{
-                        display: 'block', backgroundColor: '#080808', border: '1px solid #1A1A1A',
-                        color: '#FAFAF8', fontFamily: 'Helvetica Neue, Arial, sans-serif', fontSize: '13px',
+                        display: 'block', backgroundColor: '#FFFFFF', border: '1px solid #E0D5C5',
+                        color: '#2A2A2A', fontFamily: 'Helvetica Neue, Arial, sans-serif', fontSize: '13px',
                         padding: '18px 20px', textDecoration: 'none',
                       }}
-                      className="hover:border-[#C9A96E44] transition-all">
+                      className="hover:border-[#C9A96E] transition-all">
                       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
                         <div>
                           <p style={{ fontFamily: 'Georgia, serif', fontSize: '14px', marginBottom: '2px' }}>Foundation Coaching</p>
-                          <p style={{ color: '#6A6A6A', fontSize: '11px' }}>Monthly coaching &amp; wellness roadmap</p>
+                          <p style={{ color: '#8A8A8A', fontSize: '11px' }}>Monthly coaching &amp; wellness roadmap</p>
                         </div>
                         <div style={{ textAlign: 'right' }}>
-                          <p style={{ fontFamily: 'Georgia, serif', color: '#8A8A8A', fontSize: '16px' }}>$299.99</p>
-                          <p style={{ fontFamily: 'Helvetica Neue, Arial, sans-serif', color: '#5A5A5A', fontSize: '9px', letterSpacing: '0.1em' }}>/ MONTH</p>
+                          <p style={{ fontFamily: 'Georgia, serif', color: '#6A6A6A', fontSize: '16px' }}>$299.99</p>
+                          <p style={{ fontFamily: 'Helvetica Neue, Arial, sans-serif', color: '#9A9A9A', fontSize: '9px', letterSpacing: '0.1em' }}>/ MONTH</p>
                         </div>
                       </div>
                     </Link>
@@ -270,7 +270,7 @@ export default function ApplyPage() {
             </div>
 
             <Link to="/"
-              style={{ fontFamily: 'Helvetica Neue, Arial, sans-serif', color: '#8A8A8A', fontSize: '12px', letterSpacing: '0.15em', textDecoration: 'none' }}
+              style={{ fontFamily: 'Helvetica Neue, Arial, sans-serif', color: '#9A9A9A', fontSize: '12px', letterSpacing: '0.15em', textDecoration: 'none' }}
               className="uppercase hover:text-[#C9A96E] transition-colors">
               ← Return to Home
             </Link>
@@ -282,32 +282,32 @@ export default function ApplyPage() {
   }
 
   return (
-    <div style={{ backgroundColor: '#080808', minHeight: '100vh' }}>
+    <div style={{ backgroundColor: '#FAF7F2', minHeight: '100vh' }}>
       <SEO title="Apply for a Program" description="Apply for a personalized peptide optimization program. We review every application personally and respond within 24-48 hours." />
       <Navbar />
 
       {/* Hero */}
-      <section style={{ backgroundColor: '#080808', paddingTop: '140px', paddingBottom: '64px', borderBottom: '1px solid #111' }}>
+      <section style={{ backgroundColor: '#FAF7F2', paddingTop: '140px', paddingBottom: '64px', borderBottom: '1px solid #E8DDD0' }}>
         <div className="max-w-3xl mx-auto px-6">
           <p style={{ fontFamily: 'Helvetica Neue, Arial, sans-serif', color: '#C9A96E', letterSpacing: '0.35em', fontSize: '10px', marginBottom: '20px' }}
             className="uppercase">Program Application</p>
-          <h1 style={{ fontFamily: 'Georgia, serif', color: '#FAFAF8', fontSize: '3rem', lineHeight: '1.1', letterSpacing: '-0.02em', marginBottom: '24px' }}
+          <h1 style={{ fontFamily: 'Georgia, serif', color: '#2A2A2A', fontSize: '3rem', lineHeight: '1.1', letterSpacing: '-0.02em', marginBottom: '24px' }}
             className="font-normal">
             Apply for a Personalized<br />Peptide Optimization Program.
           </h1>
           <div style={{ width: '48px', height: '1px', backgroundColor: '#C9A96E', marginBottom: '24px' }}></div>
-          <p style={{ fontFamily: 'Helvetica Neue, Arial, sans-serif', color: '#CACACA', fontSize: '16px', lineHeight: '1.9', maxWidth: '560px', marginBottom: '16px' }}>
+          <p style={{ fontFamily: 'Helvetica Neue, Arial, sans-serif', color: '#4A4A4A', fontSize: '16px', lineHeight: '1.9', maxWidth: '560px', marginBottom: '16px' }}>
             This short application helps us understand your goals and determine the best protocol for you. Every response is reviewed personally before we reach out.
           </p>
-          <div style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', backgroundColor: '#0A0A0A', border: '1px solid #1A1A1A', padding: '10px 16px' }}>
+          <div style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', backgroundColor: '#FFFFFF', border: '1px solid #E0D5C5', padding: '10px 16px' }}>
             <div style={{ width: '5px', height: '5px', backgroundColor: '#C9A96E', borderRadius: '50%' }}></div>
-            <p style={{ fontFamily: 'Helvetica Neue, Arial, sans-serif', color: '#8A8A8A', fontSize: '12px', letterSpacing: '0.08em' }}>We only take on a limited number of clients at a time.</p>
+            <p style={{ fontFamily: 'Helvetica Neue, Arial, sans-serif', color: '#6A6A6A', fontSize: '12px', letterSpacing: '0.08em' }}>We only take on a limited number of clients at a time.</p>
           </div>
         </div>
       </section>
 
       {/* Form */}
-      <section style={{ backgroundColor: '#050505', padding: '80px 0' }}>
+      <section style={{ backgroundColor: '#F5F0E8', padding: '80px 0' }}>
         <div className="max-w-3xl mx-auto px-6">
           <form onSubmit={handleSubmit} noValidate>
 
@@ -340,9 +340,9 @@ export default function ApplyPage() {
                       onClick={() => handleChange('goal', p.value)}
                       style={{
                         padding: '12px 8px',
-                        backgroundColor: form.goal === p.value ? '#0F0F0F' : '#0A0A0A',
-                        border: form.goal === p.value ? `1px solid ${p.accent}` : '1px solid #1A1A1A',
-                        color: form.goal === p.value ? '#FAFAF8' : '#4A4A4A',
+                        backgroundColor: form.goal === p.value ? '#FFFFFF' : '#FAFAF8',
+                        border: form.goal === p.value ? `1px solid ${p.accent}` : '1px solid #E0D5C5',
+                        color: form.goal === p.value ? '#2A2A2A' : '#6A6A6A',
                         fontFamily: 'Helvetica Neue, Arial, sans-serif',
                         fontSize: '11px', letterSpacing: '0.08em',
                         cursor: 'pointer', transition: 'all 0.15s', textAlign: 'center',
@@ -463,16 +463,16 @@ export default function ApplyPage() {
 
             {/* ── Submit ── */}
             <div style={{ paddingTop: '48px' }}>
-              <div style={{ backgroundColor: '#0A0A0A', border: '1px solid #141414', padding: '40px', marginBottom: '32px' }}>
+              <div style={{ backgroundColor: '#FFFFFF', border: '1px solid #E0D5C5', padding: '40px', marginBottom: '32px' }}>
                 <div className="flex items-start gap-3 mb-4">
                   <div style={{ width: '5px', height: '5px', backgroundColor: '#C9A96E', borderRadius: '50%', flexShrink: 0, marginTop: '7px' }}></div>
-                  <p style={{ fontFamily: 'Helvetica Neue, Arial, sans-serif', color: '#8A8A8A', fontSize: '13px', lineHeight: '1.8' }}>
-                    Your application is reviewed personally. We'll follow up within <span style={{ color: '#FAFAF8' }}>24–48 hours</span> with a tailored response and next steps.
+                  <p style={{ fontFamily: 'Helvetica Neue, Arial, sans-serif', color: '#6A6A6A', fontSize: '13px', lineHeight: '1.8' }}>
+                    Your application is reviewed personally. We'll follow up within <span style={{ color: '#2A2A2A' }}>24–48 hours</span> with a tailored response and next steps.
                   </p>
                 </div>
                 <div className="flex items-start gap-3">
                   <div style={{ width: '5px', height: '5px', backgroundColor: '#C9A96E', borderRadius: '50%', flexShrink: 0, marginTop: '7px' }}></div>
-                  <p style={{ fontFamily: 'Helvetica Neue, Arial, sans-serif', color: '#8A8A8A', fontSize: '13px', lineHeight: '1.8' }}>
+                  <p style={{ fontFamily: 'Helvetica Neue, Arial, sans-serif', color: '#6A6A6A', fontSize: '13px', lineHeight: '1.8' }}>
                     After submitting, you'll have the option to book a direct consultation call to accelerate the process.
                   </p>
                 </div>
@@ -487,7 +487,7 @@ export default function ApplyPage() {
               <button type="submit"
                 disabled={sending}
                 style={{
-                  width: '100%', backgroundColor: sending ? '#6A5A3A' : '#C9A96E', color: '#000',
+                  width: '100%', backgroundColor: sending ? '#B0A080' : '#C9A96E', color: '#000',
                   fontFamily: 'Helvetica Neue, Arial, sans-serif',
                   fontSize: '13px', letterSpacing: '0.2em',
                   padding: '20px', border: 'none', cursor: sending ? 'not-allowed' : 'pointer',
@@ -516,8 +516,8 @@ function FormBlock({ label, title, subtitle, children }) {
           <span style={{ fontFamily: 'Georgia, serif', color: '#C9A96E', fontSize: '12px' }}>{label}</span>
         </div>
         <div>
-          <h3 style={{ fontFamily: 'Georgia, serif', color: '#FAFAF8', fontSize: '1.2rem', marginBottom: '4px' }}>{title}</h3>
-          <p style={{ fontFamily: 'Helvetica Neue, Arial, sans-serif', color: '#8A8A8A', fontSize: '13px' }}>{subtitle}</p>
+          <h3 style={{ fontFamily: 'Georgia, serif', color: '#2A2A2A', fontSize: '1.2rem', marginBottom: '4px' }}>{title}</h3>
+          <p style={{ fontFamily: 'Helvetica Neue, Arial, sans-serif', color: '#6A6A6A', fontSize: '13px' }}>{subtitle}</p>
         </div>
       </div>
       <div style={{ paddingLeft: '0' }}>{children}</div>
@@ -526,14 +526,14 @@ function FormBlock({ label, title, subtitle, children }) {
 }
 
 function Divider() {
-  return <div style={{ borderTop: '1px solid #111', margin: '52px 0' }}></div>
+  return <div style={{ borderTop: '1px solid #E0D5C5', margin: '52px 0' }}></div>
 }
 
 function Field({ label, error, children }) {
   return (
     <div style={{ marginBottom: '16px' }}>
       {label && (
-        <label style={{ display: 'block', fontFamily: 'Helvetica Neue, Arial, sans-serif', color: '#8A8A8A', fontSize: '11px', letterSpacing: '0.15em', marginBottom: '8px' }}
+        <label style={{ display: 'block', fontFamily: 'Helvetica Neue, Arial, sans-serif', color: '#6A6A6A', fontSize: '11px', letterSpacing: '0.15em', marginBottom: '8px' }}
           className="uppercase">
           {label}
         </label>
@@ -555,22 +555,22 @@ function RadioCard({ selected, onClick, label, sub }) {
     <button type="button" onClick={onClick}
       style={{
         width: '100%', textAlign: 'left', padding: '16px 20px',
-        backgroundColor: selected ? '#0F0F0F' : '#0A0A0A',
-        border: selected ? '1px solid #C9A96E44' : '1px solid #141414',
+        backgroundColor: selected ? '#FFFFFF' : '#FAFAF8',
+        border: selected ? '1px solid #C9A96E' : '1px solid #E0D5C5',
         cursor: 'pointer', transition: 'all 0.15s',
         display: 'flex', alignItems: 'center', gap: '14px',
       }}>
       <div style={{
         width: '14px', height: '14px', borderRadius: '50%', flexShrink: 0,
-        border: selected ? '1px solid #C9A96E' : '1px solid #2A2A2A',
+        border: selected ? '1px solid #C9A96E' : '1px solid #C0B5A5',
         backgroundColor: selected ? '#C9A96E' : 'transparent',
         display: 'flex', alignItems: 'center', justifyContent: 'center',
       }}>
         {selected && <div style={{ width: '5px', height: '5px', borderRadius: '50%', backgroundColor: '#000' }}></div>}
       </div>
       <div>
-        <p style={{ fontFamily: 'Helvetica Neue, Arial, sans-serif', color: selected ? '#FAFAF8' : '#5A5A5A', fontSize: '13px', marginBottom: '2px' }}>{label}</p>
-        <p style={{ fontFamily: 'Helvetica Neue, Arial, sans-serif', color: '#7A7A7A', fontSize: '11px' }}>{sub}</p>
+        <p style={{ fontFamily: 'Helvetica Neue, Arial, sans-serif', color: selected ? '#2A2A2A' : '#6A6A6A', fontSize: '13px', marginBottom: '2px' }}>{label}</p>
+        <p style={{ fontFamily: 'Helvetica Neue, Arial, sans-serif', color: '#9A9A9A', fontSize: '11px' }}>{sub}</p>
       </div>
     </button>
   )
@@ -578,9 +578,9 @@ function RadioCard({ selected, onClick, label, sub }) {
 
 function inputStyle(error) {
   return {
-    width: '100%', backgroundColor: '#0A0A0A',
-    border: error ? '1px solid #E05A5A' : '1px solid #141414',
-    color: '#FAFAF8', fontFamily: 'Helvetica Neue, Arial, sans-serif',
+    width: '100%', backgroundColor: '#FFFFFF',
+    border: error ? '1px solid #E05A5A' : '1px solid #E0D5C5',
+    color: '#2A2A2A', fontFamily: 'Helvetica Neue, Arial, sans-serif',
     fontSize: '14px', padding: '14px 16px',
     outline: 'none', transition: 'border-color 0.2s, box-shadow 0.2s',
   }
