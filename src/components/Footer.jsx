@@ -83,6 +83,12 @@ export default function Footer() {
             <Link to="/policies/programs"
               style={{ fontFamily: 'Helvetica Neue, Arial, sans-serif', color: '#8A8A8A', fontSize: '12px', display: 'block', marginBottom: '8px', textDecoration: 'none' }}
               className="hover:text-[#C9A96E] transition-colors">Programs Policies</Link>
+            <Link to="/terms/skincare"
+              style={{ fontFamily: 'Helvetica Neue, Arial, sans-serif', color: '#8A8A8A', fontSize: '12px', display: 'block', marginBottom: '8px', textDecoration: 'none' }}
+              className="hover:text-[#C9A96E] transition-colors">Skincare Terms</Link>
+            <Link to="/terms/programs"
+              style={{ fontFamily: 'Helvetica Neue, Arial, sans-serif', color: '#8A8A8A', fontSize: '12px', display: 'block', marginBottom: '8px', textDecoration: 'none' }}
+              className="hover:text-[#C9A96E] transition-colors">Programs Terms</Link>
           </div>
         </div>
 
@@ -104,6 +110,12 @@ export default function Footer() {
             <Link to="/policies/programs"
               style={{ fontFamily: 'Helvetica Neue, Arial, sans-serif', color: '#6A6A6A', fontSize: '11px', letterSpacing: '0.08em', textDecoration: 'none' }}
               className="hover:text-[#C9A96E] transition-colors">Programs Policies</Link>
+            <Link to="/terms/skincare"
+              style={{ fontFamily: 'Helvetica Neue, Arial, sans-serif', color: '#6A6A6A', fontSize: '11px', letterSpacing: '0.08em', textDecoration: 'none' }}
+              className="hover:text-[#C9A96E] transition-colors">Skincare Terms</Link>
+            <Link to="/terms/programs"
+              style={{ fontFamily: 'Helvetica Neue, Arial, sans-serif', color: '#6A6A6A', fontSize: '11px', letterSpacing: '0.08em', textDecoration: 'none' }}
+              className="hover:text-[#C9A96E] transition-colors">Programs Terms</Link>
           </div>
         </div>
       </div>
