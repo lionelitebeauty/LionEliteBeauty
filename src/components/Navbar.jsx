@@ -176,22 +176,28 @@ export default function Navbar() {
             Ingredients
           </Link>
 
-          <Link to="/cart"
-            style={{ fontFamily: 'Helvetica Neue, Arial, sans-serif', color: '#5A5A5A', letterSpacing: '0.1em', textDecoration: 'none', position: 'relative', padding: '8px 4px' }}
-            className="text-sm uppercase tracking-wider hover:text-[#C9A96E] transition-colors">
-            Cart
-            {itemCount > 0 && (
-              <span style={{
-                position: 'absolute', top: '0', right: '-8px',
-                backgroundColor: '#C9A96E', color: '#000',
-                fontSize: '9px', fontWeight: 'bold',
-                width: '18px', height: '18px',
-                borderRadius: '50%',
-                display: 'flex', alignItems: 'center', justifyContent: 'center',
-                fontFamily: 'Helvetica Neue, Arial, sans-serif',
-              }}>{itemCount}</span>
-            )}
-          </Link>
+          {location.pathname.startsWith('/skincare') && (
+            <Link to="/cart"
+              style={{ fontFamily: 'Helvetica Neue, Arial, sans-serif', color: '#5A5A5A', letterSpacing: '0.1em', textDecoration: 'none', position: 'relative', padding: '8px 4px' }}
+              className="text-sm uppercase tracking-wider hover:text-[#C9A96E] transition-colors flex items-center gap-1.5">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z" />
+                <line x1="3" y1="6" x2="21" y2="6" />
+                <path d="M16 10a4 4 0 01-8 0" />
+              </svg>
+              {itemCount > 0 && (
+                <span style={{
+                  position: 'absolute', top: '0', right: '-8px',
+                  backgroundColor: '#C9A96E', color: '#000',
+                  fontSize: '9px', fontWeight: 'bold',
+                  width: '18px', height: '18px',
+                  borderRadius: '50%',
+                  display: 'flex', alignItems: 'center', justifyContent: 'center',
+                  fontFamily: 'Helvetica Neue, Arial, sans-serif',
+                }}>{itemCount}</span>
+              )}
+            </Link>
+          )}
 
           <Link to="/apply"
             style={{
@@ -256,11 +262,18 @@ export default function Navbar() {
           ))}
 
           <div style={{ paddingTop: '16px' }} className="flex flex-col gap-4">
-            <Link to="/cart" onClick={() => setMenuOpen(false)}
-              style={{ fontFamily: 'Helvetica Neue, Arial, sans-serif', color: '#5A5A5A', letterSpacing: '0.1em', textDecoration: 'none' }}
-              className="text-sm uppercase flex items-center gap-2">
-              Cart{itemCount > 0 ? ` (${itemCount})` : ''}
-            </Link>
+            {location.pathname.startsWith('/skincare') && (
+              <Link to="/cart" onClick={() => setMenuOpen(false)}
+                style={{ fontFamily: 'Helvetica Neue, Arial, sans-serif', color: '#5A5A5A', letterSpacing: '0.1em', textDecoration: 'none' }}
+                className="text-sm uppercase flex items-center gap-2">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z" />
+                  <line x1="3" y1="6" x2="21" y2="6" />
+                  <path d="M16 10a4 4 0 01-8 0" />
+                </svg>
+                Cart{itemCount > 0 ? ` (${itemCount})` : ''}
+              </Link>
+            )}
             <Link to="/skin-system" onClick={() => setMenuOpen(false)}
               style={{ fontFamily: 'Helvetica Neue, Arial, sans-serif', color: '#5A5A5A', letterSpacing: '0.1em', textDecoration: 'none' }}
               className="text-sm uppercase">Skin System</Link>
