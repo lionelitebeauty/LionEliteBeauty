@@ -25,13 +25,16 @@ export default function Footer() {
               Advanced peptide skincare and clinical-grade wellness programs — designed to work with your biology and deliver real, lasting results.
             </p>
             <div className="flex gap-3 mt-6">
-              {['IG', 'TK', 'FB'].map(s => (
-                <a key={s} href="#"
-                  style={{ width: '30px', height: '30px', border: '1px solid #4A4A4A', display: 'flex', alignItems: 'center', justifyContent: 'center' }}
-                  className="hover:border-[#C9A96E] transition-colors">
-                  <span style={{ fontFamily: 'Helvetica Neue, Arial, sans-serif', color: '#8A8A8A', fontSize: '9px' }}>{s}</span>
-                </a>
-              ))}
+              <a key="IG" href="https://www.instagram.com/lionelitebeauty" target="_blank" rel="noopener noreferrer"
+                style={{ width: '30px', height: '30px', border: '1px solid #4A4A4A', display: 'flex', alignItems: 'center', justifyContent: 'center' }}
+                className="hover:border-[#C9A96E] transition-colors">
+                <span style={{ fontFamily: 'Helvetica Neue, Arial, sans-serif', color: '#8A8A8A', fontSize: '9px' }}>IG</span>
+              </a>
+              <a key="TK" href="https://www.tiktok.com/@lionelitebeauty" target="_blank" rel="noopener noreferrer"
+                style={{ width: '30px', height: '30px', border: '1px solid #4A4A4A', display: 'flex', alignItems: 'center', justifyContent: 'center' }}
+                className="hover:border-[#C9A96E] transition-colors">
+                <span style={{ fontFamily: 'Helvetica Neue, Arial, sans-serif', color: '#8A8A8A', fontSize: '9px' }}>TK</span>
+              </a>
             </div>
           </div>
 
