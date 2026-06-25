@@ -8,7 +8,7 @@ import SEO from '../components/SEO'
 export default function HairPage() {
   useEffect(() => { window.scrollTo(0, 0) }, [])
   return (
-    <div style={{ backgroundColor: '#0C0A06', minHeight: '100vh' }}>
+    <div style={{ backgroundColor: '#FAF7F2', minHeight: '100vh' }}>
       <SEO title="Hair Restoration Program" description="Personalized peptide protocol for hair density, regrowth, and scalp health — addressing the root biological causes of thinning and loss." />
       <Navbar />
 
@@ -31,11 +31,11 @@ export default function HairPage() {
           <p style={{ color: '#C4A265', fontFamily: 'Helvetica Neue, Arial, sans-serif', letterSpacing: '0.35em', fontSize: '10px', marginBottom: '20px' }} className="uppercase">
             Hair Restoration & Density
           </p>
-          <h1 style={{ fontFamily: 'Georgia, serif', color: '#FAFAF8', fontSize: '3.2rem', lineHeight: '1.12', marginBottom: '24px' }} className="font-normal">
+          <h1 style={{ fontFamily: 'Georgia, serif', color: '#2A2A2A', fontSize: '3.2rem', lineHeight: '1.12', marginBottom: '24px' }} className="font-normal">
             Lion Elite<br /><span style={{ color: '#C4A265' }}>Hair Optimization Program</span>
           </h1>
           <div style={{ width: '48px', height: '1px', backgroundColor: '#C4A265', margin: '0 auto 28px' }}></div>
-          <p style={{ fontFamily: 'Helvetica Neue, Arial, sans-serif', color: '#CACACA', fontSize: '16px', lineHeight: '1.9', maxWidth: '540px', margin: '0 auto 36px' }}>
+          <p style={{ fontFamily: 'Helvetica Neue, Arial, sans-serif', color: '#6A6A6A', fontSize: '16px', lineHeight: '1.9', maxWidth: '540px', margin: '0 auto 36px' }}>
             A structured, data-driven approach to hair restoration — addressing the root biological causes of thinning and loss rather than masking them with surface treatments.
           </p>
           <div style={{ display: 'flex', gap: '16px', justifyContent: 'center', flexWrap: 'wrap', marginBottom: '40px' }}>

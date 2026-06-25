@@ -8,7 +8,7 @@ import SEO from '../components/SEO'
 export default function NeuroPage() {
   useEffect(() => { window.scrollTo(0, 0) }, [])
   return (
-    <div style={{ backgroundColor: '#060806', minHeight: '100vh' }}>
+    <div style={{ backgroundColor: '#FAF7F2', minHeight: '100vh' }}>
       <SEO title="Neuro / Cognitive Program" description="Personalized peptide protocol designed to sharpen focus, eliminate brain fog, and sustain peak cognitive performance under pressure." />
       <Navbar />
 
@@ -31,11 +31,11 @@ export default function NeuroPage() {
           <p style={{ color: '#8A9E85', fontFamily: 'Helvetica Neue, Arial, sans-serif', letterSpacing: '0.35em', fontSize: '10px', marginBottom: '20px' }} className="uppercase">
             Neuro & Cognitive Performance
           </p>
-          <h1 style={{ fontFamily: 'Georgia, serif', color: '#FAFAF8', fontSize: '3.2rem', lineHeight: '1.12', marginBottom: '24px' }} className="font-normal">
+          <h1 style={{ fontFamily: 'Georgia, serif', color: '#2A2A2A', fontSize: '3.2rem', lineHeight: '1.12', marginBottom: '24px' }} className="font-normal">
             Lion Elite<br /><span style={{ color: '#8A9E85' }}>Neuro Program</span>
           </h1>
           <div style={{ width: '48px', height: '1px', backgroundColor: '#8A9E85', margin: '0 auto 28px' }}></div>
-          <p style={{ fontFamily: 'Helvetica Neue, Arial, sans-serif', color: '#CACACA', fontSize: '16px', lineHeight: '1.9', maxWidth: '540px', margin: '0 auto 36px' }}>
+          <p style={{ fontFamily: 'Helvetica Neue, Arial, sans-serif', color: '#6A6A6A', fontSize: '16px', lineHeight: '1.9', maxWidth: '540px', margin: '0 auto 36px' }}>
             A structured, personalized peptide protocol designed to sharpen focus, eliminate brain fog, and help you sustain peak cognitive performance under pressure.
           </p>
           <div style={{ display: 'flex', gap: '16px', justifyContent: 'center', flexWrap: 'wrap', marginBottom: '40px' }}>

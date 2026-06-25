@@ -8,7 +8,7 @@ import SEO from '../components/SEO'
 export default function LongevityPage() {
   useEffect(() => { window.scrollTo(0, 0) }, [])
   return (
-    <div style={{ backgroundColor: '#060709', minHeight: '100vh' }}>
+    <div style={{ backgroundColor: '#FAF7F2', minHeight: '100vh' }}>
       <SEO title="Longevity & Anti-Aging Program" description="Premium peptide protocol for cellular health, reduced inflammation, and sustained strength, sharpness, and vitality long-term." />
       <Navbar />
 
@@ -31,11 +31,11 @@ export default function LongevityPage() {
           <p style={{ color: '#7A9FBF', fontFamily: 'Helvetica Neue, Arial, sans-serif', letterSpacing: '0.35em', fontSize: '10px', marginBottom: '20px' }} className="uppercase">
             Longevity & Anti-Aging
           </p>
-          <h1 style={{ fontFamily: 'Georgia, serif', color: '#FAFAF8', fontSize: '3.2rem', lineHeight: '1.12', marginBottom: '24px' }} className="font-normal">
+          <h1 style={{ fontFamily: 'Georgia, serif', color: '#2A2A2A', fontSize: '3.2rem', lineHeight: '1.12', marginBottom: '24px' }} className="font-normal">
             Lion Elite<br /><span style={{ color: '#7A9FBF' }}>Longevity Program</span>
           </h1>
           <div style={{ width: '48px', height: '1px', backgroundColor: '#7A9FBF', margin: '0 auto 28px' }}></div>
-          <p style={{ fontFamily: 'Helvetica Neue, Arial, sans-serif', color: '#CACACA', fontSize: '16px', lineHeight: '1.9', maxWidth: '540px', margin: '0 auto 36px' }}>
+          <p style={{ fontFamily: 'Helvetica Neue, Arial, sans-serif', color: '#6A6A6A', fontSize: '16px', lineHeight: '1.9', maxWidth: '540px', margin: '0 auto 36px' }}>
             A premium, data-driven system designed to support cellular health, reduce inflammation, and help you sustain strength, sharpness, and vitality long-term.
           </p>
           <div style={{ display: 'flex', gap: '16px', justifyContent: 'center', flexWrap: 'wrap', marginBottom: '40px' }}>

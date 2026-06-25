@@ -8,7 +8,7 @@ import SEO from '../components/SEO'
 export default function FertilityPage() {
   useEffect(() => { window.scrollTo(0, 0) }, [])
   return (
-    <div style={{ backgroundColor: '#080610', minHeight: '100vh' }}>
+    <div style={{ backgroundColor: '#FAF7F2', minHeight: '100vh' }}>
       <SEO title="Fertility & Hormonal Program" description="Data-driven peptide protocol for hormonal balance and reproductive optimization — for men and women who want precision over guesswork." />
       <Navbar />
 
@@ -31,11 +31,11 @@ export default function FertilityPage() {
           <p style={{ color: '#B8A4D4', fontFamily: 'Helvetica Neue, Arial, sans-serif', letterSpacing: '0.35em', fontSize: '10px', marginBottom: '20px' }} className="uppercase">
             Fertility & Hormonal Health
           </p>
-          <h1 style={{ fontFamily: 'Georgia, serif', color: '#FAFAF8', fontSize: '3.2rem', lineHeight: '1.12', marginBottom: '24px' }} className="font-normal">
+          <h1 style={{ fontFamily: 'Georgia, serif', color: '#2A2A2A', fontSize: '3.2rem', lineHeight: '1.12', marginBottom: '24px' }} className="font-normal">
             Lion Elite<br /><span style={{ color: '#B8A4D4' }}>Fertility Program</span>
           </h1>
           <div style={{ width: '48px', height: '1px', backgroundColor: '#B8A4D4', margin: '0 auto 28px' }}></div>
-          <p style={{ fontFamily: 'Helvetica Neue, Arial, sans-serif', color: '#CACACA', fontSize: '16px', lineHeight: '1.9', maxWidth: '540px', margin: '0 auto 36px' }}>
+          <p style={{ fontFamily: 'Helvetica Neue, Arial, sans-serif', color: '#6A6A6A', fontSize: '16px', lineHeight: '1.9', maxWidth: '540px', margin: '0 auto 36px' }}>
             A structured, data-driven approach to hormonal balance and reproductive optimization — for men and women who want precision over guesswork when it matters most.
           </p>
           <div style={{ display: 'flex', gap: '16px', justifyContent: 'center', flexWrap: 'wrap', marginBottom: '40px' }}>
