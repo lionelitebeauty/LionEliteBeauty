@@ -6,6 +6,7 @@
 
 const ADMIN_EMAIL = 'admin@lionelitebeauty.com'
 const ADMIN_PASSWORD = 'lionelite2024'
+const VIP_ADMIN_TOKEN = process.env.ADMIN_TOKEN || 'lionelite-admin-secret'
 
 function generateAdminToken() {
   return 'adm-' + Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15)
@@ -29,7 +30,15 @@ export default async function handler(req, res) {
       message: 'Login successful',
       token: adminSession.token,
       email: ADMIN_EMAIL,
+      vipAdminToken: VIP_ADMIN_TOKEN,
     })
+  }
+
+  if (action === 'get-vip-token') {
+    if (!token || token !== adminSession?.token) {
+      return res.status(403).json({ error: 'Not authenticated' })
+    }
+    return res.status(200).json({ vipAdminToken: VIP_ADMIN_TOKEN })
   }
 
   if (action === 'verify') {

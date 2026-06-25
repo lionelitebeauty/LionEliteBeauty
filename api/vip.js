@@ -12,6 +12,7 @@ const __dirname = dirname(fileURLToPath(import.meta.url))
 const DATA_PATH = join(__dirname, 'vip-data.json')
 
 let STORE = {}
+const ADMIN_TOKEN = ADMIN_TOKEN || 'lionelite-admin-secret'
 
 // Load persisted data if available
 function load() {
@@ -113,7 +114,7 @@ export default async function handler(req, res) {
 
   if (action === 'list-all') {
     const { token: adminToken } = req.body
-    if (!adminToken || adminToken !== process.env.ADMIN_TOKEN) {
+    if (!adminToken || adminToken !== ADMIN_TOKEN) {
       return res.status(403).json({ error: 'Unauthorized' })
     }
     const list = Object.values(STORE).map(a => ({
@@ -132,7 +133,7 @@ export default async function handler(req, res) {
 
   if (action === 'update-status') {
     const { token: adminToken } = req.body
-    if (!adminToken || adminToken !== process.env.ADMIN_TOKEN) {
+    if (!adminToken || adminToken !== ADMIN_TOKEN) {
       return res.status(403).json({ error: 'Unauthorized' })
     }
     if (!key) return res.status(400).json({ error: 'Email is required' })
@@ -148,7 +149,7 @@ export default async function handler(req, res) {
 
   if (action === 'update-progress') {
     const { token: adminToken } = req.body
-    if (!adminToken || adminToken !== process.env.ADMIN_TOKEN) {
+    if (!adminToken || adminToken !== ADMIN_TOKEN) {
       return res.status(403).json({ error: 'Unauthorized' })
     }
     if (!key) return res.status(400).json({ error: 'Email is required' })
@@ -164,7 +165,7 @@ export default async function handler(req, res) {
   if (action === 'set-program-steps') {
     // Admin sets the program steps for a client
     const { token: adminToken } = req.body
-    if (!adminToken || adminToken !== process.env.ADMIN_TOKEN) {
+    if (!adminToken || adminToken !== ADMIN_TOKEN) {
       return res.status(403).json({ error: 'Unauthorized' })
     }
     if (!key) return res.status(400).json({ error: 'Email is required' })

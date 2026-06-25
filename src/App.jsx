@@ -29,6 +29,7 @@ import ProgramsPolicies from './pages/ProgramsPolicies'
 import SkincareTerms from './pages/SkincareTerms'
 import ProgramsTerms from './pages/ProgramsTerms'
 import ProgramCheckoutPage from './pages/ProgramCheckoutPage'
+import AdminPage from './pages/AdminPage'
 import SEO from './components/SEO'
 
 function HomePage() {
@@ -77,6 +78,7 @@ export default function App() {
           <Route path="/terms/skincare" element={<SkincareTerms />} />
           <Route path="/terms/programs" element={<ProgramsTerms />} />
           <Route path="/programs/checkout" element={<ProgramCheckoutPage />} />
+          <Route path="/admin" element={<AdminPage />} />
         </Routes>
       </CartProvider>
     </BrowserRouter>

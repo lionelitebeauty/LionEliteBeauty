@@ -23,80 +23,87 @@ function formatTime() {
   })
 }
 
-// ── Premium email wrapper ────────────────────────────────────────────────────
+// ── Unified light email wrapper ────────────────────────────────────────────
 const wrap = (content) => `
 <!DOCTYPE html>
 <html>
 <head><meta charset="utf-8"></head>
-<body style="margin:0; padding:0; background-color:#050505; font-family:Georgia, 'Times New Roman', serif;">
-  <table width="100%" cellpadding="0" cellspacing="0"><tr><td align="center" style="padding:40px 20px;">
-    <table width="600" cellpadding="0" cellspacing="0" style="background-color:#080808; border:1px solid #1A1A1A;">
-      <tr><td style="height:4px; background-color:#C9A96E; padding:0;"></td></tr>
-      <tr><td style="padding:40px 40px 24px; text-align:center; border-bottom:1px solid #1A1A1A;">
-        <p style="font-family:Georgia,serif; color:#C9A96E; font-size:22px; letter-spacing:0.3em; margin:0 0 4px; text-transform:uppercase;">Lion Elite</p>
-        <p style="font-family:Georgia,serif; color:#7A7A7A; font-size:11px; letter-spacing:0.2em; margin:0; text-transform:uppercase;">Beauty &amp; Wellness</p>
-      </td></tr>
-      <tr><td style="padding:40px 40px; color:#FAFAF8; font-size:15px; line-height:1.8;">
-        ${content}
-      </td></tr>
-      <tr><td style="padding:32px 40px; border-top:1px solid #1A1A1A; text-align:center;">
-        <p style="font-family:'Helvetica Neue',Arial,sans-serif; color:#8A8A8A; font-size:11px; margin:0 0 6px;">Lion Elite Beauty &amp; Wellness</p>
-        <p style="font-family:'Helvetica Neue',Arial,sans-serif; color:#6A6A6A; font-size:10px; margin:0 0 4px;">orders@lionelitebeauty.com</p>
-        <p style="font-family:'Helvetica Neue',Arial,sans-serif; color:#4A4A4A; font-size:9px; margin:8px 0 0;">${formatDate()}</p>
-      </td></tr>
-    </table>
-  </td></tr></table>
-</body>
-</html>`
-
-// ── Light email wrapper (for application confirmations) ───────────────────
-const wrapLight = (content) => `
-<!DOCTYPE html>
-<html>
-<head><meta charset="utf-8"></head>
 <body style="margin:0; padding:0; background-color:#F5F0E8; font-family:Georgia, 'Times New Roman', serif;">
-  <table width="100%" cellpadding="0" cellspacing="0"><tr><td align="center" style="padding:40px 20px;">
-    <table width="600" cellpadding="0" cellspacing="0" style="background-color:#FFFFFF; border:1px solid #E0D5C5;">
+  <table width="100%" cellpadding="0" cellspacing="0"><tr><td align="center" style="padding:48px 20px;">
+    <table width="600" cellpadding="0" cellspacing="0" style="background-color:#FFFFFF; border:1px solid #E0D5C5; border-radius:2px;">
+      <!-- Gold accent bar -->
       <tr><td style="height:4px; background-color:#C9A96E; padding:0;"></td></tr>
-      <tr><td style="padding:40px 40px 24px; text-align:center; border-bottom:1px solid #E0D5C5;">
-        <p style="font-family:Georgia,serif; color:#C9A96E; font-size:22px; letter-spacing:0.3em; margin:0 0 4px; text-transform:uppercase;">Lion Elite</p>
-        <p style="font-family:Georgia,serif; color:#8A8A8A; font-size:11px; letter-spacing:0.2em; margin:0; text-transform:uppercase;">Beauty &amp; Wellness</p>
+
+      <!-- Header -->
+      <tr><td style="padding:44px 44px 28px; text-align:center; border-bottom:1px solid #F0EAE0;">
+        <div style="width:36px; height:1px; background-color:#C9A96E; margin:0 auto 20px;"></div>
+        <p style="font-family:Georgia,serif; color:#C9A96E; font-size:20px; letter-spacing:0.35em; margin:0 0 4px; text-transform:uppercase;">Lion Elite</p>
+        <p style="font-family:Georgia,serif; color:#BABABA; font-size:10px; letter-spacing:0.25em; margin:0; text-transform:uppercase;">Beauty &amp; Wellness</p>
+        <div style="width:36px; height:1px; background-color:#F0EAE0; margin:20px auto 0;"></div>
       </td></tr>
-      <tr><td style="padding:40px 40px; color:#2A2A2A; font-size:15px; line-height:1.8;">
+
+      <!-- Body -->
+      <tr><td style="padding:44px 44px; color:#2A2A2A; font-size:15px; line-height:1.8;">
         ${content}
       </td></tr>
-      <tr><td style="padding:32px 40px; border-top:1px solid #E0D5C5; text-align:center;">
-        <p style="font-family:'Helvetica Neue',Arial,sans-serif; color:#6A6A6A; font-size:11px; margin:0 0 6px;">Lion Elite Beauty &amp; Wellness</p>
-        <p style="font-family:'Helvetica Neue',Arial,sans-serif; color:#8A8A8A; font-size:10px; margin:0 0 4px;">orders@lionelitebeauty.com</p>
-        <p style="font-family:'Helvetica Neue',Arial,sans-serif; color:#BABABA; font-size:9px; margin:8px 0 0;">${formatDate()}</p>
+
+      <!-- Footer -->
+      <tr><td style="padding:32px 44px; background-color:#FAF8F6; border-top:1px solid #F0EAE0; text-align:center;">
+        <p style="font-family:'Helvetica Neue',Arial,sans-serif; color:#8A8A8A; font-size:11px; margin:0 0 8px; letter-spacing:0.05em;">Lion Elite Beauty &amp; Wellness</p>
+        <p style="font-family:'Helvetica Neue',Arial,sans-serif; color:#BABABA; font-size:10px; margin:0 0 2px;">orders@lionelitebeauty.com</p>
+        <p style="font-family:'Helvetica Neue',Arial,sans-serif; color:#D0C8C0; font-size:9px; margin:8px 0 0;">${formatDate()}</p>
       </td></tr>
     </table>
   </td></tr></table>
 </body>
 </html>`
 
-function styledTable(rows) {
+// ── Info card (section container) ───────────────────────────────────────────
+function sectionCard(inner) {
+  return `
+  <div style="background-color:#F9F7F4; border:1px solid #E0D5C5; padding:20px 24px; border-radius:2px;">
+    ${inner}
+  </div>`
+}
+
+function sectionHeading(text) {
+  return `<p style="font-family:'Helvetica Neue',Arial,sans-serif; color:#C9A96E; font-size:9px; letter-spacing:0.2em; margin:0 0 14px; text-transform:uppercase;">${text}</p>`
+}
+
+// ── Styled info table ──────────────────────────────────────────────────────
+function infoTable(rows) {
   return `
   <table width="100%" cellpadding="0" cellspacing="0" style="border-collapse:collapse;">
     ${rows.map((r, i) => `
     <tr>
-      <td style="padding:10px 14px; border-bottom:${i < rows.length - 1 ? '1px solid #1A1A1A' : 'none'}; color:#CACACA; font-family:'Helvetica Neue',Arial,sans-serif; font-size:12px; white-space:nowrap; vertical-align:top;"><strong style="color:#C9A96E;">${r.label}</strong></td>
-      <td style="padding:10px 14px; border-bottom:${i < rows.length - 1 ? '1px solid #1A1A1A' : 'none'}; color:#FAFAF8; font-family:'Helvetica Neue',Arial,sans-serif; font-size:13px;">${r.value}</td>
+      <td style="padding:10px 0; border-bottom:${i < rows.length - 1 ? '1px solid #E8DDD0' : 'none'}; color:#8A8A8A; font-family:'Helvetica Neue',Arial,sans-serif; font-size:11px; white-space:nowrap; vertical-align:top; width:1px; letter-spacing:0.05em;">${r.label}</td>
+      <td style="padding:10px 0 10px 20px; border-bottom:${i < rows.length - 1 ? '1px solid #E8DDD0' : 'none'}; color:#2A2A2A; font-family:'Helvetica Neue',Arial,sans-serif; font-size:13px;">${r.value}</td>
     </tr>`).join('')}
   </table>`
 }
 
-function styledTableLight(rows) {
+// ── Item table (for order line items) ──────────────────────────────────────
+function itemTable(items) {
+  if (!items || !items.length) return ''
+  const itemRows = items.map(i => `
+  <tr>
+    <td style="padding:12px 0; border-bottom:1px solid #F0EAE0; color:#2A2A2A; font-family:'Helvetica Neue',Arial,sans-serif; font-size:13px;">${i.name}</td>
+    <td style="padding:12px 0; border-bottom:1px solid #F0EAE0; color:#8A8A8A; font-family:'Helvetica Neue',Arial,sans-serif; font-size:12px; text-align:center;">${i.quantity}</td>
+    <td style="padding:12px 0; border-bottom:1px solid #F0EAE0; color:#2A2A2A; font-family:'Helvetica Neue',Arial,sans-serif; font-size:13px; text-align:right;">$${i.price.toFixed(2)}</td>
+  </tr>`).join('')
+
   return `
   <table width="100%" cellpadding="0" cellspacing="0" style="border-collapse:collapse;">
-    ${rows.map((r, i) => `
     <tr>
-      <td style="padding:10px 14px; border-bottom:${i < rows.length - 1 ? '1px solid #E0D5C5' : 'none'}; color:#6A6A6A; font-family:'Helvetica Neue',Arial,sans-serif; font-size:12px; white-space:nowrap; vertical-align:top;"><strong style="color:#C9A96E;">${r.label}</strong></td>
-      <td style="padding:10px 14px; border-bottom:${i < rows.length - 1 ? '1px solid #E0D5C5' : 'none'}; color:#2A2A2A; font-family:'Helvetica Neue',Arial,sans-serif; font-size:13px;">${r.value}</td>
-    </tr>`).join('')}
+      <th style="padding:8px 0; border-bottom:1px solid #C9A96E; color:#C9A96E; font-family:'Helvetica Neue',Arial,sans-serif; font-size:9px; letter-spacing:0.15em; text-align:left; font-weight:400; text-transform:uppercase;">Item</th>
+      <th style="padding:8px 0; border-bottom:1px solid #C9A96E; color:#C9A96E; font-family:'Helvetica Neue',Arial,sans-serif; font-size:9px; letter-spacing:0.15em; text-align:center; font-weight:400; text-transform:uppercase;">Qty</th>
+      <th style="padding:8px 0; border-bottom:1px solid #C9A96E; color:#C9A96E; font-family:'Helvetica Neue',Arial,sans-serif; font-size:9px; letter-spacing:0.15em; text-align:right; font-weight:400; text-transform:uppercase;">Price</th>
+    </tr>
+    ${itemRows}
   </table>`
 }
 
+// ── Payment helpers ──────────────────────────────────────────────────────────
 function paymentMethodLabel(method) {
   const labels = { stripe: 'Credit Card / Pay Later', zelle: 'Zelle', cashapp: 'CashApp' }
   return labels[method] || method || 'Not specified'
@@ -104,34 +111,38 @@ function paymentMethodLabel(method) {
 
 function paymentStatusBadge(method, stripePaymentId) {
   if (method === 'stripe') {
-    return `<span style="display:inline-block; background-color:#1A3A1A; color:#5BA87A; font-family:'Helvetica Neue',Arial,sans-serif; font-size:11px; padding:4px 12px; letter-spacing:0.1em;">PAID — STRIPE</span>`
+    return `<span style="display:inline-block; background-color:#E8F5E9; color:#5BA87A; font-family:'Helvetica Neue',Arial,sans-serif; font-size:10px; padding:4px 14px; letter-spacing:0.1em; border:1px solid #5BA87A40;">PAID — STRIPE</span>`
   }
-  return `<span style="display:inline-block; background-color:#3A2A0A; color:#C9A96E; font-family:'Helvetica Neue',Arial,sans-serif; font-size:11px; padding:4px 12px; letter-spacing:0.1em;">PENDING — ${paymentMethodLabel(method).toUpperCase()}</span>`
+  return `<span style="display:inline-block; background-color:#FDF8EE; color:#C9A96E; font-family:'Helvetica Neue',Arial,sans-serif; font-size:10px; padding:4px 14px; letter-spacing:0.1em; border:1px solid #C9A96E40;">PENDING — ${paymentMethodLabel(method).toUpperCase()}</span>`
 }
 
-function itemTable(items) {
-  if (!items || !items.length) return ''
-  const itemRows = items.map(i => `
-  <tr>
-    <td style="padding:10px 14px; border-bottom:1px solid #1A1A1A; color:#FAFAF8; font-family:'Helvetica Neue',Arial,sans-serif; font-size:13px;">${i.name}</td>
-    <td style="padding:10px 14px; border-bottom:1px solid #1A1A1A; color:#8A8A8A; font-family:'Helvetica Neue',Arial,sans-serif; font-size:12px; text-align:center;">${i.quantity}</td>
-    <td style="padding:10px 14px; border-bottom:1px solid #1A1A1A; color:#FAFAF8; font-family:'Helvetica Neue',Arial,sans-serif; font-size:13px; text-align:right;">$${i.price.toFixed(2)}</td>
-  </tr>`).join('')
-
-  return `
-  <table width="100%" cellpadding="0" cellspacing="0" style="border-collapse:collapse;">
-    <tr>
-      <th style="padding:10px 14px; border-bottom:1px solid #2A2A2A; color:#8A8A8A; font-family:'Helvetica Neue',Arial,sans-serif; font-size:10px; letter-spacing:0.15em; text-align:left; font-weight:400; text-transform:uppercase;">Item</th>
-      <th style="padding:10px 14px; border-bottom:1px solid #2A2A2A; color:#8A8A8A; font-family:'Helvetica Neue',Arial,sans-serif; font-size:10px; letter-spacing:0.15em; text-align:center; font-weight:400; text-transform:uppercase;">Qty</th>
-      <th style="padding:10px 14px; border-bottom:1px solid #2A2A2A; color:#8A8A8A; font-family:'Helvetica Neue',Arial,sans-serif; font-size:10px; letter-spacing:0.15em; text-align:right; font-weight:400; text-transform:uppercase;">Price</th>
-    </tr>
-    ${itemRows}
-  </table>`
+function paymentInstructions(method, amount) {
+  if (method === 'stripe') return ''
+  if (method === 'zelle') {
+    return `<div style="background-color:#FDF8EE; border:1px solid #C9A96E40; padding:20px 24px; border-radius:2px;">
+      <p style="font-family:'Helvetica Neue',Arial,sans-serif; color:#C9A96E; font-size:9px; letter-spacing:0.2em; margin:0 0 12px; text-transform:uppercase;">Payment Instructions</p>
+      <p style="margin:0 0 4px; color:#4A4A4A; font-size:14px; line-height:1.6;">Send ${amount ? `<strong>${amount}</strong> ` : ''}via <strong style="color:#C9A96E;">Zelle</strong> to:</p>
+      <p style="margin:0 0 10px; color:#C9A96E; font-size:16px; font-family:'Helvetica Neue',Arial,sans-serif; letter-spacing:0.05em;">orders@lionelitebeauty.com</p>
+      <p style="margin:0; color:#8A8A8A; font-size:12px; line-height:1.5;">Include your order name or VIP ID in the memo so we can match your payment.</p>
+    </div>`
+  }
+  return `<div style="background-color:#FDF8EE; border:1px solid #C9A96E40; padding:20px 24px; border-radius:2px;">
+    <p style="font-family:'Helvetica Neue',Arial,sans-serif; color:#C9A96E; font-size:9px; letter-spacing:0.2em; margin:0 0 12px; text-transform:uppercase;">Payment Instructions</p>
+    <p style="margin:0 0 4px; color:#4A4A4A; font-size:14px; line-height:1.6;">Send ${amount ? `<strong>${amount}</strong> ` : ''}via <strong style="color:#C9A96E;">CashApp</strong> to:</p>
+    <p style="margin:0 0 10px; color:#C9A96E; font-size:16px; font-family:'Helvetica Neue',Arial,sans-serif; letter-spacing:0.05em;">$LionElite</p>
+    <p style="margin:0; color:#8A8A8A; font-size:12px; line-height:1.5;">Include your order name or VIP ID in the memo so we can match your payment.</p>
+  </div>`
 }
 
-function formatItems(products) {
-  if (!products || !products.length) return ''
-  return products.map(i => `${i.name} × ${i.quantity} — $${i.price.toFixed(2)}`).join('<br>')
+function totalLine(amount, label) {
+  return `<div style="border-top:1px solid #E0D5C5; padding-top:14px; margin-top:14px; display:flex; justify-content:space-between; align-items:center;">
+    <span style="font-family:'Helvetica Neue',Arial,sans-serif; color:#C9A96E; font-size:12px; letter-spacing:0.15em; text-transform:uppercase;">${label || 'Total'}</span>
+    <span style="font-family:Georgia,serif; color:#C9A96E; font-size:22px;">${amount}</span>
+  </div>`
+}
+
+function divider() {
+  return `<div style="width:36px; height:1px; background-color:#E0D5C5; margin:32px auto;"></div>`
 }
 
 // ── Admin notification ──────────────────────────────────────────────────────
@@ -141,57 +152,77 @@ function adminBody({ name, email, phone, program, experience, struggle, timeline
   let emailHtml = ''
 
   if (isOrder) {
+    // ── Order notification ──
     emailHtml = `
-    <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:24px;">
-      <h2 style="color:#C9A96E; font-family:Georgia,serif; font-size:20px; margin:0;">New Order Received</h2>
+    <div style="display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:8px; margin-bottom:28px;">
+      <h2 style="color:#2A2A2A; font-family:Georgia,serif; font-size:20px; margin:0;">New Order Received</h2>
       ${paymentStatusBadge(paymentMethod, stripePaymentId)}
     </div>
 
-    <div style="background-color:#0A0A0A; border:1px solid #1A1A1A; padding:20px 24px; margin-bottom:20px;">
-      <p style="font-family:'Helvetica Neue',Arial,sans-serif; color:#C9A96E; font-size:10px; letter-spacing:0.2em; margin:0 0 12px; text-transform:uppercase;">Order #${orderNumber}</p>
-      <p style="font-family:'Helvetica Neue',Arial,sans-serif; color:#8A8A8A; font-size:12px; margin:0;">Placed ${formatDate()} at ${formatTime()}</p>
-      <p style="font-family:'Helvetica Neue',Arial,sans-serif; color:#8A8A8A; font-size:12px; margin:4px 0 0;">Payment: ${paymentMethodLabel(paymentMethod)}</p>
+    ${sectionCard(`
+      <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:14px;">
+        <p style="font-family:'Helvetica Neue',Arial,sans-serif; color:#C9A96E; font-size:11px; letter-spacing:0.2em; margin:0; text-transform:uppercase;">Order #${orderNumber}</p>
+        <p style="font-family:'Helvetica Neue',Arial,sans-serif; color:#8A8A8A; font-size:11px; margin:0;">${formatDate()}</p>
+      </div>
+      <div style="display:flex; gap:24px; flex-wrap:wrap;">
+        <p style="margin:0; font-family:'Helvetica Neue',Arial,sans-serif; color:#6A6A6A; font-size:12px;">Placed at ${formatTime()}</p>
+        <p style="margin:0; font-family:'Helvetica Neue',Arial,sans-serif; color:#6A6A6A; font-size:12px;">Payment: ${paymentMethodLabel(paymentMethod)}</p>
+      </div>
+    `)}
+
+    <div style="margin-top:28px;">
+      ${sectionHeading('Customer Details')}
+      ${sectionCard(infoTable([
+        { label: 'Name', value: name },
+        { label: 'Email', value: email },
+        ...(phone && phone !== 'Not provided' ? [{ label: 'Phone', value: phone }] : []),
+        { label: 'Shipping', value: address || 'Not provided' },
+      ]))}
     </div>
 
-    <h3 style="color:#C9A96E; font-family:'Helvetica Neue',Arial,sans-serif; font-size:11px; letter-spacing:0.15em; margin:0 0 12px; text-transform:uppercase;">Customer Details</h3>
-    ${styledTable([
-      { label: 'Name', value: name },
-      { label: 'Email', value: email },
-      ...(phone && phone !== 'Not provided' ? [{ label: 'Phone', value: phone }] : []),
-      { label: 'Shipping', value: address || 'Not provided' },
-    ])}
-
-    <h3 style="color:#C9A96E; font-family:'Helvetica Neue',Arial,sans-serif; font-size:11px; letter-spacing:0.15em; margin:24px 0 12px; text-transform:uppercase;">Order Details</h3>
-    ${itemTable(items)}
-
-    <div style="background-color:#0A0A0A; border:1px solid #1A1A1A; padding:16px 20px; margin-top:12px;">
-      <table width="100%" cellpadding="0" cellspacing="0">
-        ${subtotal !== undefined ? `<tr><td style="padding:4px 0; color:#8A8A8A; font-family:'Helvetica Neue',Arial,sans-serif; font-size:13px;">Subtotal</td><td style="padding:4px 0; color:#FAFAF8; font-family:'Helvetica Neue',Arial,sans-serif; font-size:13px; text-align:right;">$${subtotal.toFixed(2)}</td></tr>` : ''}
-        ${discountAmount > 0 ? `<tr><td style="padding:4px 0; color:#5BA87A; font-family:'Helvetica Neue',Arial,sans-serif; font-size:13px;">Discount (WELCOME10)</td><td style="padding:4px 0; color:#5BA87A; font-family:'Helvetica Neue',Arial,sans-serif; font-size:13px; text-align:right;">−$${discountAmount.toFixed(2)}</td></tr>` : ''}
-        <tr><td style="padding:8px 0 0; border-top:1px solid #2A2A2A; color:#C9A96E; font-family:'Helvetica Neue',Arial,sans-serif; font-size:14px; letter-spacing:0.1em; text-transform:uppercase;">Total</td><td style="padding:8px 0 0; border-top:1px solid #2A2A2A; color:#C9A96E; font-family:Georgia,serif; font-size:20px; text-align:right;">$${total.toFixed(2)}</td></tr>
-      </table>
+    <div style="margin-top:28px;">
+      ${sectionHeading('Order Details')}
+      ${sectionCard(`
+        ${itemTable(items)}
+        <div style="margin-top:16px;">
+          ${subtotal !== undefined ? `<div style="display:flex; justify-content:space-between; margin-bottom:4px;"><span style="font-family:'Helvetica Neue',Arial,sans-serif; color:#6A6A6A; font-size:13px;">Subtotal</span><span style="font-family:'Helvetica Neue',Arial,sans-serif; color:#2A2A2A; font-size:13px;">$${subtotal.toFixed(2)}</span></div>` : ''}
+          ${discountAmount > 0 ? `<div style="display:flex; justify-content:space-between; margin-bottom:4px;"><span style="font-family:'Helvetica Neue',Arial,sans-serif; color:#5BA87A; font-size:13px;">Discount</span><span style="font-family:'Helvetica Neue',Arial,sans-serif; color:#5BA87A; font-size:13px;">\u2212$${discountAmount.toFixed(2)}</span></div>` : ''}
+          ${totalLine(`$${(total || subtotal || 0).toFixed(2)}`)}
+        </div>
+      `)}
     </div>`
   } else {
-    // Application
+    // ── Application notification ──
     emailHtml = `
-    <h2 style="color:#C9A96E; font-family:Georgia,serif; font-size:20px; margin:0 0 24px;">New Application Received</h2>
-    ${styledTable([
+    <h2 style="color:#2A2A2A; font-family:Georgia,serif; font-size:20px; margin:0 0 6px;">New Application Received</h2>
+    <p style="margin:0 0 28px; color:#8A8A8A; font-family:'Helvetica Neue',Arial,sans-serif; font-size:12px;">${formatDate()} at ${formatTime()}</p>
+
+    ${sectionCard(infoTable([
       { label: 'Name', value: name },
       { label: 'Email', value: email },
       ...(phone && phone !== 'Not provided' ? [{ label: 'Phone', value: phone }] : []),
       { label: 'Program', value: program || 'Not specified' },
-      ...(experience ? [{ label: 'Experience', value: experience }] : []),
-      ...(struggle && struggle !== 'Not provided' ? [{ label: 'Struggle', value: struggle }] : []),
-      ...(timeline ? [{ label: 'Timeline', value: timeline }] : []),
-      ...(investment ? [{ label: 'Investment', value: investment }] : []),
-      ...(commitment ? [{ label: 'Commitment', value: commitment }] : []),
-      ...(health && health !== 'Not provided' ? [{ label: 'Health Notes', value: health }] : []),
-    ])}
-    <div style="background-color:#0C0A08; border:1px solid #C9A96E33; padding:16px 20px; margin-top:20px;">
-      <p style="font-family:'Helvetica Neue',Arial,sans-serif; color:#C9A96E; font-size:11px; letter-spacing:0.15em; margin:0 0 8px; text-transform:uppercase;">Send Payment Form to Customer</p>
-      <p style="margin:0 0 12px; color:#CACACA; font-size:13px; line-height:1.6;">Forward this link to the customer to create a VIP account and pay directly:</p>
-      <table cellpadding="0" cellspacing="0"><tr><td style="background-color:#C9A96E; padding:12px 24px;">
-        <a href="${process.env.SITE_URL || 'https://lionelitebeauty.com'}/apply?name=${encodeURIComponent(name)}&email=${encodeURIComponent(email)}&program=${encodeURIComponent(program || 'Wellness Program')}" style="color:#000; font-family:'Helvetica Neue',Arial,sans-serif; font-size:11px; letter-spacing:0.1em; text-decoration:none; text-transform:uppercase; white-space:nowrap;">Send Payment Form →</a>
+    ]))}
+
+    <div style="margin-top:24px;">
+      ${sectionHeading('Assessment Details')}
+      ${sectionCard(infoTable([
+        ...(experience ? [{ label: 'Experience', value: experience }] : []),
+        ...(struggle && struggle !== 'Not provided' ? [{ label: 'Primary Concerns', value: struggle }] : []),
+        ...(timeline ? [{ label: 'Timeline', value: timeline }] : []),
+        ...(investment ? [{ label: 'Investment', value: investment }] : []),
+        ...(commitment ? [{ label: 'Commitment', value: commitment }] : []),
+        ...(health && health !== 'Not provided' ? [{ label: 'Health Notes', value: health }] : []),
+      ]))}
+    </div>
+
+    ${divider()}
+
+    <div style="background-color:#FDF8EE; border:1px solid #C9A96E40; padding:20px 24px; border-radius:2px;">
+      <p style="font-family:'Helvetica Neue',Arial,sans-serif; color:#C9A96E; font-size:9px; letter-spacing:0.2em; margin:0 0 10px; text-transform:uppercase;">Next Step — Send Payment Link</p>
+      <p style="margin:0 0 14px; color:#4A4A4A; font-size:13px; line-height:1.7;">Forward this link to the customer to create their VIP account and complete payment:</p>
+      <table cellpadding="0" cellspacing="0"><tr><td style="background-color:#C9A96E; padding:13px 26px; border-radius:2px;">
+        <a href="${process.env.SITE_URL || 'https://lionelitebeauty.com'}/apply?name=${encodeURIComponent(name)}&email=${encodeURIComponent(email)}&program=${encodeURIComponent(program || 'Wellness Program')}" style="color:#000; font-family:'Helvetica Neue',Arial,sans-serif; font-size:11px; letter-spacing:0.1em; text-decoration:none; text-transform:uppercase; white-space:nowrap;">Send Payment Form \u2192</a>
       </td></tr></table>
     </div>`
   }
@@ -200,115 +231,171 @@ function adminBody({ name, email, phone, program, experience, struggle, timeline
 }
 
 // ── Customer confirmation ──────────────────────────────────────────────────
-function clientConfirmation({ name, program, items, orderNumber, address, paymentMethod, stripePaymentId, total, subtotal, discountAmount, experience, struggle, timeline, investment, commitment, health }) {
+function clientConfirmation({ name, program, items, orderNumber, address, paymentMethod, stripePaymentId, total, subtotal, discountAmount, experience, struggle, timeline, investment, commitment, health, tier, vipId }) {
   const isOrder = !!items
-  const title = isOrder ? 'Your order is confirmed.' : 'We&rsquo;ve received your application.'
+  const title = isOrder ? 'Your order is confirmed.' : 'We\u2019ve received your application.'
+  const greeting = `Hi ${name},`
 
   let bodyHtml = ''
+
   if (isOrder) {
+    // ── Order confirmation ──
     const itemsList = items.map(i =>
-      `<tr><td style="padding:8px 12px; border-bottom:1px solid #1A1A1A; color:#FAFAF8; font-family:'Helvetica Neue',Arial,sans-serif; font-size:13px;">${i.name}</td><td style="padding:8px 12px; border-bottom:1px solid #1A1A1A; color:#8A8A8A; font-family:'Helvetica Neue',Arial,sans-serif; font-size:12px; text-align:center;">${i.quantity}</td><td style="padding:8px 12px; border-bottom:1px solid #1A1A1A; color:#FAFAF8; font-family:'Helvetica Neue',Arial,sans-serif; font-size:13px; text-align:right;">$${i.price.toFixed(2)}</td></tr>`
+      `<tr><td style="padding:10px 0; border-bottom:1px solid #F0EAE0; color:#2A2A2A; font-family:'Helvetica Neue',Arial,sans-serif; font-size:13px;">${i.name}</td><td style="padding:10px 0; border-bottom:1px solid #F0EAE0; color:#8A8A8A; font-family:'Helvetica Neue',Arial,sans-serif; font-size:12px; text-align:center;">${i.quantity}</td><td style="padding:10px 0; border-bottom:1px solid #F0EAE0; color:#2A2A2A; font-family:'Helvetica Neue',Arial,sans-serif; font-size:13px; text-align:right;">$${i.price.toFixed(2)}</td></tr>`
     ).join('')
 
     const paymentHtml = paymentMethod === 'stripe'
-      ? `<p style="margin:0; color:#5BA87A; font-size:14px;">✓ Payment received via credit card / pay later</p>`
-      : `
-      <div style="background-color:#0C0A08; border:1px solid #C9A96E33; padding:20px; margin-top:16px;">
-        <p style="font-family:'Helvetica Neue',Arial,sans-serif; color:#C9A96E; font-size:11px; letter-spacing:0.15em; margin:0 0 12px; text-transform:uppercase;">Payment Instructions</p>
-        ${paymentMethod === 'zelle'
-          ? `<p style="margin:0 0 4px; color:#CACACA; font-size:13px;">Send via <strong style="color:#C9A96E;">Zelle</strong> to:</p>
-             <p style="margin:0 0 12px; color:#C9A96E; font-size:15px; font-family:'Helvetica Neue',Arial,sans-serif;">orders@lionelitebeauty.com</p>`
-          : `<p style="margin:0 0 4px; color:#CACACA; font-size:13px;">Send via <strong style="color:#C9A96E;">CashApp</strong> to:</p>
-             <p style="margin:0 0 12px; color:#C9A96E; font-size:15px; font-family:'Helvetica Neue',Arial,sans-serif;">$LionElite</p>`
-        }
-        <p style="margin:0; color:#6A6A6A; font-size:12px;">Include your order name in the memo so we can match your payment.</p>
-      </div>`
+      ? `<p style="margin:0; color:#5BA87A; font-size:14px;">\u2713 Payment received via credit card / pay later</p>`
+      : paymentInstructions(paymentMethod)
 
     bodyHtml = `
-    <p style="margin:0 0 8px; color:#FAFAF8; font-size:17px;">Hi ${name},</p>
-    <p style="margin:0 0 24px; color:#CACACA; font-size:15px; line-height:1.8;">Thank you for your order. Here&rsquo;s your full confirmation:</p>
+    <p style="margin:0 0 6px; color:#4A4A4A; font-size:17px;">${greeting}</p>
+    <p style="margin:0 0 28px; color:#6A6A6A; font-size:15px; line-height:1.7;">Thank you for your order. Here\u2019s a full summary for your records:</p>
 
-    <div style="background-color:#0A0A0A; border:1px solid #1A1A1A; padding:20px 24px; margin-bottom:24px;">
-      <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:8px;">
-        <p style="font-family:'Helvetica Neue',Arial,sans-serif; color:#C9A96E; font-size:10px; letter-spacing:0.2em; margin:0; text-transform:uppercase;">Order #${orderNumber}</p>
-        <p style="font-family:'Helvetica Neue',Arial,sans-serif; color:#6A6A6A; font-size:11px; margin:0;">${formatDate()}</p>
+    ${sectionCard(`
+      <div style="display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:6px;">
+        <p style="font-family:'Helvetica Neue',Arial,sans-serif; color:#C9A96E; font-size:11px; letter-spacing:0.2em; margin:0; text-transform:uppercase;">Order #${orderNumber}</p>
+        <p style="font-family:'Helvetica Neue',Arial,sans-serif; color:#8A8A8A; font-size:11px; margin:0;">${formatDate()}</p>
       </div>
-    </div>
+    `)}
 
-    <h3 style="color:#8A8A8A; font-family:'Helvetica Neue',Arial,sans-serif; font-size:10px; letter-spacing:0.15em; margin:0 0 12px; text-transform:uppercase;">Items Ordered</h3>
-    <table width="100%" cellpadding="0" cellspacing="0" style="border-collapse:collapse; margin-bottom:16px;">
-      <tr>
-        <th style="padding:8px 12px; border-bottom:1px solid #2A2A2A; color:#6A6A6A; font-family:'Helvetica Neue',Arial,sans-serif; font-size:9px; letter-spacing:0.15em; text-align:left; font-weight:400; text-transform:uppercase;">Item</th>
-        <th style="padding:8px 12px; border-bottom:1px solid #2A2A2A; color:#6A6A6A; font-family:'Helvetica Neue',Arial,sans-serif; font-size:9px; letter-spacing:0.15em; text-align:center; font-weight:400; text-transform:uppercase;">Qty</th>
-        <th style="padding:8px 12px; border-bottom:1px solid #2A2A2A; color:#6A6A6A; font-family:'Helvetica Neue',Arial,sans-serif; font-size:9px; letter-spacing:0.15em; text-align:right; font-weight:400; text-transform:uppercase;">Price</th>
-      </tr>
-      ${itemsList}
-    </table>
-
-    <div style="border-top:1px solid #1A1A1A; padding-top:12px; margin-bottom:16px;">
-      ${subtotal !== undefined ? `<div style="display:flex; justify-content:space-between; margin-bottom:4px;"><span style="font-family:'Helvetica Neue',Arial,sans-serif; color:#8A8A8A; font-size:13px;">Subtotal</span><span style="font-family:'Helvetica Neue',Arial,sans-serif; color:#FAFAF8; font-size:13px;">$${subtotal.toFixed(2)}</span></div>` : ''}
-      ${discountAmount > 0 ? `<div style="display:flex; justify-content:space-between; margin-bottom:4px;"><span style="font-family:'Helvetica Neue',Arial,sans-serif; color:#5BA87A; font-size:13px;">Discount (WELCOME10)</span><span style="font-family:'Helvetica Neue',Arial,sans-serif; color:#5BA87A; font-size:13px;">−$${discountAmount.toFixed(2)}</span></div>` : ''}
-      <div style="display:flex; justify-content:space-between; padding-top:8px; border-top:1px solid #2A2A2A;">
-        <span style="font-family:'Helvetica Neue',Arial,sans-serif; color:#C9A96E; font-size:14px; letter-spacing:0.1em; text-transform:uppercase;">Total</span>
-        <span style="font-family:Georgia,serif; color:#C9A96E; font-size:22px;">$${total.toFixed(2)}</span>
-      </div>
+    <div style="margin-top:28px;">
+      ${sectionHeading('Items Ordered')}
+      ${sectionCard(`
+        <table width="100%" cellpadding="0" cellspacing="0" style="border-collapse:collapse;">
+          <tr>
+            <th style="padding:8px 0; border-bottom:1px solid #C9A96E; color:#C9A96E; font-family:'Helvetica Neue',Arial,sans-serif; font-size:9px; letter-spacing:0.15em; text-align:left; font-weight:400; text-transform:uppercase;">Item</th>
+            <th style="padding:8px 0; border-bottom:1px solid #C9A96E; color:#C9A96E; font-family:'Helvetica Neue',Arial,sans-serif; font-size:9px; letter-spacing:0.15em; text-align:center; font-weight:400; text-transform:uppercase;">Qty</th>
+            <th style="padding:8px 0; border-bottom:1px solid #C9A96E; color:#C9A96E; font-family:'Helvetica Neue',Arial,sans-serif; font-size:9px; letter-spacing:0.15em; text-align:right; font-weight:400; text-transform:uppercase;">Price</th>
+          </tr>
+          ${itemsList}
+        </table>
+        <div style="margin-top:12px;">
+          ${subtotal !== undefined ? `<div style="display:flex; justify-content:space-between; margin-bottom:4px;"><span style="font-family:'Helvetica Neue',Arial,sans-serif; color:#6A6A6A; font-size:13px;">Subtotal</span><span style="font-family:'Helvetica Neue',Arial,sans-serif; color:#2A2A2A; font-size:13px;">$${subtotal.toFixed(2)}</span></div>` : ''}
+          ${discountAmount > 0 ? `<div style="display:flex; justify-content:space-between; margin-bottom:4px;"><span style="font-family:'Helvetica Neue',Arial,sans-serif; color:#5BA87A; font-size:13px;">Discount</span><span style="font-family:'Helvetica Neue',Arial,sans-serif; color:#5BA87A; font-size:13px;">\u2212$${discountAmount.toFixed(2)}</span></div>` : ''}
+          ${totalLine(`$${(total || subtotal || 0).toFixed(2)}`)}
+        </div>
+      `)}
     </div>
 
     ${address ? `
-    <h3 style="color:#8A8A8A; font-family:'Helvetica Neue',Arial,sans-serif; font-size:10px; letter-spacing:0.15em; margin:0 0 8px; text-transform:uppercase;">Shipping To</h3>
-    <p style="margin:0 0 20px; color:#FAFAF8; font-size:14px; line-height:1.6;">${address}</p>
-    ` : ''}
+    <div style="margin-top:28px;">
+      ${sectionHeading('Shipping To')}
+      ${sectionCard(`<p style="margin:0; color:#2A2A2A; font-size:14px; line-height:1.7;">${address}</p>`)}
+    </div>` : ''}
 
-    <div style="background-color:#0C0A08; border:1px solid #1A1A1A; padding:20px; margin-bottom:24px;">
-      <p style="font-family:'Helvetica Neue',Arial,sans-serif; color:#8A8A8A; font-size:10px; letter-spacing:0.15em; margin:0 0 10px; text-transform:uppercase;">Payment</p>
-      ${paymentHtml}
+    <div style="margin-top:28px;">
+      ${sectionHeading('Payment')}
+      ${sectionCard(paymentHtml)}
     </div>
 
-    <p style="margin:0 0 8px; color:#CACACA; font-size:15px; line-height:1.8;">We&rsquo;ll confirm shipping details within 24 hours. If you have any questions, reply to this email — we&rsquo;re here to help.</p>
-    `
+    ${divider()}
+
+    <p style="margin:0 0 4px; color:#4A4A4A; font-size:15px; line-height:1.7;">We\u2019ll confirm shipping details within 24 hours. If you have any questions, simply reply to this email \u2014 we\u2019re here to help.</p>`
   } else {
-    // Application confirmation with full details
+    // ── Application confirmation ──
     const labelMap = {
       experience: { beginner: 'New to peptides', some: 'Some experience', advanced: 'Advanced user' },
-      timeline: { asap: 'As soon as possible', '2-4weeks': 'Within 2–4 weeks', exploring: 'Just exploring' },
-      investment: { '100-300': '$100–300/month', '300-700': '$300–700/month', '700+': '$700+/month' },
+      timeline: { asap: 'As soon as possible', '2-4weeks': 'Within 2\u20134 weeks', exploring: 'Just exploring' },
+      investment: { '100-300': '$100\u2013300/month', '300-700': '$300\u2013700/month', '700+': '$700+/month' },
       commitment: { very: 'Very committed', somewhat: 'Somewhat committed', exploring: 'Still deciding' },
     }
     function fmt(field, val) { return labelMap[field]?.[val] || val }
 
     bodyHtml = `
-    <p style="margin:0 0 20px; color:#2A2A2A; font-size:17px;">Hi ${name},</p>
-    <p style="margin:0 0 20px; color:#4A4A4A; font-size:15px; line-height:1.8;">Your application for the <strong style="color:#C9A96E;">${program}</strong> program has been received. We personally review every application and will reach out within 24&ndash;48 hours with your tailored next steps.</p>
+    <p style="margin:0 0 6px; color:#4A4A4A; font-size:17px;">${greeting}</p>
+    <p style="margin:0 0 28px; color:#6A6A6A; font-size:15px; line-height:1.7;">Your application for the <strong style="color:#C9A96E;">${program}</strong> program has been received. We personally review every application and will reach out within 24\u201348 hours with your tailored next steps.</p>
 
-    <h3 style="color:#6A6A6A; font-family:'Helvetica Neue',Arial,sans-serif; font-size:10px; letter-spacing:0.15em; margin:0 0 12px; text-transform:uppercase;">Application Summary</h3>
-    <div style="background-color:#F9F7F4; border:1px solid #E0D5C5; padding:16px 20px; margin-bottom:20px;">
-      ${styledTableLight([
-        { label: 'Program', value: program || 'Not specified' },
-        ...(experience ? [{ label: 'Experience', value: fmt('experience', experience) }] : []),
-        ...(struggle && struggle !== 'Not provided' ? [{ label: 'Primary Concerns', value: struggle }] : []),
-        ...(timeline ? [{ label: 'Timeline', value: fmt('timeline', timeline) }] : []),
-        ...(investment ? [{ label: 'Investment', value: fmt('investment', investment) }] : []),
-        ...(commitment ? [{ label: 'Commitment', value: fmt('commitment', commitment) }] : []),
-        ...(health && health !== 'Not provided' ? [{ label: 'Health Notes', value: health }] : []),
-      ])}
-    </div>
+    ${sectionHeading('Application Summary')}
+    ${sectionCard(infoTable([
+      { label: 'Program', value: program || 'Not specified' },
+      ...(experience ? [{ label: 'Experience', value: fmt('experience', experience) }] : []),
+      ...(struggle && struggle !== 'Not provided' ? [{ label: 'Primary Concerns', value: struggle }] : []),
+      ...(timeline ? [{ label: 'Timeline', value: fmt('timeline', timeline) }] : []),
+      ...(investment ? [{ label: 'Investment', value: fmt('investment', investment) }] : []),
+      ...(commitment ? [{ label: 'Commitment', value: fmt('commitment', commitment) }] : []),
+      ...(health && health !== 'Not provided' ? [{ label: 'Health Notes', value: health }] : []),
+    ]))}
 
-    <p style="margin:0 0 12px; color:#4A4A4A; font-size:15px; line-height:1.8;">Ready to move forward? Create your VIP account and enroll with payment right on the same page:</p>
-    <table cellpadding="0" cellspacing="0" style="margin:0 0 24px;"><tr><td style="background-color:#C9A96E; padding:14px 32px; border-radius:2px;">
-      <a href="${process.env.SITE_URL || 'https://lionelitebeauty.com'}/apply?name=${encodeURIComponent(name)}&email=${encodeURIComponent(email)}&program=${encodeURIComponent(program)}" style="color:#000; font-family:'Helvetica Neue',Arial,sans-serif; font-size:12px; letter-spacing:0.1em; text-decoration:none; text-transform:uppercase; white-space:nowrap;">Create VIP Account &amp; Pay →</a>
+    ${divider()}
+
+    <p style="margin:0 0 16px; color:#4A4A4A; font-size:15px; line-height:1.7;">Ready to move forward? You can create your VIP account and complete payment right away:</p>
+    <table cellpadding="0" cellspacing="0" style="margin:0 0 20px;"><tr><td style="background-color:#C9A96E; padding:14px 30px; border-radius:2px;">
+      <a href="${process.env.SITE_URL || 'https://lionelitebeauty.com'}/apply?name=${encodeURIComponent(name)}&email=${encodeURIComponent(email)}&program=${encodeURIComponent(program)}" style="color:#000; font-family:'Helvetica Neue',Arial,sans-serif; font-size:12px; letter-spacing:0.1em; text-decoration:none; text-transform:uppercase; white-space:nowrap;">Create VIP Account &amp; Pay \u2192</a>
     </td></tr></table>
-    <p style="margin:0 0 24px; color:#6A6A6A; font-size:13px; line-height:1.8;">Pay with credit/debit card (Visa, MC, Amex), Klarna, Afterpay, Affirm, or Zelle. Your VIP account links all your program details in one place.</p>
+    <p style="margin:0 0 24px; color:#8A8A8A; font-size:13px; line-height:1.7;">Pay with credit/debit card (Visa, MC, Amex), Klarna, Afterpay, Affirm, or Zelle. Your VIP account keeps everything organized in one place.</p>
 
-    <p style="margin:0 0 24px; color:#8A8A8A; font-size:13px; line-height:1.8;">Prefer to speak first? Book a consultation call:</p>
-    <table cellpadding="0" cellspacing="0"><tr><td style="background-color:#C9A96E; padding:14px 32px; border-radius:2px;">
-      <a href="https://calendly.com/a-ringfield-trustetc" style="color:#000; font-family:'Helvetica Neue',Arial,sans-serif; font-size:12px; letter-spacing:0.1em; text-decoration:none; text-transform:uppercase; white-space:nowrap;">Book Your Call →</a>
+    <p style="margin:0 0 16px; color:#4A4A4A; font-size:15px; line-height:1.7;">Prefer to speak first? Book a consultation call:</p>
+    <table cellpadding="0" cellspacing="0"><tr><td style="background-color:#C9A96E; padding:14px 30px; border-radius:2px;">
+      <a href="https://calendly.com/a-ringfield-trustetc" style="color:#000; font-family:'Helvetica Neue',Arial,sans-serif; font-size:12px; letter-spacing:0.1em; text-decoration:none; text-transform:uppercase; white-space:nowrap;">Book Your Call \u2192</a>
     </td></tr></table>`
   }
 
   return `
-    <h2 style="color:#C9A96E; font-family:Georgia,serif; font-size:22px; margin:0 0 20px;">${title}</h2>
+    <h2 style="color:#2A2A2A; font-family:Georgia,serif; font-size:22px; margin:0 0 24px;">${title}</h2>
     ${bodyHtml}
   `
+}
+
+// ── Program enrollment (admin notification) ─────────────────────────────────
+function programAdminBody({ name, email, program, tier, vipId, paymentMethod, stripePaymentId, amount }) {
+  const tierLabel = tier === 'foundation' ? 'Foundation Coaching' : 'VIP Transformation Program'
+  return `
+    <div style="display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:8px; margin-bottom:28px;">
+      <h2 style="color:#2A2A2A; font-family:Georgia,serif; font-size:20px; margin:0;">New Program Enrollment</h2>
+      ${paymentStatusBadge(paymentMethod, stripePaymentId)}
+    </div>
+    <p style="margin:0 0 24px; color:#8A8A8A; font-family:'Helvetica Neue',Arial,sans-serif; font-size:12px;">${formatDate()} at ${formatTime()}</p>
+
+    ${sectionHeading('Client & Enrollment Details')}
+    ${sectionCard(infoTable([
+      { label: 'Name', value: name },
+      { label: 'Email', value: email },
+      { label: 'Program', value: program || 'Wellness Program' },
+      { label: 'Tier', value: tierLabel },
+      ...(vipId ? [{ label: 'VIP ID', value: vipId }] : []),
+      { label: 'Payment Method', value: paymentMethodLabel(paymentMethod) },
+    ]))}
+
+    <div style="margin-top:20px;">
+      ${totalLine(amount || '$299.99', 'Enrollment Total')}
+    </div>`
+}
+
+// ── Program enrollment (client welcome) ─────────────────────────────────────
+function programClientBody({ name, program, tier, vipId, paymentMethod, stripePaymentId, amount, period, duration }) {
+  const tierLabel = tier === 'foundation' ? 'Foundation Coaching' : 'VIP Transformation Program'
+  const isPaid = paymentMethod === 'stripe' && stripePaymentId
+
+  return `
+    <p style="margin:0 0 6px; color:#4A4A4A; font-size:17px;">Hi ${name},</p>
+
+    <div style="background-color:#FDF8EE; border:1px solid #C9A96E40; padding:24px; border-radius:2px; margin:0 0 28px;">
+      <p style="font-family:'Helvetica Neue',Arial,sans-serif; color:#C9A96E; font-size:9px; letter-spacing:0.2em; margin:0 0 8px; text-transform:uppercase;">Enrollment Confirmed</p>
+      <p style="margin:0 0 2px; color:#2A2A2A; font-size:18px; font-family:Georgia,serif;">${tierLabel}</p>
+      <p style="margin:0; color:#8A8A8A; font-family:'Helvetica Neue',Arial,sans-serif; font-size:12px;">${amount}${period || ''} ${duration ? `\u00B7 ${duration}` : ''}</p>
+    </div>
+
+    ${isPaid
+      ? `<p style="margin:0 0 20px; color:#5BA87A; font-size:15px; line-height:1.7;">\u2713 Payment received. Your enrollment in the <strong style="color:#C9A96E;">${program}</strong> program is confirmed and your spot is secured.</p>`
+      : `<p style="margin:0 0 20px; color:#6A6A6A; font-size:15px; line-height:1.7;">Your enrollment in the <strong style="color:#C9A96E;">${program} (${tierLabel})</strong> program has been submitted. We\u2019ll confirm your spot once payment is processed.</p>
+         ${paymentInstructions(paymentMethod, amount)}`
+    }
+
+    ${vipId ? `
+    <div style="background-color:#F9F7F4; border:1px solid #E0D5C5; padding:14px 20px; border-radius:2px; margin-top:20px;">
+      <p style="margin:0; color:#8A8A8A; font-family:'Helvetica Neue',Arial,sans-serif; font-size:11px; letter-spacing:0.05em;">VIP ID: <strong style="color:#C9A96E; letter-spacing:0.15em;">${vipId}</strong></p>
+    </div>` : ''}
+
+    ${divider()}
+
+    <p style="margin:0 0 4px; color:#4A4A4A; font-size:15px; line-height:1.7;">
+      ${tier === 'foundation'
+        ? 'We\u2019ll reach out within 24 hours to schedule your first coaching call and get you started on your wellness roadmap.'
+        : 'We\u2019ll reach out within 24 hours to schedule your onboarding and walk you through your personalized protocol.'
+      }
+    </p>
+    <p style="margin:0; color:#4A4A4A; font-size:15px; line-height:1.7;">If you have any questions, reply to this email \u2014 we\u2019re here to help.</p>`
 }
 
 // ── Main handler ────────────────────────────────────────────────────────────
@@ -323,7 +410,6 @@ export default async function handler(req, res) {
 
   try {
     if (isOrder) {
-      // Calculate pricing from itemized data
       const items = body.items || []
       const subtotal = items.reduce((s, i) => s + (i.price || 0) * (i.quantity || 1), 0)
       const discountApplied = body.discountCode && body.discountCode !== 'None'
@@ -352,9 +438,7 @@ export default async function handler(req, res) {
           to: [body.email],
           subject: `Order Confirmed — #${orderNumber}`,
           html: wrap(clientConfirmation({
-            name: body.name,
-            items,
-            orderNumber,
+            name: body.name, items, orderNumber,
             address: body.address,
             paymentMethod: body.paymentMethod,
             stripePaymentId: body.stripePaymentId,
@@ -368,57 +452,35 @@ export default async function handler(req, res) {
       const tierInfo = body.tier === 'foundation'
         ? { label: 'Foundation Coaching', price: '$299.99', period: '/ month', emailSub: '(Foundation)', duration: 'monthly coaching program' }
         : { label: 'VIP Transformation Program', price: '$2,400.00', period: '/ 6 months', emailSub: '(VIP)', duration: '6-month personalized protocol' }
+
       const [adminRes, clientRes] = await Promise.all([
         resend.emails.send({
           from: 'Lion Elite <orders@lionelitebeauty.com>',
           to: ['orders@lionelitebeauty.com'],
           subject: `Program Enrollment: ${tierInfo.label} — ${progName} — ${body.name} ${body.vipId ? `(${body.vipId})` : ''}`,
-          html: wrap(`
-            <h2 style="color:#C9A96E; font-family:Georgia,serif; font-size:20px; margin:0 0 24px;">New Program Enrollment — ${tierInfo.label}</h2>
-            ${paymentStatusBadge(body.paymentMethod, body.stripePaymentId)}
-            <div style="background-color:#0A0A0A; border:1px solid #1A1A1A; padding:20px 24px; margin-top:16px;">
-              ${styledTable([
-                { label: 'Name', value: body.name },
-                { label: 'Email', value: body.email },
-                { label: 'Program', value: progName },
-                { label: 'Tier', value: tierInfo.label },
-                ...(body.vipId ? [{ label: 'VIP ID', value: body.vipId }] : []),
-                { label: 'Payment', value: paymentMethodLabel(body.paymentMethod) },
-              ])}
-            </div>
-            <div style="background-color:#0A0A0A; border:1px solid #1A1A1A; padding:16px 20px; margin-top:12px;">
-              <table width="100%" cellpadding="0" cellspacing="0">
-                <tr><td style="padding:4px 0; color:#C9A96E; font-family:'Helvetica Neue',Arial,sans-serif; font-size:14px; letter-spacing:0.1em; text-transform:uppercase;">Total</td>
-                <td style="padding:4px 0; color:#C9A96E; font-family:Georgia,serif; font-size:20px; text-align:right;">${tierInfo.price}</td></tr>
-              </table>
-            </div>`),
+          html: wrap(programAdminBody({
+            name: body.name, email: body.email,
+            program: progName, tier: body.tier,
+            vipId: body.vipId,
+            paymentMethod: body.paymentMethod,
+            stripePaymentId: body.stripePaymentId,
+            amount: tierInfo.price,
+          })),
           replyTo: body.email,
         }),
         resend.emails.send({
           from: 'Lion Elite <orders@lionelitebeauty.com>',
           to: [body.email],
           subject: `Welcome to Lion Elite — ${tierInfo.label} Enrollment`,
-          html: wrap(`
-            <h2 style="color:#C9A96E; font-family:Georgia,serif; font-size:22px; margin:0 0 20px;">Welcome to the Lion Elite Family.</h2>
-            <p style="margin:0 0 20px; color:#FAFAF8; font-size:17px;">Hi ${body.name},</p>
-            <p style="margin:0 0 4px; color:#8A8A8A; font-family:'Helvetica Neue',Arial,sans-serif; font-size:11px; letter-spacing:0.15em; text-transform:uppercase;">${tierInfo.label}</p>
-            <p style="margin:0 0 20px; color:#6A6A6A; font-family:'Helvetica Neue',Arial,sans-serif; font-size:12px;">${tierInfo.price}${tierInfo.period} · ${tierInfo.duration}</p>
-            ${body.paymentMethod === 'stripe' && body.stripePaymentId
-              ? `<p style="margin:0 0 20px; color:#5BA87A; font-size:15px; line-height:1.8;">✓ Payment received. Your enrollment in the <strong style="color:#C9A96E;">${progName}</strong> program is confirmed.</p>`
-              : `<p style="margin:0 0 20px; color:#CACACA; font-size:15px; line-height:1.8;">Your enrollment in the <strong style="color:#C9A96E;">${progName} (${tierInfo.label})</strong> program has been received. We'll confirm your spot once payment is processed.</p>
-                 <div style="background-color:#0C0A08; border:1px solid #C9A96E33; padding:20px; margin-bottom:20px;">
-                   <p style="font-family:'Helvetica Neue',Arial,sans-serif; color:#C9A96E; font-size:11px; letter-spacing:0.15em; margin:0 0 12px; text-transform:uppercase;">Payment Instructions</p>
-                   <p style="margin:0 0 4px; color:#CACACA; font-size:13px;">Send <strong style="color:#C9A96E;">${tierInfo.price}</strong> via Zelle to:</p>
-                   <p style="margin:0 0 12px; color:#C9A96E; font-size:15px; font-family:'Helvetica Neue',Arial,sans-serif;">orders@lionelitebeauty.com</p>
-                   <p style="margin:0; color:#6A6A6A; font-size:12px;">Include your name and VIP ID in the memo.</p>
-                 </div>`
-            }
-            ${body.vipId ? `<p style="margin:0 0 8px; color:#8A8A8A; font-size:12px;">VIP ID: <strong style="color:#C9A96E; letter-spacing:0.15em;">${body.vipId}</strong></p>` : ''}
-            ${body.tier === 'foundation'
-              ? `<p style="margin:0 0 8px; color:#CACACA; font-size:15px; line-height:1.8;">We'll reach out within 24 hours to schedule your first coaching call and get you started on your wellness roadmap.</p>`
-              : `<p style="margin:0 0 8px; color:#CACACA; font-size:15px; line-height:1.8;">We'll reach out within 24 hours to schedule your onboarding and walk you through your personalized protocol.</p>`
-            }
-            <p style="margin:0 0 8px; color:#CACACA; font-size:15px; line-height:1.8;">If you have any questions, reply to this email — we're here to help.</p>`),
+          html: wrap(programClientBody({
+            name: body.name, program: progName,
+            tier: body.tier, vipId: body.vipId,
+            paymentMethod: body.paymentMethod,
+            stripePaymentId: body.stripePaymentId,
+            amount: tierInfo.price,
+            period: tierInfo.period,
+            duration: tierInfo.duration,
+          })),
         }),
       ])
       console.log('Program enrollment emails:', tierInfo.label, adminRes.id, clientRes.id)
@@ -444,16 +506,12 @@ export default async function handler(req, res) {
         resend.emails.send({
           from: 'Lion Elite <orders@lionelitebeauty.com>',
           to: [body.email],
-          subject: 'We received your application — Lion Elite',
-          html: wrapLight(clientConfirmation({
-            name: body.name,
-            program: body.program,
-            experience: body.experience,
-            struggle: body.struggle,
-            timeline: body.timeline,
-            investment: body.investment,
-            commitment: body.commitment,
-            health: body.health,
+          subject: 'Application Received — Lion Elite',
+          html: wrap(clientConfirmation({
+            name: body.name, program: body.program,
+            experience: body.experience, struggle: body.struggle,
+            timeline: body.timeline, investment: body.investment,
+            commitment: body.commitment, health: body.health,
           })),
         }),
       ])
