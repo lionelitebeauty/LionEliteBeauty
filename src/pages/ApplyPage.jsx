@@ -49,9 +49,7 @@ export default function ApplyPage() {
   const [sending, setSending] = useState(false)
   const [errors, setErrors] = useState({})
   // ── VIP account ─────────────────────────────────────────────────────────
-  const [vipLoading, setVipLoading] = useState(false)
   const [vipAccount, setVipAccount] = useState(null)
-  const [vipError, setVipError] = useState('')
 
   // ── Inline payment ──────────────────────────────────────────────────────
   const [selectedTier, setSelectedTier] = useState(null)
@@ -61,6 +59,7 @@ export default function ApplyPage() {
   const [clientSecret, setClientSecret] = useState('')
   const [showCardForm, setShowCardForm] = useState(false)
   const [paymentSuccess, setPaymentSuccess] = useState(false)
+  const [creatingVipAfterPayment, setCreatingVipAfterPayment] = useState(false)
 
   useEffect(() => { window.scrollTo(0, 0) }, [submitted])
 
@@ -118,32 +117,6 @@ export default function ApplyPage() {
     window.scrollTo(0, 0)
   }
 
-  async function handleCreateVip() {
-    setVipLoading(true)
-    setVipError('')
-    try {
-      const res = await fetch('/api/vip', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          action: 'register',
-          email: form.email,
-          name: form.name,
-          program: programs.find(p => p.value === form.goal)?.label || form.goal,
-        }),
-      })
-      const data = await res.json()
-      if (!res.ok) {
-        setVipError(data.error || 'Unable to create VIP account')
-      } else {
-        setVipAccount(data)
-      }
-    } catch {
-      setVipError('Service temporarily unavailable')
-    }
-    setVipLoading(false)
-  }
-
   // ── Inline payment handlers ──────────────────────────────────────────────
   async function handleStartPayment(tierKey) {
     setSelectedTier(tierKey)
@@ -185,6 +158,25 @@ export default function ApplyPage() {
     const isVip = tierKey === 'vip'
     const label = isVip ? 'VIP Transformation Program' : 'Foundation Coaching'
     try {
+      // Create VIP account first
+      const vipRes = await fetch('/api/vip', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          action: 'register',
+          email: form.email,
+          name: form.name,
+          program: programs.find(p => p.value === form.goal)?.label || form.goal,
+          tier: tierKey,
+        }),
+      })
+      const vipData = await vipRes.json()
+      if (!vipRes.ok) {
+        setPayError(vipData.error || 'Unable to create account')
+        setPaySending(false)
+        return
+      }
+
       await fetch('/api/send', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -192,14 +184,16 @@ export default function ApplyPage() {
           type: 'program_order',
           name: form.name,
           email: form.email,
-          program: vipAccount.program,
+          program: vipData.program,
           tier: tierKey,
-          vipId: vipAccount.vipId,
+          vipId: vipData.vipId,
           paymentMethod: 'zelle',
         }),
       })
+      setVipAccount(vipData)
     } catch (err) {
       console.error('API error:', err)
+      setPayError('Something went wrong. We\'ll follow up by email.')
     }
     setPaySending(false)
     setPaymentSuccess(true)
@@ -208,6 +202,42 @@ export default function ApplyPage() {
 
   function handleCardSuccess() {
     setPaymentSuccess(true)
+    setCreatingVipAfterPayment(true)
+    // Create VIP account asynchronously after payment
+    fetch('/api/vip', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        action: 'register',
+        email: form.email,
+        name: form.name,
+        program: programs.find(p => p.value === form.goal)?.label || form.goal,
+        tier: selectedTier,
+      }),
+    })
+      .then(r => r.json())
+      .then(data => {
+        setVipAccount(data)
+        setCreatingVipAfterPayment(false)
+        // Send confirmation email
+        fetch('/api/send', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            type: 'program_order',
+            name: form.name,
+            email: form.email,
+            program: data.program,
+            tier: selectedTier,
+            vipId: data.vipId,
+            paymentMethod: 'stripe',
+            stripePaymentId: 'paid_inline',
+          }),
+        }).catch(() => {})
+      })
+      .catch(() => {
+        setCreatingVipAfterPayment(false)
+      })
     window.scrollTo(0, 0)
   }
 
@@ -262,59 +292,17 @@ export default function ApplyPage() {
                 background: 'linear-gradient(135deg, transparent 50%, #C9A96E10 50%)',
               }}></div>
 
-              {!vipAccount ? (
+              {!paymentSuccess ? (
                 <>
                   <p style={{ fontFamily: 'Helvetica Neue, Arial, sans-serif', color: '#C9A96E', letterSpacing: '0.25em', fontSize: '9px', marginBottom: '12px' }}
                     className="uppercase">Lion Elite VIP</p>
                   <h2 style={{ fontFamily: 'Georgia, serif', color: '#2A2A2A', fontSize: '1.3rem', lineHeight: '1.3', marginBottom: '12px' }}
-                    className="font-normal">Create your VIP account</h2>
+                    className="font-normal">Choose your program tier</h2>
                   <p style={{ fontFamily: 'Helvetica Neue, Arial, sans-serif', color: '#6A6A6A', fontSize: '13px', lineHeight: '1.7', marginBottom: '20px' }}>
-                    Get instant access to your program checkout and membership portal. Your VIP account links all your program details in one place.
+                    Select your tier and pay now. Your VIP account will be created automatically after payment — linking all your program details in one place.
                   </p>
-                  <p style={{ fontFamily: 'Helvetica Neue, Arial, sans-serif', color: '#8A8A8A', fontSize: '12px', marginBottom: '16px' }}>
-                    Account will be created for: <strong style={{ color: '#C9A96E' }}>{form.email}</strong>
-                  </p>
-                  {vipError && (
-                    <p style={{ fontFamily: 'Helvetica Neue, Arial, sans-serif', color: '#E05A5A', fontSize: '12px', marginBottom: '12px' }}>{vipError}</p>
-                  )}
-                  <button onClick={handleCreateVip} disabled={vipLoading}
-                    style={{
-                      backgroundColor: vipLoading ? '#B0A080' : '#C9A96E', color: '#000', border: 'none',
-                      fontFamily: 'Helvetica Neue, Arial, sans-serif', fontSize: '11px', letterSpacing: '0.2em',
-                      padding: '14px 36px', cursor: vipLoading ? 'not-allowed' : 'pointer',
-                    }}
-                    className="uppercase hover:opacity-85 transition-opacity">
-                    {vipLoading ? 'Creating…' : 'Create VIP Account →'}
-                  </button>
-                </>
-              ) : paymentSuccess ? (
-                <>
-                  <p style={{ fontFamily: 'Helvetica Neue, Arial, sans-serif', color: '#C9A96E', letterSpacing: '0.25em', fontSize: '9px', marginBottom: '12px' }}
-                    className="uppercase">✓ Enrollment Complete</p>
-                  <h2 style={{ fontFamily: 'Georgia, serif', color: '#2A2A2A', fontSize: '1.3rem', lineHeight: '1.3', marginBottom: '8px' }}
-                    className="font-normal">Welcome to the Lion Elite Family!</h2>
-                  <p style={{ fontFamily: 'Helvetica Neue, Arial, sans-serif', color: '#5BA87A', fontSize: '14px', marginBottom: '16px' }}>
-                    ✓ Payment successful. You'll receive your program details by email shortly.
-                  </p>
-                  <p style={{ fontFamily: 'Helvetica Neue, Arial, sans-serif', color: '#6A6A6A', fontSize: '12px', marginBottom: '4px' }}>
-                    VIP ID: <strong style={{ color: '#C9A96E', letterSpacing: '0.15em' }}>{vipAccount.vipId}</strong>
-                  </p>
-                </>
-              ) : (
-                <>
-                  <p style={{ fontFamily: 'Helvetica Neue, Arial, sans-serif', color: '#C9A96E', letterSpacing: '0.25em', fontSize: '9px', marginBottom: '12px' }}
-                    className="uppercase">✓ VIP Account Active</p>
-                  <h2 style={{ fontFamily: 'Georgia, serif', color: '#2A2A2A', fontSize: '1.3rem', lineHeight: '1.3', marginBottom: '8px' }}
-                    className="font-normal">Welcome, {vipAccount.name}!</h2>
-                  <p style={{ fontFamily: 'Helvetica Neue, Arial, sans-serif', color: '#6A6A6A', fontSize: '12px', marginBottom: '4px' }}>
-                    VIP ID: <strong style={{ color: '#C9A96E', letterSpacing: '0.15em' }}>{vipAccount.vipId}</strong>
-                  </p>
-                  <p style={{ fontFamily: 'Helvetica Neue, Arial, sans-serif', color: '#8A8A8A', fontSize: '11px', marginBottom: '24px' }}>
-                    Program: {vipAccount.program}
-                  </p>
+
                   <div style={{ borderTop: '1px solid #E8DDD0', paddingTop: '24px' }}>
-                    <p style={{ fontFamily: 'Helvetica Neue, Arial, sans-serif', color: '#C9A96E', letterSpacing: '0.25em', fontSize: '9px', marginBottom: '16px' }}
-                      className="uppercase">Choose Your Program Tier</p>
 
                     {/* VIP — Primary */}
                     <div style={{
@@ -479,6 +467,49 @@ export default function ApplyPage() {
                       </div>
                     )}
                   </div>
+                </>
+              ) : creatingVipAfterPayment ? (
+                <>
+                  <p style={{ fontFamily: 'Helvetica Neue, Arial, sans-serif', color: '#C9A96E', letterSpacing: '0.25em', fontSize: '9px', marginBottom: '12px' }}
+                    className="uppercase">✓ Payment Received</p>
+                  <h2 style={{ fontFamily: 'Georgia, serif', color: '#2A2A2A', fontSize: '1.3rem', lineHeight: '1.3', marginBottom: '12px' }}
+                    className="font-normal">Creating your VIP account…</h2>
+                  <p style={{ fontFamily: 'Helvetica Neue, Arial, sans-serif', color: '#6A6A6A', fontSize: '13px', lineHeight: '1.7' }}>
+                    Just a moment — we're setting up your VIP portal with all your program details.
+                  </p>
+                  <div style={{ marginTop: '20px', display: 'flex', justifyContent: 'center' }}>
+                    <div style={{
+                      width: '32px', height: '32px', border: '2px solid #E8DDD0',
+                      borderTopColor: '#C9A96E', borderRadius: '50%',
+                      animation: 'spin 0.8s linear infinite',
+                    }}></div>
+                  </div>
+                </>
+              ) : !vipAccount ? (
+                <>
+                  <p style={{ fontFamily: 'Helvetica Neue, Arial, sans-serif', color: '#C9A96E', letterSpacing: '0.25em', fontSize: '9px', marginBottom: '12px' }}
+                    className="uppercase">✓ Payment Successful</p>
+                  <h2 style={{ fontFamily: 'Georgia, serif', color: '#2A2A2A', fontSize: '1.3rem', lineHeight: '1.3', marginBottom: '12px' }}
+                    className="font-normal">Almost there…</h2>
+                  <p style={{ fontFamily: 'Helvetica Neue, Arial, sans-serif', color: '#6A6A6A', fontSize: '13px', lineHeight: '1.7' }}>
+                    We're finalizing your VIP account. You'll receive your program details by email shortly.
+                  </p>
+                </>
+              ) : (
+                <>
+                  <p style={{ fontFamily: 'Helvetica Neue, Arial, sans-serif', color: '#C9A96E', letterSpacing: '0.25em', fontSize: '9px', marginBottom: '12px' }}
+                    className="uppercase">✓ Enrollment Complete</p>
+                  <h2 style={{ fontFamily: 'Georgia, serif', color: '#2A2A2A', fontSize: '1.3rem', lineHeight: '1.3', marginBottom: '8px' }}
+                    className="font-normal">Welcome to the Lion Elite Family!</h2>
+                  <p style={{ fontFamily: 'Helvetica Neue, Arial, sans-serif', color: '#5BA87A', fontSize: '14px', marginBottom: '16px' }}>
+                    ✓ Payment received. You'll receive your program details by email shortly.
+                  </p>
+                  <p style={{ fontFamily: 'Helvetica Neue, Arial, sans-serif', color: '#6A6A6A', fontSize: '12px', marginBottom: '4px' }}>
+                    VIP ID: <strong style={{ color: '#C9A96E', letterSpacing: '0.15em' }}>{vipAccount.vipId}</strong>
+                  </p>
+                  <p style={{ fontFamily: 'Helvetica Neue, Arial, sans-serif', color: '#8A8A8A', fontSize: '11px' }}>
+                    Program: {vipAccount.program}
+                  </p>
                 </>
               )}
             </div>
