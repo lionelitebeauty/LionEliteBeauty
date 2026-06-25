@@ -770,18 +770,17 @@ export default function CheckoutPage() {
             {/* ── Right — Rewards + Order Summary ──────────────────────────── */}
             <div className="md:col-span-2" style={{ backgroundColor: '#FAF7F2', padding: '40px' }}>
               <div style={{
-                background: 'linear-gradient(180deg, #2A2A2A 0%, #1A1A1A 55%, #1E1E1E 100%)',
-                border: '1px solid #C9A96E44', padding: '36px', position: 'relative', overflow: 'hidden',
+                backgroundColor: '#FFFFFF', border: '1px solid #E0D5C5', padding: '36px', position: 'relative', overflow: 'hidden',
                 marginBottom: '24px',
               }}>
                 {/* Decorative corner accent */}
                 <div style={{
                   position: 'absolute', top: '0', right: '0', width: '60px', height: '60px',
-                  background: 'linear-gradient(135deg, transparent 50%, #C9A96E22 50%)',
+                  background: 'linear-gradient(135deg, transparent 50%, #C9A96E11 50%)',
                 }}></div>
                 <div style={{
                   position: 'absolute', bottom: '0', left: '0', width: '60px', height: '60px',
-                  background: 'linear-gradient(315deg, transparent 50%, #C9A96E22 50%)',
+                  background: 'linear-gradient(315deg, transparent 50%, #C9A96E11 50%)',
                 }}></div>
 
                 {/* Crown / title */}
@@ -791,7 +790,7 @@ export default function CheckoutPage() {
                     letterSpacing: '0.4em', marginBottom: '6px', textTransform: 'uppercase',
                   }}>Lion Elite Beauty</p>
                   <p style={{
-                    fontFamily: 'Georgia, serif', color: '#B89A5A', fontSize: '19px', fontWeight: 'bold',
+                    fontFamily: 'Georgia, serif', color: '#2A2A2A', fontSize: '19px', fontWeight: 'bold',
                     letterSpacing: '0.12em',
                   }}>REWARDS</p>
                   <div style={{ width: '36px', height: '1px', backgroundColor: '#C9A96E66', margin: '8px auto' }}></div>
@@ -800,15 +799,15 @@ export default function CheckoutPage() {
                 {/* Points earned badge */}
                 <div style={{
                   textAlign: 'center', marginBottom: '22px', padding: '16px',
-                  background: 'linear-gradient(135deg, #C9A96E20, #C9A96E08)',
-                  border: '1px solid #C9A96E30',
+                  background: '#F5F0E8',
+                  border: '1px solid #E0D5C5',
                 }}>
                   <p style={{
                     fontFamily: 'Helvetica Neue, Arial, sans-serif', color: '#C9A96E',
                     fontSize: '10px', letterSpacing: '0.25em', textTransform: 'uppercase', marginBottom: '6px',
                   }}>Points This Order</p>
                   <p style={{
-                    fontFamily: 'Georgia, serif', color: '#E5D5A0', fontSize: '38px',
+                    fontFamily: 'Georgia, serif', color: '#2A2A2A', fontSize: '38px',
                     fontWeight: 'bold', lineHeight: '1.1',
                   }}>+{estPointsEarned}</p>
                   <p style={{
@@ -819,14 +818,14 @@ export default function CheckoutPage() {
 
                 {/* Forex signup hint */}
                 <p style={{
-                  fontFamily: 'Helvetica Neue, Arial, sans-serif', color: '#777',
+                  fontFamily: 'Helvetica Neue, Arial, sans-serif', color: '#6A6A6A',
                   fontSize: '11px', textAlign: 'center', lineHeight: '1.6', marginBottom: '16px',
                 }}>
                   Create an account to earn <span style={{ color: '#C9A96E', fontWeight: 'bold' }}>100 welcome bonus</span> points plus this order's points.
                 </p>
 
                 {/* Tab-style selection */}
-                <div className="flex gap-0" style={{ border: '1px solid #C9A96E33', marginBottom: '14px' }}>
+                <div className="flex gap-0" style={{ border: '1px solid #E0D5C5', marginBottom: '14px' }}>
                   {[
                     { key: 'guest', label: 'Guest' },
                     { key: 'join', label: 'Create Account' },
@@ -835,8 +834,8 @@ export default function CheckoutPage() {
                     <button key={tab.key} type="button" onClick={() => { setRewardMode(tab.key); setRewardData(null); setRewardMessage('') }}
                       style={{
                         flex: 1, padding: '10px 4px', border: 'none', cursor: 'pointer',
-                        backgroundColor: rewardMode === tab.key ? '#C9A96E' : '#1E1E1E',
-                        color: rewardMode === tab.key ? '#000' : '#6A6A6A',
+                        backgroundColor: rewardMode === tab.key ? '#C9A96E' : '#FAF7F2',
+                        color: rewardMode === tab.key ? '#000' : '#8A8A8A',
                         fontFamily: 'Helvetica Neue, Arial, sans-serif',
                         fontSize: '9.5px', letterSpacing: '0.12em',
                         transition: 'all 0.15s',
@@ -849,10 +848,10 @@ export default function CheckoutPage() {
                 {/* Rewards mode content */}
                 {rewardMode === 'guest' && (
                   <div style={{ padding: '0 4px' }}>
-                    <p style={{ fontFamily: 'Helvetica Neue, Arial, sans-serif', color: '#666', fontSize: '12px', lineHeight: '1.6', marginBottom: '8px' }}>
+                    <p style={{ fontFamily: 'Helvetica Neue, Arial, sans-serif', color: '#6A6A6A', fontSize: '12px', lineHeight: '1.6', marginBottom: '8px' }}>
                       You won't earn rewards points on this order.
                     </p>
-                    <p style={{ fontFamily: 'Helvetica Neue, Arial, sans-serif', color: '#555', fontSize: '11px', lineHeight: '1.5' }}>
+                    <p style={{ fontFamily: 'Helvetica Neue, Arial, sans-serif', color: '#6A6A6A', fontSize: '11px', lineHeight: '1.5' }}>
                       Create an account to start collecting rewards.
                     </p>
                   </div>
@@ -934,7 +933,7 @@ export default function CheckoutPage() {
                           </p>
                         )}
                         {rewardData.orderCount !== undefined && (
-                          <p style={{ fontFamily: 'Helvetica Neue, Arial, sans-serif', color: '#666', fontSize: '11px', marginTop: '4px' }}>
+                          <p style={{ fontFamily: 'Helvetica Neue, Arial, sans-serif', color: '#6A6A6A', fontSize: '11px', marginTop: '4px' }}>
                             Orders: {rewardData.orderCount}
                           </p>
                         )}
