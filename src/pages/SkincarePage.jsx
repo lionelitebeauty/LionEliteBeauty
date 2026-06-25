@@ -27,7 +27,7 @@ export default function SkincarePage() {
   useEffect(() => { window.scrollTo(0, 0) }, [])
 
   return (
-    <div style={{ backgroundColor: '#FAFAF8', minHeight: '100vh' }}>
+    <div style={{ backgroundColor: '#FAF7F2', minHeight: '100vh' }}>
       <SEO title="Advanced Peptide Skincare" description="Clinical-grade peptide-powered skincare for healthier, more radiant skin. GHK-Cu, KPV, and Matrixyl formulations." />
       <Navbar />
 
@@ -166,37 +166,37 @@ export default function SkincarePage() {
       </section>
 
       {/* Bundles */}
-      <section style={{ backgroundColor: '#080808', padding: '80px 0' }}>
+      <section style={{ backgroundColor: '#F5F0E8', padding: '80px 0' }}>
         <div className="max-w-7xl mx-auto px-6">
 
           <div className="text-center mb-16">
             <p style={{ fontFamily: 'Helvetica Neue, Arial, sans-serif', color: '#C9A96E', letterSpacing: '0.3em', fontSize: '10px' }}
               className="uppercase mb-4">Save More</p>
-            <h2 style={{ fontFamily: 'Georgia, serif', color: '#FAFAF8', fontSize: '2.2rem', lineHeight: '1.15' }}
+            <h2 style={{ fontFamily: 'Georgia, serif', color: '#2A2A2A', fontSize: '2.2rem', lineHeight: '1.15' }}
               className="font-normal">Skincare Bundles</h2>
             <div style={{ width: '48px', height: '1px', backgroundColor: '#C9A96E', margin: '20px auto 0' }}></div>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-px" style={{ backgroundColor: '#1A1A1A' }}>
+          <div className="grid md:grid-cols-3 gap-px" style={{ backgroundColor: '#E0D5C5' }}>
             {bundles.map(b => {
               const bundleProducts = b.includes.map(slug => skincareProducts.find(p => p.slug === slug))
               return (
-                <div key={b.slug} style={{ backgroundColor: '#0A0A0A', padding: '40px 36px', display: 'flex', flexDirection: 'column' }}>
+                <div key={b.slug} style={{ backgroundColor: '#FFFFFF', padding: '40px 36px', display: 'flex', flexDirection: 'column' }}>
                   <div style={{ backgroundColor: b.accent, padding: '5px 14px', alignSelf: 'flex-start', marginBottom: '24px' }}>
                     <span style={{ fontFamily: 'Helvetica Neue, Arial, sans-serif', color: '#000', fontSize: '9px', letterSpacing: '0.2em' }} className="uppercase">{b.badge}</span>
                   </div>
 
-                  <h3 style={{ fontFamily: 'Georgia, serif', color: '#FAFAF8', fontSize: '1.3rem', lineHeight: '1.3', marginBottom: '8px' }}
+                  <h3 style={{ fontFamily: 'Georgia, serif', color: '#2A2A2A', fontSize: '1.3rem', lineHeight: '1.3', marginBottom: '8px' }}
                     className="font-normal">{b.name}</h3>
-                  <p style={{ fontFamily: 'Helvetica Neue, Arial, sans-serif', color: '#8A8A8A', fontSize: '13px', lineHeight: '1.7', marginBottom: '24px' }}>{b.tagline}</p>
+                  <p style={{ fontFamily: 'Helvetica Neue, Arial, sans-serif', color: '#6A6A6A', fontSize: '13px', lineHeight: '1.7', marginBottom: '24px' }}>{b.tagline}</p>
 
-                  <div style={{ borderTop: '1px solid #1A1A1A', borderBottom: '1px solid #1A1A1A', padding: '20px 0', marginBottom: '24px' }}>
-                    <p style={{ fontFamily: 'Helvetica Neue, Arial, sans-serif', color: '#8A8A8A', fontSize: '9px', letterSpacing: '0.2em', marginBottom: '12px' }} className="uppercase">Includes</p>
+                  <div style={{ borderTop: '1px solid #E8DDD0', borderBottom: '1px solid #E8DDD0', padding: '20px 0', marginBottom: '24px' }}>
+                    <p style={{ fontFamily: 'Helvetica Neue, Arial, sans-serif', color: '#6A6A6A', fontSize: '9px', letterSpacing: '0.2em', marginBottom: '12px' }} className="uppercase">Includes</p>
                     <ul className="space-y-2">
                       {bundleProducts.map(p => (
                         <li key={p.slug} className="flex items-center gap-2">
                           <div style={{ width: '4px', height: '4px', backgroundColor: b.accent, borderRadius: '50%', flexShrink: 0 }}></div>
-                          <span style={{ fontFamily: 'Helvetica Neue, Arial, sans-serif', color: '#CACACA', fontSize: '12px' }}>{p.name}</span>
+                          <span style={{ fontFamily: 'Helvetica Neue, Arial, sans-serif', color: '#2A2A2A', fontSize: '12px' }}>{p.name}</span>
                         </li>
                       ))}
                     </ul>
@@ -240,11 +240,11 @@ export default function SkincarePage() {
       </section>
 
       {/* Protocol note */}
-      <section style={{ backgroundColor: '#0A0A0A', padding: '60px 0', borderTop: '1px solid #1A1A1A' }}>
+      <section style={{ backgroundColor: '#FAF7F2', padding: '60px 0', borderTop: '1px solid #E8DDD0' }}>
         <div className="max-w-3xl mx-auto px-6 text-center">
           <p style={{ fontFamily: 'Helvetica Neue, Arial, sans-serif', color: '#C9A96E', letterSpacing: '0.25em', fontSize: '10px' }}
             className="uppercase mb-4">Integration</p>
-          <p style={{ fontFamily: 'Georgia, serif', color: '#FAFAF8', fontSize: '1.4rem', lineHeight: '1.7' }}>
+          <p style={{ fontFamily: 'Georgia, serif', color: '#2A2A2A', fontSize: '1.4rem', lineHeight: '1.7' }}>
             Optimization Program clients receive personalised skincare protocol recommendations integrated with their wellness plan.
           </p>
           <Link to="/programs/optimization"

@@ -11,8 +11,8 @@ function Step({ number, title, desc, accent = '#C9A96E' }) {
         <span style={{ fontFamily: 'Georgia, serif', color: accent, fontSize: '13px' }}>{number}</span>
       </div>
       <div>
-        <p style={{ fontFamily: 'Helvetica Neue, Arial, sans-serif', color: '#FAFAF8', fontSize: '14px', fontWeight: '500', marginBottom: '6px' }}>{title}</p>
-        <p style={{ fontFamily: 'Helvetica Neue, Arial, sans-serif', color: '#8A8A8A', fontSize: '13px', lineHeight: '1.8' }}>{desc}</p>
+        <p style={{ fontFamily: 'Helvetica Neue, Arial, sans-serif', color: '#2A2A2A', fontSize: '14px', fontWeight: '500', marginBottom: '6px' }}>{title}</p>
+        <p style={{ fontFamily: 'Helvetica Neue, Arial, sans-serif', color: '#6A6A6A', fontSize: '13px', lineHeight: '1.8' }}>{desc}</p>
       </div>
     </div>
   )
@@ -334,29 +334,29 @@ export default function StartHerePage() {
   useEffect(() => { window.scrollTo(0, 0) }, [])
 
   return (
-    <div style={{ backgroundColor: '#0A0A0A', minHeight: '100vh' }}>
+    <div style={{ backgroundColor: '#FAF7F2', minHeight: '100vh' }}>
       <SEO title="Ingredients — What's Inside" description="Complete ingredient transparency for the Lion Elite Beauty skincare range. Every active ingredient explained — what it is, what it does, and why it's there." />
       <Navbar />
 
       {/* Hero */}
-      <section style={{ backgroundColor: '#080808', paddingTop: '140px', paddingBottom: '80px', borderBottom: '1px solid #141414' }}>
+      <section style={{ backgroundColor: '#FAF7F2', paddingTop: '140px', paddingBottom: '80px', borderBottom: '1px solid #E8DDD0' }}>
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid md:grid-cols-2 gap-16 items-end">
             <div>
               <p style={{ fontFamily: 'Helvetica Neue, Arial, sans-serif', color: '#C9A96E', letterSpacing: '0.35em', fontSize: '10px', marginBottom: '20px' }}
                 className="uppercase">Ingredient Transparency</p>
-              <h1 style={{ fontFamily: 'Georgia, serif', color: '#FAFAF8', fontSize: '3.2rem', lineHeight: '1.1', letterSpacing: '-0.02em' }}
+              <h1 style={{ fontFamily: 'Georgia, serif', color: '#2A2A2A', fontSize: '3.2rem', lineHeight: '1.1', letterSpacing: '-0.02em' }}
                 className="font-normal mb-8">
                 What's Inside.<br />And Why It's There.
               </h1>
               <div style={{ width: '48px', height: '1px', backgroundColor: '#C9A96E', marginBottom: '28px' }}></div>
-              <p style={{ fontFamily: 'Helvetica Neue, Arial, sans-serif', color: '#CACACA', fontSize: '16px', lineHeight: '1.9', maxWidth: '480px' }}>
+              <p style={{ fontFamily: 'Helvetica Neue, Arial, sans-serif', color: '#6A6A6A', fontSize: '16px', lineHeight: '1.9', maxWidth: '480px' }}>
                 Every ingredient in the Lion Elite Beauty range earns its place. No filler. No fluff. Here's the full breakdown — what each one is, what it supports, and exactly which product it's in.
               </p>
             </div>
             <div>
-              <div style={{ backgroundColor: '#0A0A0A', border: '1px solid #141414', padding: '36px' }}>
-                <p style={{ fontFamily: 'Helvetica Neue, Arial, sans-serif', color: '#7A7A7A', fontSize: '9px', letterSpacing: '0.25em', marginBottom: '20px' }} className="uppercase">At a Glance</p>
+              <div style={{ backgroundColor: '#FFFFFF', border: '1px solid #E0D5C5', padding: '36px' }}>
+                <p style={{ fontFamily: 'Helvetica Neue, Arial, sans-serif', color: '#6A6A6A', fontSize: '9px', letterSpacing: '0.25em', marginBottom: '20px' }} className="uppercase">At a Glance</p>
                 {[
                   { label: '15 active ingredients', sub: 'across 6 products' },
                   { label: '3 core peptides', sub: 'GHK-Cu · KPV · Palmitoyl Tripeptide-1' },
@@ -366,12 +366,12 @@ export default function StartHerePage() {
                   <div key={item.label} className="flex items-start gap-3 mb-4 last:mb-0">
                     <span style={{ color: '#C9A96E', fontSize: '10px', flexShrink: 0, marginTop: '3px' }}>→</span>
                     <div>
-                      <p style={{ fontFamily: 'Helvetica Neue, Arial, sans-serif', color: '#FAFAF8', fontSize: '13px' }}>{item.label}</p>
-                      <p style={{ fontFamily: 'Helvetica Neue, Arial, sans-serif', color: '#8A8A8A', fontSize: '11px', marginTop: '2px' }}>{item.sub}</p>
+                      <p style={{ fontFamily: 'Helvetica Neue, Arial, sans-serif', color: '#2A2A2A', fontSize: '13px' }}>{item.label}</p>
+                      <p style={{ fontFamily: 'Helvetica Neue, Arial, sans-serif', color: '#6A6A6A', fontSize: '11px', marginTop: '2px' }}>{item.sub}</p>
                     </div>
                   </div>
                 ))}
-                <div style={{ borderTop: '1px solid #1A1A1A', marginTop: '24px', paddingTop: '20px' }}>
+                <div style={{ borderTop: '1px solid #E8DDD0', marginTop: '24px', paddingTop: '20px' }}>
                   <Link to="/skin-system"
                     style={{ fontFamily: 'Helvetica Neue, Arial, sans-serif', color: '#C9A96E', fontSize: '10px', letterSpacing: '0.18em', textDecoration: 'none' }}
                     className="uppercase hover:opacity-70 transition-opacity">
@@ -385,13 +385,13 @@ export default function StartHerePage() {
       </section>
 
       {/* Quick nav */}
-      <section style={{ backgroundColor: '#050505', borderBottom: '1px solid #111', padding: '28px 0' }}>
+      <section style={{ backgroundColor: '#F5F0E8', borderBottom: '1px solid #E0D5C5', padding: '28px 0' }}>
         <div className="max-w-7xl mx-auto px-6">
           {['Peptides', 'Hydration & Barrier', 'Brightening & Multi-Taskers', 'Calming Botanicals', 'Body Wash Actives'].map(group => {
             const groupItems = ingredients.filter(i => i.group === group)
             return (
               <div key={group} className="flex flex-wrap items-center gap-2 mb-3 last:mb-0">
-                <span style={{ fontFamily: 'Helvetica Neue, Arial, sans-serif', color: '#7A7A7A', fontSize: '9px', letterSpacing: '0.2em', minWidth: '120px' }} className="uppercase">{group}:</span>
+                <span style={{ fontFamily: 'Helvetica Neue, Arial, sans-serif', color: '#6A6A6A', fontSize: '9px', letterSpacing: '0.2em', minWidth: '120px' }} className="uppercase">{group}:</span>
                 {groupItems.map(ing => (
                   <a key={ing.name} href={`#${ing.name.toLowerCase().replace(/\s/g, '-').replace(/[^a-z0-9-]/g, '')}`}
                     style={{ fontFamily: 'Helvetica Neue, Arial, sans-serif', color: ing.accent, fontSize: '10px', letterSpacing: '0.08em', textDecoration: 'none', border: `1px solid ${ing.accent}33`, padding: '4px 10px' }}
@@ -408,7 +408,7 @@ export default function StartHerePage() {
       {/* Ingredient deep-dives */}
       {ingredients.map((ing, idx) => (
         <section key={ing.name} id={ing.name.toLowerCase().replace(/\s/g, '-').replace(/[^a-z0-9-]/g, '')}
-          style={{ backgroundColor: idx % 2 === 0 ? '#080808' : '#050505', padding: '80px 0', borderBottom: '1px solid #111' }}>
+          style={{ backgroundColor: idx % 2 === 0 ? '#FAF7F2' : '#F5F0E8', padding: '80px 0', borderBottom: '1px solid #E8DDD0' }}>
           <div className="max-w-7xl mx-auto px-6">
 
             {/* Header */}
@@ -419,21 +419,21 @@ export default function StartHerePage() {
                     <span style={{ fontFamily: 'Helvetica Neue, Arial, sans-serif', color: '#000', fontSize: '8px', letterSpacing: '0.2em' }} className="uppercase">{ing.badge}</span>
                   </div>
                 </div>
-                <h2 style={{ fontFamily: 'Georgia, serif', color: '#FAFAF8', fontSize: '2.2rem', lineHeight: '1.15', marginBottom: '6px' }}
+                <h2 style={{ fontFamily: 'Georgia, serif', color: '#2A2A2A', fontSize: '2.2rem', lineHeight: '1.15', marginBottom: '6px' }}
                   className="font-normal">{ing.name}</h2>
-                <p style={{ fontFamily: 'Helvetica Neue, Arial, sans-serif', color: '#7A7A7A', fontSize: '12px', letterSpacing: '0.1em', marginBottom: '20px' }}
+                <p style={{ fontFamily: 'Helvetica Neue, Arial, sans-serif', color: '#6A6A6A', fontSize: '12px', letterSpacing: '0.1em', marginBottom: '20px' }}
                   className="uppercase">{ing.fullName}</p>
                 <div style={{ width: '32px', height: '1px', backgroundColor: ing.accent, marginBottom: '20px' }}></div>
                 <p style={{ fontFamily: 'Georgia, serif', color: ing.accent, fontSize: '1rem', fontStyle: 'italic', lineHeight: '1.7', marginBottom: '20px' }}>
                   "{ing.tagline}"
                 </p>
-                <p style={{ fontFamily: 'Helvetica Neue, Arial, sans-serif', color: '#CACACA', fontSize: '15px', lineHeight: '1.9' }}>
+                <p style={{ fontFamily: 'Helvetica Neue, Arial, sans-serif', color: '#6A6A6A', fontSize: '15px', lineHeight: '1.9' }}>
                   {ing.what}
                 </p>
               </div>
 
               {/* What it does */}
-              <div style={{ backgroundColor: '#0A0A0A', border: `1px solid ${ing.accent}18`, padding: '36px' }}>
+              <div style={{ backgroundColor: '#FFFFFF', border: `1px solid ${ing.accent}30`, padding: '36px' }}>
                 <p style={{ fontFamily: 'Helvetica Neue, Arial, sans-serif', color: ing.accent, letterSpacing: '0.25em', fontSize: '10px', marginBottom: '20px' }} className="uppercase">
                   What It Does to Your Skin
                 </p>
@@ -441,7 +441,7 @@ export default function StartHerePage() {
                   {ing.does.map(point => (
                     <li key={point} className="flex items-start gap-3">
                       <span style={{ color: ing.accent, fontSize: '12px', flexShrink: 0, marginTop: '2px' }}>✔</span>
-                      <p style={{ fontFamily: 'Helvetica Neue, Arial, sans-serif', color: '#CACACA', fontSize: '13px', lineHeight: '1.7' }}>{point}</p>
+                      <p style={{ fontFamily: 'Helvetica Neue, Arial, sans-serif', color: '#6A6A6A', fontSize: '13px', lineHeight: '1.7' }}>{point}</p>
                     </li>
                   ))}
                 </ul>
@@ -449,17 +449,17 @@ export default function StartHerePage() {
             </div>
 
             {/* Why we use it + products */}
-            <div className="grid md:grid-cols-2 gap-px mt-px" style={{ backgroundColor: '#141414' }}>
-              <div style={{ backgroundColor: idx % 2 === 0 ? '#080808' : '#050505', padding: '32px 36px' }}>
+            <div className="grid md:grid-cols-2 gap-px mt-px" style={{ backgroundColor: '#E0D5C5' }}>
+              <div style={{ backgroundColor: idx % 2 === 0 ? '#FAF7F2' : '#F5F0E8', padding: '32px 36px' }}>
                 <p style={{ fontFamily: 'Helvetica Neue, Arial, sans-serif', color: ing.accent, letterSpacing: '0.25em', fontSize: '10px', marginBottom: '16px' }} className="uppercase">
                   Why We Use It
                 </p>
-                <p style={{ fontFamily: 'Helvetica Neue, Arial, sans-serif', color: '#8A8A8A', fontSize: '14px', lineHeight: '1.9' }}>
+                <p style={{ fontFamily: 'Helvetica Neue, Arial, sans-serif', color: '#6A6A6A', fontSize: '14px', lineHeight: '1.9' }}>
                   {ing.why}
                 </p>
               </div>
 
-              <div style={{ backgroundColor: idx % 2 === 0 ? '#080808' : '#050505', padding: '32px 36px' }}>
+              <div style={{ backgroundColor: idx % 2 === 0 ? '#FAF7F2' : '#F5F0E8', padding: '32px 36px' }}>
                 <p style={{ fontFamily: 'Helvetica Neue, Arial, sans-serif', color: ing.accent, letterSpacing: '0.25em', fontSize: '10px', marginBottom: '16px' }} className="uppercase">
                   Found In
                 </p>
@@ -470,7 +470,7 @@ export default function StartHerePage() {
                       className="group hover:border-opacity-60 transition-all">
                       <div className="flex items-center gap-3">
                         <div style={{ width: '6px', height: '6px', backgroundColor: ing.accent, borderRadius: '50%', flexShrink: 0 }}></div>
-                        <p style={{ fontFamily: 'Helvetica Neue, Arial, sans-serif', color: '#FAFAF8', fontSize: '12px', letterSpacing: '0.05em' }}>{prod}</p>
+                        <p style={{ fontFamily: 'Helvetica Neue, Arial, sans-serif', color: '#2A2A2A', fontSize: '12px', letterSpacing: '0.05em' }}>{prod}</p>
                       </div>
                       <span style={{ color: ing.accent, fontSize: '12px' }} className="opacity-40 group-hover:opacity-100 transition-opacity">→</span>
                     </Link>
@@ -483,16 +483,16 @@ export default function StartHerePage() {
       ))}
 
       {/* CTA */}
-      <section style={{ backgroundColor: '#050505', padding: '80px 0' }}>
+      <section style={{ backgroundColor: '#F5F0E8', padding: '80px 0' }}>
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid md:grid-cols-2 gap-16 items-center">
             <div>
               <p style={{ fontFamily: 'Helvetica Neue, Arial, sans-serif', color: '#C9A96E', letterSpacing: '0.25em', fontSize: '10px', marginBottom: '20px' }}
                 className="uppercase">Now You Know</p>
-              <h2 style={{ fontFamily: 'Georgia, serif', color: '#FAFAF8', fontSize: '2.2rem', lineHeight: '1.15', marginBottom: '20px' }}
+              <h2 style={{ fontFamily: 'Georgia, serif', color: '#2A2A2A', fontSize: '2.2rem', lineHeight: '1.15', marginBottom: '20px' }}
                 className="font-normal">You know what's in it.<br />Now put it to work.</h2>
               <div style={{ width: '32px', height: '1px', backgroundColor: '#C9A96E', marginBottom: '24px' }}></div>
-              <p style={{ fontFamily: 'Helvetica Neue, Arial, sans-serif', color: '#8A8A8A', fontSize: '15px', lineHeight: '1.9', marginBottom: '32px' }}>
+              <p style={{ fontFamily: 'Helvetica Neue, Arial, sans-serif', color: '#6A6A6A', fontSize: '15px', lineHeight: '1.9', marginBottom: '32px' }}>
                 The ingredients are only half the story. See the full daily routine — how to use each product, in what order, and exactly what to expect.
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
@@ -502,22 +502,22 @@ export default function StartHerePage() {
                   See the Skin System →
                 </Link>
                 <Link to="/skincare"
-                  style={{ border: '1px solid #2A2A2A', color: '#CACACA', fontFamily: 'Helvetica Neue, Arial, sans-serif', fontSize: '12px', letterSpacing: '0.18em', padding: '18px 32px', textDecoration: 'none', textAlign: 'center' }}
+                  style={{ border: '1px solid #E0D5C5', color: '#6A6A6A', fontFamily: 'Helvetica Neue, Arial, sans-serif', fontSize: '12px', letterSpacing: '0.18em', padding: '18px 32px', textDecoration: 'none', textAlign: 'center' }}
                   className="uppercase hover:border-[#C9A96E] hover:text-[#C9A96E] transition-colors">
                   Shop All Products
                 </Link>
               </div>
             </div>
-            <div style={{ backgroundColor: '#0A0A0A', border: '1px solid #141414', padding: '40px' }}>
-              <p style={{ fontFamily: 'Helvetica Neue, Arial, sans-serif', color: '#7A7A7A', fontSize: '9px', letterSpacing: '0.25em', marginBottom: '20px' }} className="uppercase">The Core Peptides — Quick Ref</p>
+            <div style={{ backgroundColor: '#FFFFFF', border: '1px solid #E0D5C5', padding: '40px' }}>
+              <p style={{ fontFamily: 'Helvetica Neue, Arial, sans-serif', color: '#6A6A6A', fontSize: '9px', letterSpacing: '0.25em', marginBottom: '20px' }} className="uppercase">The Core Peptides — Quick Ref</p>
               {[
                 { name: 'GHK-Cu', role: 'Foundation peptide — in 5 of 6 products', accent: '#C9A96E' },
                 { name: 'KPV', role: 'Calming peptide — KPV Moisturizer & Recovery Kit', accent: '#8A7AB0' },
                 { name: 'Palmitoyl Tripeptide-1', role: 'Firming peptide — Rejuvenate Serum & Collagen Boost Cream', accent: '#8A9E85' },
               ].map(p => (
-                <div key={p.name} style={{ borderBottom: '1px solid #141414', paddingBottom: '16px', marginBottom: '16px' }} className="last:border-0 last:mb-0 last:pb-0">
-                  <p style={{ fontFamily: 'Georgia, serif', color: '#FAFAF8', fontSize: '15px', marginBottom: '4px' }}>{p.name}</p>
-                  <p style={{ fontFamily: 'Helvetica Neue, Arial, sans-serif', color: '#8A8A8A', fontSize: '12px' }}>{p.role}</p>
+                <div key={p.name} style={{ borderBottom: '1px solid #E8DDD0', paddingBottom: '16px', marginBottom: '16px' }} className="last:border-0 last:mb-0 last:pb-0">
+                  <p style={{ fontFamily: 'Georgia, serif', color: '#2A2A2A', fontSize: '15px', marginBottom: '4px' }}>{p.name}</p>
+                  <p style={{ fontFamily: 'Helvetica Neue, Arial, sans-serif', color: '#6A6A6A', fontSize: '12px' }}>{p.role}</p>
                 </div>
               ))}
             </div>
